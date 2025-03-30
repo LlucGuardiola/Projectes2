@@ -30,6 +30,10 @@ public class PlayerJump : MonoBehaviour
     private void Update()
     {
         // GetComponent<Animator>().SetBool("isOnAir?", !IsTouchingGround);
+        if (!IsTouchingGround && canJump)
+        {
+            canJump = false;
+        }
     }
 
     public void OnJump()

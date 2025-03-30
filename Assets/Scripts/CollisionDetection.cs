@@ -10,9 +10,8 @@ public class CollisionDetection : MonoBehaviour
     [SerializeField]
     private Transform FrontCheckPoint;
 
-
-    [SerializeField] private float _checkRadius = 0.15f;
-    [SerializeField] private float _frontRadius = 0.55f;
+    [SerializeField] private Vector2 _checkSize;
+    [SerializeField] private Vector2 _frontSize;
 
     [SerializeField]
     private bool _isGrounded;
@@ -35,8 +34,8 @@ public class CollisionDetection : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(GroundCheckPoint.position, _checkRadius);
-        Gizmos.DrawWireSphere(FrontCheckPoint.position, _frontRadius);
+        Gizmos.DrawWireCube(GroundCheckPoint.position, _checkSize);
+        Gizmos.DrawWireCube(FrontCheckPoint.position, _frontSize);
         Gizmos.color = Color.white;
     }
 
@@ -54,7 +53,7 @@ public class CollisionDetection : MonoBehaviour
 
     private void CheckFront()
     {
-        var colliders = Physics2D.OverlapCircleAll(FrontCheckPoint.position, _frontRadius, WhatIsGround);
+        var colliders = Physics2D.OverlapBoxAll(FrontCheckPoint.position, _frontSize, 0, WhatIsGround);
 
         _isTouchingFront = colliders.Length > 0;
 
@@ -69,9 +68,9 @@ public class CollisionDetection : MonoBehaviour
 
     private void CheckGrounded()
     {
-        var colliders = Physics2D.OverlapCircleAll(GroundCheckPoint.position, _checkRadius, WhatIsGround);
+        var colliders = Physics2D.OverlapBoxAll(GroundCheckPoint.position, _checkSize, 0, WhatIsGround);
 
-        _isGrounded =  colliders.Length > 0;
+        _isGrounded = colliders.Length > 0;
     }
 
     private void CheckDistanceToGround()
@@ -79,6 +78,6 @@ public class CollisionDetection : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(GroundCheckPoint.position, Vector2.down, 100, WhatIsGround);
 
         _distanceToGround = hit.distance;
-        _groundAngle = Vector2.Angle(hit.normal,new Vector2(1,0));
+        _groundAngle = Vector2.Angle(hit.normal, new Vector2(1, 0));
     }
 }

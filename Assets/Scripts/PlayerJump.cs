@@ -13,8 +13,6 @@ public class PlayerJump : MonoBehaviour
     bool IsWallSliding => _collisionDetection.IsTouchingFront;
     bool IsTouchingGround => _collisionDetection.IsGrounded;
 
-
-
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -23,7 +21,6 @@ public class PlayerJump : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (IsWallSliding) SetWallSlide();
         if (IsTouchingGround && _rigidbody.linearVelocity.y < 0.1f) // Method used to avoid checking if is IsTouchingGround when the player just jumped
         {
             canJump = true;
@@ -33,11 +30,6 @@ public class PlayerJump : MonoBehaviour
     private void Update()
     {
         // GetComponent<Animator>().SetBool("isOnAir?", !IsTouchingGround);
-    }
-
-    private void SetWallSlide()
-    {
-        
     }
 
     public void OnJump()

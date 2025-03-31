@@ -11,7 +11,8 @@ public class GameManager : MonoBehaviour
 
     public void OnQuit()
     {
-        Debug.Log("salir");
+        //Debug.Log("salir");
         //Application.Quit();
     }
+
 }

@@ -7,7 +7,8 @@ public class Dash : MonoBehaviour
     [SerializeField] private float dashSpeed;
     private Rigidbody2D _rigidbody;
     private bool isDashing;
-    private Vector2 target;
+    private Vector2 currentTarget;
+    private Vector2 nextTarget;
     private Vector2 direction;
 
     private void Start()
@@ -29,17 +30,27 @@ public class Dash : MonoBehaviour
     {
         if (!isDashing && (dashCooldown == 0))
         {
-            this.target = target;
+            currentTarget = target;
             isDashing = true;
             direction = (target - (Vector2)transform.position).normalized;
         }
+        else if (isDashing) nextTarget = target;
     }
 
     private bool CheckDashEnd()
     {
-        if (((Vector2)transform.position - target).sqrMagnitude < 0.5f)
+        if (((Vector2)transform.position - currentTarget).sqrMagnitude < 1f)
         {
             GetComponent<PlayerMovement>().CanMove = true;
+            _rigidbody.linearVelocity = Vector2.zero;
+
+            if (nextTarget != Vector2.positiveInfinity)
+            {
+                currentTarget = nextTarget;
+                nextTarget = Vector2.positiveInfinity;
+                isDashing = true;
+            }
+
             return false;
         }
 
@@ -50,20 +61,9 @@ public class Dash : MonoBehaviour
     {
         if (!isDashing) return;
 
-
-        Vector2 _horizontalDir = direction;
-
-        Vector2 velocity = _rigidbody.linearVelocity;
-        velocity.x = _horizontalDir.x * dashSpeed;
-
-
-        _rigidbody.linearVelocity = velocity;
-
-
-
         _rigidbody.linearVelocity = direction * dashSpeed;
 
-        Debug.Log(target);
+        Debug.Log(currentTarget);
 
         isDashing = CheckDashEnd();
     }

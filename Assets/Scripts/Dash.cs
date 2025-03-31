@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.GraphicsBuffer;
 
 public class Dash : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class Dash : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private bool isDashing;
     private Vector2 currentTarget;
-    private Vector2 nextTarget;
+    private Vector2 nextTarget = Vector2.positiveInfinity;
     private Vector2 direction;
 
     private void Start()
@@ -41,21 +42,24 @@ public class Dash : MonoBehaviour
     {
         if (((Vector2)transform.position - currentTarget).sqrMagnitude < 1f)
         {
-            GetComponent<PlayerMovement>().CanMove = true;
-            _rigidbody.linearVelocity = Vector2.zero;
-
             if (nextTarget != Vector2.positiveInfinity)
             {
+                // Si hi ha un objectiu pendent, continuar el dash
                 currentTarget = nextTarget;
                 nextTarget = Vector2.positiveInfinity;
-                isDashing = true;
+                direction = (currentTarget - (Vector2)transform.position).normalized;
+                return true; // Seguir dasheant
             }
 
+            // Si no hi ha més objectius, acabar el dash
+            GetComponent<PlayerMovement>().CanMove = true;
+            _rigidbody.linearVelocity = Vector2.zero;
             return false;
         }
 
         return true;
     }
+
 
     private void FixedUpdate()
     {

@@ -23,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        GetComponent<Animator>().SetBool("IsRunning?", _rigidbody.linearVelocity.x != 0 && GetComponent<PlayerJump>().IsTouchingGround);
+
         if (!CanMove) return;
 
         _horizontalDir = inputVal;

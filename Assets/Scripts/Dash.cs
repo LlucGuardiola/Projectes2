@@ -11,10 +11,12 @@ public class Dash : MonoBehaviour
     private Vector2 currentTarget;
     private Vector2 nextTarget;
     private Vector2 direction;
+    private float initialGravity;
 
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        initialGravity = _rigidbody.gravityScale;
     }
 
     private void OnEnable()
@@ -54,19 +56,29 @@ public class Dash : MonoBehaviour
                 isDashing = true;
             }
 
+            _rigidbody.gravityScale = initialGravity;
+            transform.rotation = Quaternion.identity;
             return false;
         }
 
+        // if (_rigidbody.linearVelocity == Vector2.zero) return false; // If gets stuck in a wall (lazy solution needs rework)
         return true;
     }
 
     private void FixedUpdate()
     {
         if (!isDashing) return;
+        _rigidbody.gravityScale = 0;
+
+        GetComponent<Animator>().SetBool("IsOnAir?", isDashing);
+
+        Vector3 dir = currentTarget - (Vector2)transform.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        dir.Normalize();
+
+        transform.rotation = Quaternion.Euler(0, 0, angle + 90);
 
         _rigidbody.linearVelocity = direction * dashSpeed;
-
-        Debug.Log(currentTarget);
 
         isDashing = CheckDashEnd();
     }

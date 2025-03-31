@@ -11,7 +11,7 @@ public class PlayerJump : MonoBehaviour
     private CollisionDetection _collisionDetection;
 
     bool IsWallSliding => _collisionDetection.IsTouchingFront;
-    bool IsTouchingGround => _collisionDetection.IsGrounded;
+    [HideInInspector] public bool IsTouchingGround => _collisionDetection.IsGrounded;
 
     void Start()
     {
@@ -21,6 +21,8 @@ public class PlayerJump : MonoBehaviour
 
     void FixedUpdate()
     {
+        GetComponent<Animator>().SetBool("IsOnAir?", !IsTouchingGround);
+
         if (IsTouchingGround && _rigidbody.linearVelocity.y < 0.1f) // Method used to avoid checking if is IsTouchingGround when the player just jumped
         {
             canJump = true;
@@ -29,7 +31,6 @@ public class PlayerJump : MonoBehaviour
 
     private void Update()
     {
-        // GetComponent<Animator>().SetBool("isOnAir?", !IsTouchingGround);
         if (!IsTouchingGround && canJump)
         {
             canJump = false;
@@ -39,8 +40,6 @@ public class PlayerJump : MonoBehaviour
     public void OnJump()
     {
         if (!canJump ) return;
-
-        // GetComponent<Animator>().SetTrigger("startJump");
 
         var vel = new Vector2(_rigidbody.linearVelocity.x, JumpStrengh);
         _rigidbody.linearVelocity = vel;

@@ -2,32 +2,25 @@
 
 public class CollisionDetection : MonoBehaviour
 {
-    [SerializeField]
-    private LayerMask WhatIsGround;
+    [SerializeField] private LayerMask WhatIsGround;
 
-    [SerializeField]
-    private Transform GroundCheckPoint;
-    [SerializeField]
-    private Transform FrontCheckPoint;
+    [SerializeField] private Transform GroundCheckPoint;
+    [SerializeField] private Transform FrontCheckPoint;
 
     [SerializeField] private Vector2 _checkSize;
     [SerializeField] private Vector2 _frontSize;
 
-    [SerializeField]
     private bool _isGrounded;
     public bool IsGrounded { get { return _isGrounded; } }
 
-    [SerializeField]
     private bool _isTouchingFront;
     public bool IsTouchingFront { get { return _isTouchingFront; } }
 
     [HideInInspector] public int CollisionPos;
 
-    [SerializeField]
     private float _distanceToGround;
-    public float DistanceToGround { get { return _distanceToGround; } }
+    [HideInInspector] public float DistanceToGround { get { return _distanceToGround; } }
 
-    [SerializeField]
     private float _groundAngle;
     public float GroundAngle { get { return _groundAngle; } }
 

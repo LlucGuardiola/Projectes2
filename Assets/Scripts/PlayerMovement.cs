@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public bool CanMove;
+    [HideInInspector] public bool CanMove;
 
     [SerializeField] private float Speed = 5.0f;
 
@@ -25,12 +25,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!CanMove) return;
 
+        _horizontalDir = inputVal;
+
         Vector2 velocity = _rigidbody.linearVelocity;
         velocity.x = _horizontalDir * Speed;
 
         if ((CollisionPos == 1 && _horizontalDir > 0) || (CollisionPos == -1 && _horizontalDir < 0))
         {
-            _horizontalDir = 0;
             velocity.x = 0;
         }
 
@@ -39,13 +40,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        inputVal = Input.GetAxis("Horizontal");
-        _horizontalDir = inputVal;
     }
 
     void OnMove(InputValue value)
     {
-        // inputVal = value.Get<Vector2>().x;
-        // _horizontalDir = inputVal;
+        inputVal = value.Get<Vector2>().x;
+        _horizontalDir = inputVal;
     }
 }

@@ -31,7 +31,7 @@ public class PlayerJump : MonoBehaviour
             canJump = true;
         }
 
-        if (IsTouchingGround) coyoteTimeCounter = coyoteTIme;
+        if (IsTouchingGround && coyoteTimeCounter != -200) coyoteTimeCounter = coyoteTIme;
         else coyoteTimeCounter -= Time.fixedDeltaTime;
     }
 
@@ -45,14 +45,13 @@ public class PlayerJump : MonoBehaviour
 
     public void OnJump()
     {
-        if (!canJump && !(coyoteTimeCounter > 0)) return;
+        if (!canJump && coyoteTimeCounter < 0) return;
 
         var vel = new Vector2(_rigidbody.linearVelocity.x, JumpStrengh);
         _rigidbody.linearVelocity = vel;
         canJump = false;
 
-        coyoteTimeCounter = 0f;
-
+        coyoteTimeCounter = -200f;
 
         //if (audioSource != null && JumpSound != null)
         //{

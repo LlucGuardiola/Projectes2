@@ -80,7 +80,7 @@ public class Dash : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(0, 0, angle + 90);
 
-        _rigidbody.linearVelocity = direction * dashSpeed * Time.fixedDeltaTime;
+        _rigidbody.linearVelocity = direction * dashSpeed;
 
         isDashing = CheckDashEnd();
     }

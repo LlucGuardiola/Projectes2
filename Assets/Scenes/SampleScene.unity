@@ -420,6 +420,8 @@ GameObject:
   - component: {fileID: 413870559}
   - component: {fileID: 413870560}
   - component: {fileID: 413870561}
+  - component: {fileID: 413870564}
+  - component: {fileID: 413870563}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -677,7 +679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dashCooldown: 0
-  dashSpeed: 1000
+  dashSpeed: 80
 --- !u!95 &413870562
 Animator:
   serializedVersion: 7
@@ -700,6 +702,34 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &413870563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413870551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 615f9f4aaf762114988bb77fda013ad7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAttacking: 0
+  enemiesLayer:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!114 &413870564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413870551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f144e7dcbf4fdf747bf83812fa5a9ba0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &421892572
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ public class PlayerJump : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private CollisionDetection _collisionDetection;
 
-    private float coyoteTIme = 0.2f;
+    private float coyoteTime = 0.2f;
     private float coyoteTimeCounter;
 
     bool IsWallSliding => _collisionDetection.IsTouchingFront;
@@ -31,7 +31,7 @@ public class PlayerJump : MonoBehaviour
             canJump = true;
         }
 
-        if (IsTouchingGround && coyoteTimeCounter != -200) coyoteTimeCounter = coyoteTIme;
+        if (IsTouchingGround && coyoteTimeCounter != -200) coyoteTimeCounter = coyoteTime;
         else coyoteTimeCounter -= Time.fixedDeltaTime;
     }
 

@@ -2,10 +2,9 @@ using System;
 using UnityEngine;
 
 
-public class OnAtack : MonoBehaviour
+public class OnAttack : MonoBehaviour
 {
-    public static Action OnHit;
-    [HideInInspector] public bool isAttacking;
+    [HideInInspector] public bool isAttacking = false;
     [SerializeField] private LayerMask enemiesLayer;
 
     private Rigidbody2D _rigidbody;
@@ -40,11 +39,14 @@ public class OnAtack : MonoBehaviour
             default:       //anim 2
                 break;      
         }
-
-    }
-
-    private void CheckHit()
-    {
+        
         Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, new Vector2(1, 1), 0, enemiesLayer);
+
+        if (colliders.Length == 0) return;
+
+        foreach (var enemy in colliders)
+        {
+            enemy.gameObject.GetComponent<Health>().TakeDamage(1);
+        }
     }
 }

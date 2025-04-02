@@ -71,7 +71,7 @@ public class PlayerJump : MonoBehaviour
                 GetComponent<PlayerMovement>().LookingForward = true;
                 transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
             }
-            else if (GetComponent<PlayerMovement>().LookingForward == true && CollisionPos > 0)
+            else if (GetComponent<PlayerMovement>().LookingForward && CollisionPos > 0)
             {
                 GetComponent<PlayerMovement>().LookingForward = false;
                 transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);

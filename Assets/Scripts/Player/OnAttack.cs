@@ -7,13 +7,6 @@ public class OnAttack : MonoBehaviour
     [HideInInspector] public bool isAttacking = false;
     [SerializeField] private LayerMask enemiesLayer;
 
-    private Rigidbody2D _rigidbody;
-
-    private void Start()
-    {
-        _rigidbody = GetComponent<Rigidbody2D>();
-    }
-
     private void OnEnable()
     {
         AttackSystem.OnAttackDone += Attack;

@@ -6,7 +6,7 @@ public class Health : MonoBehaviour
 
     void Update()
     {
-        if (Life <= 0) Destroy(this.gameObject);
+        if (Life <= 0) Destroy(gameObject);
     }
 
     public void TakeDamage(float ammount)

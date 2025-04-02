@@ -43,10 +43,6 @@ public class PlayerMovement : MonoBehaviour
         _rigidbody.linearVelocity = velocity;
     }
 
-    private void Update()
-    {
-    }
-
     void OnMove(InputValue value)
     {
         inputVal = value.Get<Vector2>().x;
@@ -54,13 +50,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (inputVal > 0 && !LookingForward) // right
         {
-            Debug.Log("right" + transform.localScale.x);
             LookingForward = true;
             transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
         }
         if (inputVal < 0 && LookingForward) // left
         {
-            Debug.Log("left" + transform.localScale.x);
             LookingForward = false;
             transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
         }

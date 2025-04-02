@@ -13,18 +13,12 @@ public class PlayerJump : MonoBehaviour
     private float coyoteTime = 0.2f;
     private float coyoteTimeCounter;
 
-    bool IsWallSliding => _collisionDetection.IsTouchingFront;
     [HideInInspector] public bool IsTouchingGround => _collisionDetection.IsGrounded;
 
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _collisionDetection = GetComponent<CollisionDetection>();
-    }
-
-    void FixedUpdate()
-    {
-        
     }
 
     private void Update()

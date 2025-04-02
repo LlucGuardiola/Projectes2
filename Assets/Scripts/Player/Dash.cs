@@ -62,7 +62,6 @@ public class Dash : MonoBehaviour
             return false;
         }
 
-        // if (_rigidbody.linearVelocity == Vector2.zero) return false; // If gets stuck in a wall (lazy solution needs rework)
         return true;
     }
 

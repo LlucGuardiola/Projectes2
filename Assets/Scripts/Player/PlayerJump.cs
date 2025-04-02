@@ -24,14 +24,19 @@ public class PlayerJump : MonoBehaviour
 
     void FixedUpdate()
     {
-        GetComponent<Animator>().SetBool("IsOnAir?", !IsTouchingGround);
-
-        if (IsTouchingGround && coyoteTimeCounter != -200) coyoteTimeCounter = coyoteTime;
-        else coyoteTimeCounter -= Time.fixedDeltaTime;
+        
     }
 
     private void Update()
     {
+        if (Input.GetKeyUp("space")) coyoteTimeCounter = 0; 
+
+        if (IsTouchingGround) coyoteTimeCounter = coyoteTime;
+        else coyoteTimeCounter -= Time.deltaTime;
+
+
+        GetComponent<Animator>().SetBool("IsOnAir?", !IsTouchingGround);
+
         if (!IsTouchingGround && canJump)
         {
             canJump = false;
@@ -45,8 +50,6 @@ public class PlayerJump : MonoBehaviour
         var vel = new Vector2(_rigidbody.linearVelocity.x, JumpStrengh);
         _rigidbody.linearVelocity = vel;
         canJump = false;
-
-        coyoteTimeCounter = -200f;
 
         //if (audioSource != null && JumpSound != null)
         //{

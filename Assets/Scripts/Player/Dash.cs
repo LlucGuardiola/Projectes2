@@ -1,62 +1,62 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.GraphicsBuffer;
 
-public class Dash : MonoBehaviour
+public class 冲刺 : MonoBehaviour // "Dash" → "冲刺"
 {
-    [SerializeField] private float dashCooldown; 
-    [SerializeField] private float dashSpeed;
-    private Rigidbody2D _rigidbody;
-    private bool isDashing;
-    private Vector2 currentTarget;
-    private Vector2 nextTarget;
-    private Vector2 direction;
-    private float initialGravity;
+    [SerializeField] private float 冲刺冷却时间; // dashCooldown → 冲刺冷却时间
+    [SerializeField] private float 冲刺速度; // dashSpeed → 冲刺速度
+    private Rigidbody2D 刚体; // _rigidbody → 刚体
+    private bool 正在冲刺; // isDashing → 正在冲刺
+    private Vector2 当前目标; // currentTarget → 当前目标
+    private Vector2 下一个目标; // nextTarget → 下一个目标
+    private Vector2 方向; // direction → 方向
+    private float 初始重力; // initialGravity → 初始重力
 
-    private void Start()
+    private void 开始() // Start → 开始
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
-        initialGravity = _rigidbody.gravityScale;
+        刚体 = GetComponent<Rigidbody2D>();
+        初始重力 = 刚体.gravityScale;
     }
 
-    private void OnEnable()
+    private void 启用() // OnEnable → 启用
     {
-        SpecialAbility.OnDash += DashToTarget;
+        SpecialAbility.OnDash += 执行冲刺;
     }
 
-    private void OnDisable()
+    private void 禁用() // OnDisable → 禁用
     {
-        SpecialAbility.OnDash -= DashToTarget;
+        SpecialAbility.OnDash -= 执行冲刺;
     }
 
-    private void DashToTarget(Vector2 target)
+    private void 执行冲刺(Vector2 目标) // DashToTarget → 执行冲刺
     {
-        if (!isDashing && (dashCooldown == 0))
+        if (!正在冲刺 && (冲刺冷却时间 == 0))
         {
-            currentTarget = target;
-            isDashing = true;
-            direction = (target - (Vector2)transform.position).normalized;
+            当前目标 = 目标;
+            正在冲刺 = true;
+            方向 = (目标 - (Vector2)transform.position).normalized;
         }
-        else if (isDashing) nextTarget = target;
+        else if (正在冲刺) 下一个目标 = 目标;
     }
 
-    private bool CheckDashEnd()
+    private bool 检查冲刺结束() // CheckDashEnd → 检查冲刺结束
     {
-        if (((Vector2)transform.position - currentTarget).sqrMagnitude < 1f)
+        if (((Vector2)transform.position - 当前目标).sqrMagnitude < 1f)
         {
             GetComponent<PlayerMovement>().CanMove = true;
-            _rigidbody.linearVelocity = Vector2.zero;
+            刚体.linearVelocity = Vector2.zero;
 
-            if (nextTarget != Vector2.positiveInfinity)
+            if (下一个目标 != Vector2.positiveInfinity)
             {
-                currentTarget = nextTarget;
-                nextTarget = Vector2.positiveInfinity;
+                当前目标 = 下一个目标;
+                下一个目标 = Vector2.positiveInfinity;
 
-                //direction = (currentTarget - (Vector2)transform.position).normalized;
-                isDashing = true;
+                //方向 = (当前目标 - (Vector2)transform.position).normalized;
+                正在冲刺 = true;
             }
 
-            _rigidbody.gravityScale = initialGravity;
+            刚体.gravityScale = 初始重力;
             transform.rotation = Quaternion.identity;
             GetComponent<BoxCollider2D>().enabled = true;
             return false;
@@ -65,22 +65,22 @@ public class Dash : MonoBehaviour
         return true;
     }
 
-    private void FixedUpdate()
+    private void 固定更新() // FixedUpdate → 固定更新
     {
-        if (!isDashing) return;
-        _rigidbody.gravityScale = 0;
+        if (!正在冲刺) return;
+        刚体.gravityScale = 0;
 
-        if(GetComponent<BoxCollider2D>().enabled) GetComponent<BoxCollider2D>().enabled = false;
+        if (GetComponent<BoxCollider2D>().enabled) GetComponent<BoxCollider2D>().enabled = false;
 
-        GetComponent<Animator>().SetBool("IsOnAir?", isDashing);
+        GetComponent<Animator>().SetBool("IsOnAir?", 正在冲刺);
 
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        direction.Normalize();
+        float 角度 = Mathf.Atan2(方向.y, 方向.x) * Mathf.Rad2Deg;
+        方向.Normalize();
 
-        transform.rotation = Quaternion.Euler(0, 0, angle);
+        transform.rotation = Quaternion.Euler(0, 0, 角度);
 
-        _rigidbody.linearVelocity = direction * dashSpeed;
+        刚体.linearVelocity = 方向 * 冲刺速度;
 
-        isDashing = CheckDashEnd();
+        正在冲刺 = 检查冲刺结束();
     }
 }

@@ -1,6 +1,7 @@
 using System.Threading;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.InputSystem;
 
 public class PlayerJump : MonoBehaviour
 {
@@ -64,6 +65,17 @@ public class PlayerJump : MonoBehaviour
             vel = new Vector2(-CollisionPos * JumpStrengh / 3, JumpStrengh);
             count = true;
             counter = 0;
+
+            if (GetComponent<PlayerMovement>().LookingForward == false && CollisionPos < 0)
+            {
+                GetComponent<PlayerMovement>().LookingForward = true;
+                transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+            }
+            else if (GetComponent<PlayerMovement>().LookingForward == true && CollisionPos > 0)
+            {
+                GetComponent<PlayerMovement>().LookingForward = false;
+                transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+            }
         }
 
         _rigidbody.linearVelocity = vel;

@@ -26,11 +26,6 @@ public class PlayerJump : MonoBehaviour
     {
         GetComponent<Animator>().SetBool("IsOnAir?", !IsTouchingGround);
 
-        if (IsTouchingGround && _rigidbody.linearVelocity.y < 0.1f) // Method used to avoid checking if is IsTouchingGround when the player just jumped
-        {
-            canJump = true;
-        }
-
         if (IsTouchingGround && coyoteTimeCounter != -200) coyoteTimeCounter = coyoteTime;
         else coyoteTimeCounter -= Time.fixedDeltaTime;
     }
@@ -59,6 +54,3 @@ public class PlayerJump : MonoBehaviour
         //}
     }
 }
-
-
-

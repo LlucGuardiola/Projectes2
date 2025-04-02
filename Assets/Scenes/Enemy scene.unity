@@ -265,6 +265,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3071694125513526514, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
+      propertyPath: m_Name
+      value: redCircle
+      objectReference: {fileID: 0}
     - target: {fileID: 7932904730090450941, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.216089
@@ -305,6 +309,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8368323704705007442, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
+      propertyPath: redCircle
+      value: 
+      objectReference: {fileID: 1221256723}
+    - target: {fileID: 8368323704705007442, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
+      propertyPath: attackRange
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8368323704705007442, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
+      propertyPath: attackSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8368323704705007442, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
+      propertyPath: attackSize.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -323,7 +343,7 @@ GameObject:
   - component: {fileID: 91777586}
   - component: {fileID: 91777590}
   m_Layer: 6
-  m_Name: test (1)
+  m_Name: enemy (1)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -471,7 +491,7 @@ GameObject:
   - component: {fileID: 254083083}
   - component: {fileID: 254083087}
   m_Layer: 6
-  m_Name: test
+  m_Name: enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1150,7 +1170,7 @@ GameObject:
   - component: {fileID: 736617820}
   - component: {fileID: 736617821}
   m_Layer: 6
-  m_Name: test (4)
+  m_Name: enemy (4)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1456,7 +1476,7 @@ GameObject:
   - component: {fileID: 999092625}
   - component: {fileID: 999092629}
   m_Layer: 6
-  m_Name: test (2)
+  m_Name: enemy (2)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1591,6 +1611,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Life: 5
+--- !u!1 &1221256723 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3071694125513526514, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
+  m_PrefabInstance: {fileID: 22539465}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1503005362
 GameObject:
   m_ObjectHideFlags: 0
@@ -2121,7 +2146,7 @@ GameObject:
   - component: {fileID: 1973731528}
   - component: {fileID: 1973731532}
   m_Layer: 6
-  m_Name: test (3)
+  m_Name: enemy (3)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

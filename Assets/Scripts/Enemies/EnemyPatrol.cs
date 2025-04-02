@@ -23,7 +23,7 @@ public class EnemyPatrol : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         currentPoint = patrolPointB.transform;
-        player = GameObject.FindGameObjectWithTag("player");
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -33,27 +33,28 @@ public class EnemyPatrol : MonoBehaviour
 
         if (isChasing)
         {
-
+            ChasePlayer();
         }
         else
         {
             Patrol();
+            CheckForPlayer();
         }
     }
 
     private void Patrol()
     {
-        transform.position = Vector2.MoveTowards(transform.position, currentPoint.position, detectionRange);
-        if (Vector2.Distance(transform.position, currentPoint.position)<0.1f)
+        transform.position = Vector2.MoveTowards(transform.position, currentPoint.position, patrolSpeed * Time.deltaTime);
+        if (Vector2.Distance(transform.position, currentPoint.position) < 0.1f)
         {
+            Flip();
             currentPoint = (currentPoint == patrolPointA.transform) ? patrolPointB.transform : patrolPointA.transform;
         }
-
     }
 
     private void CheckForPlayer()
     {
-        Collider2D[] playersInRange = Physics2D.OverlapCircleAll(transform.position,detectionRange,whatIsPlayer); 
+        Collider2D[] playersInRange = Physics2D.OverlapCircleAll(transform.position, detectionRange, whatIsPlayer);
         foreach (var playerCollider in playersInRange)
         {
             Transform playerTransform = playerCollider.transform;
@@ -71,6 +72,20 @@ public class EnemyPatrol : MonoBehaviour
         }
     }
 
+    private void ChasePlayer()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, patrolSpeed * Time.deltaTime);
+        if (Vector2.Distance(transform.position, player.transform.position) > detectionRange)
+        {
+            isChasing = false;
+        }
+    }
 
+    private void Flip()
+    {
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
+    }
 
 }

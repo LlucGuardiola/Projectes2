@@ -52,9 +52,9 @@ public class PlayerAttack : MonoBehaviour
                 break;      
         }
 
-        float position = GetComponent<PlayerMovement>().LookingForward ? attackRange : -attackRange;
+        float leftOrRight = GetComponent<PlayerMovement>().LookingForward ? attackRange : -attackRange;
 
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + position, transform.position.y), attackSize, 0, enemiesLayer);
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + leftOrRight, transform.position.y), attackSize, 0, enemiesLayer);
 
         if (colliders.Length == 0) return;
 

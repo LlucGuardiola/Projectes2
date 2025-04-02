@@ -4,7 +4,7 @@ public class Sword : ItemBase
 {
     private void OnGrab()
     {
-        Grab();
+        if (CanGrab()) { Grab(); }
     }
 
     public override void Grab()

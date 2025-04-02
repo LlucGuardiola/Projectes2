@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 
 public class OnAttack : MonoBehaviour
@@ -9,8 +10,16 @@ public class OnAttack : MonoBehaviour
     [SerializeField] private LayerMask enemiesLayer;
     [SerializeField] private Vector2 attackSize;
     [SerializeField] private float attackRange;
+    public GameObject redCircle;
+    private bool count;
+    private float counter;
 
-
+    private void Update()
+    {
+        Count();
+        if (isAttacking) redCircle.SetActive(true);      
+        else redCircle.SetActive(false);
+    }
     private void OnEnable()
     {
         AttackSystem.OnAttackDone += Attack;
@@ -24,6 +33,9 @@ public class OnAttack : MonoBehaviour
     private void Attack()
     {
         if (isAttacking) return;
+        isAttacking = true;
+        count = true;
+        counter = 0;
 
         int animationNum = UnityEngine.Random.Range(0,2);
 
@@ -46,6 +58,19 @@ public class OnAttack : MonoBehaviour
         foreach (var enemy in colliders)
         {
             enemy.gameObject.GetComponent<Health>().TakeDamage(1);
+        }
+    }
+
+    private void Count()
+    {
+        if (!count) return;
+
+        counter += Time.deltaTime;
+
+        if (counter >= 0.2f)
+        {
+            isAttacking = false;
+            count = false;
         }
     }
 

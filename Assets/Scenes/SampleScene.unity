@@ -2109,6 +2109,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1643843247 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3071694125513526514, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
+  m_PrefabInstance: {fileID: 7114127926200924468}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1670341903
 GameObject:
   m_ObjectHideFlags: 0
@@ -2517,6 +2522,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3071694125513526514, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
+      propertyPath: m_Name
+      value: redCircle
+      objectReference: {fileID: 0}
     - target: {fileID: 7932904730090450941, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.31
@@ -2557,6 +2566,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8368323704705007442, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
+      propertyPath: redCircle
+      value: 
+      objectReference: {fileID: 1643843247}
     - target: {fileID: 8368323704705007442, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
       propertyPath: attackRange
       value: 2

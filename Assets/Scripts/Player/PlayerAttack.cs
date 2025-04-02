@@ -1,10 +1,11 @@
 using System;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UIElements;
 using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 
-public class OnAttack : MonoBehaviour
+public class PlayerAttack : MonoBehaviour
 {
     [HideInInspector] public bool isAttacking = false;
     [SerializeField] private LayerMask enemiesLayer;
@@ -13,6 +14,7 @@ public class OnAttack : MonoBehaviour
     public GameObject redCircle;
     private bool count;
     private float counter;
+    public bool CanAttack;
 
     private void Update()
     {
@@ -32,6 +34,7 @@ public class OnAttack : MonoBehaviour
 
     private void Attack()
     {
+        if (!CanAttack) return;
         if (isAttacking) return;
         isAttacking = true;
         count = true;
@@ -49,9 +52,9 @@ public class OnAttack : MonoBehaviour
                 break;      
         }
 
-        float position = GetComponent<PlayerMovement>().LookingForward ? attackRange : -attackRange;
+        float leftOrRight = GetComponent<PlayerMovement>().LookingForward ? attackRange : -attackRange;
 
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + position, transform.position.y), attackSize, 0, enemiesLayer);
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + leftOrRight, transform.position.y), attackSize, 0, enemiesLayer);
 
         if (colliders.Length == 0) return;
 

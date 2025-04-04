@@ -8,7 +8,7 @@ public class EnemyPatrol : MonoBehaviour
     [SerializeField] private GameObject patrolPointB;
     [SerializeField] private float patrolSpeed = 2f;
     private Transform currentPoint;
-    public bool isPatrolling = true;
+    public bool isPatrolling => GetComponent<Enemy>().IsPatrolling;
 
     void Start()
     {

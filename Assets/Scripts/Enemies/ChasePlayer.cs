@@ -2,11 +2,8 @@ using UnityEngine;
 
 public class ChasePlayer : MonoBehaviour
 {
-    [SerializeField] private float detectionRange = 5f;
-    [SerializeField] private LayerMask whatIsPlayer;
-    [SerializeField] private LayerMask whatIsObstacle;
     private GameObject player;
-    public bool isChasing = false;
+    public bool isChasing => GetComponent<Enemy>().IsChasing;
 
     void Start()
     {
@@ -23,11 +20,8 @@ public class ChasePlayer : MonoBehaviour
 
     private void Chase()
     {
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, GetComponent<EnemyPatrol>().GetSpeed() * Time.deltaTime);
-        if (Vector2.Distance(transform.position, player.transform.position) > detectionRange)
-        {
-            isChasing = true;
-        }
+        Vector2 newPos = new Vector2(player.transform.position.x, transform.position.y);
+        transform.position = Vector2.MoveTowards(transform.position, newPos, GetComponent<EnemyPatrol>().GetSpeed() * Time.deltaTime);
     }
 
 }

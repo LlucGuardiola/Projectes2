@@ -29,16 +29,21 @@ public class EnemyPatrol : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, currentPoint.position, patrolSpeed * Time.deltaTime);
         if (Vector2.Distance(transform.position, currentPoint.position) < 0.1f)
         {
+            Debug.Log("i");
             Flip();
             currentPoint = (currentPoint == patrolPointA.transform) ? patrolPointB.transform : patrolPointA.transform;
+
         }
     }
 
     private void Flip()
     {
+        Debug.Log("h");
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
+        GetComponent<VisionDetection>().AngleDirection *= -1;
+        Debug.Log("g");
     }
 
     public float GetSpeed()

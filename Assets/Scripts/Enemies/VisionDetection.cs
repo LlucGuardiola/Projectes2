@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class VisionDetection : MonoBehaviour
@@ -8,16 +9,23 @@ public class VisionDetection : MonoBehaviour
     public float DetectionRange;
     public float VisionAngle;
 
+    public Vector2 AngleDirection;
+
+
+    private void Start()
+    {
+        AngleDirection = transform.right;
+    }
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, DetectionRange);
 
         Gizmos.color = Color.yellow;
         var direction = Quaternion.AngleAxis(VisionAngle / 2, transform.forward)
-            * transform.right;
+            * AngleDirection;
         Gizmos.DrawRay(transform.position, direction * DetectionRange);
         var direction2 = Quaternion.AngleAxis(-VisionAngle / 2, transform.forward)
-            * transform.right;
+            * AngleDirection;
         Gizmos.DrawRay(transform.position, direction2 * DetectionRange);
 
         Gizmos.color = Color.white;
@@ -25,7 +33,7 @@ public class VisionDetection : MonoBehaviour
 
     private void Update()
     {
-        if (DetectPlayers().Length > 0) Debug.Log("Player detected");
+        if (DetectPlayers().Length > 0) Debug.Log("Player detected2");
     }
 
     private Transform[] DetectPlayers()
@@ -36,7 +44,9 @@ public class VisionDetection : MonoBehaviour
         {
             if (PlayerInAngle(ref players))
             {
+
                 PlayerIsVisible(ref players);
+               
             }
         }
 
@@ -78,8 +88,9 @@ public class VisionDetection : MonoBehaviour
 
     private float GetAngle(Transform target)
     {
+        
         Vector2 targetDir = target.position - transform.position;
-        float angle = Vector2.Angle(targetDir, transform.right);
+        float angle = Vector2.Angle(targetDir, - AngleDirection);
 
         return angle;
     }
@@ -108,7 +119,7 @@ public class VisionDetection : MonoBehaviour
            DetectionRange,
            WhatIsVisible
         );
-
+        Debug.Log("Player detected");
         return (hit.collider.transform == target);
     }
 }

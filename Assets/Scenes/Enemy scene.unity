@@ -513,6 +513,7 @@ GameObject:
   - component: {fileID: 254083086}
   - component: {fileID: 254083085}
   - component: {fileID: 254083083}
+  - component: {fileID: 254083093}
   - component: {fileID: 254083087}
   - component: {fileID: 254083092}
   - component: {fileID: 254083091}
@@ -695,7 +696,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &254083091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -730,6 +731,27 @@ MonoBehaviour:
     m_Bits: 256
   IsChasing: 0
   IsPatrolling: 1
+--- !u!114 &254083093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254083082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e9100be75b1ca1468c9d89dc3c63f93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WhatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 128
+  WhatIsVisible:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  DetectionRange: 3
+  VisionAngle: 50
+  AngleDirection: {x: 0, y: 0}
 --- !u!1 &295971718
 GameObject:
   m_ObjectHideFlags: 0
@@ -915,7 +937,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &440204793
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1390,7 +1412,7 @@ Transform:
   m_GameObject: {fileID: 736617813}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.11, y: 0.94, z: 0.047091328}
+  m_LocalPosition: {x: -1.26, y: 3.41, z: 0.047091328}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

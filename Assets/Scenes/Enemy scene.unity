@@ -265,9 +265,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2800772289420947385, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2800772289420947385, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3027542915025339787, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3071694125513526514, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
       propertyPath: m_Name
       value: redCircle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3071694125513526514, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5327106541821125103, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595260999385244249, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7932904730090450941, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -490,6 +514,9 @@ GameObject:
   - component: {fileID: 254083085}
   - component: {fileID: 254083083}
   - component: {fileID: 254083087}
+  - component: {fileID: 254083091}
+  - component: {fileID: 254083088}
+  - component: {fileID: 254083089}
   m_Layer: 6
   m_Name: enemy
   m_TagString: Enemy
@@ -527,7 +554,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -607,7 +634,7 @@ Transform:
   m_GameObject: {fileID: 254083082}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.53, y: -0.31, z: 0.047091328}
+  m_LocalPosition: {x: -0.269, y: -3.949, z: 0.047091328}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -626,6 +653,69 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Life: 5
+--- !u!114 &254083088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254083082}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9ca1da1eda30254883c80d75f99a79e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolPointA: {fileID: 295971718}
+  patrolPointB: {fileID: 1794681494}
+  patrolSpeed: 2
+  isPatrolling: 1
+--- !u!50 &254083089
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254083082}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &254083091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254083082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54243667f8d2b704683e7322134f4d6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionRange: 5
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 128
+  whatIsObstacle:
+    serializedVersion: 2
+    m_Bits: 256
+  isChasing: 1
 --- !u!1 &295971718
 GameObject:
   m_ObjectHideFlags: 0
@@ -1169,9 +1259,9 @@ GameObject:
   - component: {fileID: 736617819}
   - component: {fileID: 736617820}
   - component: {fileID: 736617821}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: enemy (4)
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1183,7 +1273,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 736617813}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -1286,7 +1376,7 @@ Transform:
   m_GameObject: {fileID: 736617813}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.18, y: -3.44, z: 0.047091328}
+  m_LocalPosition: {x: -6.11, y: 0.94, z: 0.047091328}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1299,22 +1389,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 736617813}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9ca1da1eda30254883c80d75f99a79e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   patrolPointA: {fileID: 295971718}
   patrolPointB: {fileID: 1794681494}
-  patrolSpeed: 2
-  detectionRange: 5
-  visionAngle: 90
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 1
-  whatIsObstacle:
-    serializedVersion: 2
-    m_Bits: 0
+  patrolSpeed: 8
+  isPatrolling: 1
 --- !u!50 &736617819
 Rigidbody2D:
   serializedVersion: 5

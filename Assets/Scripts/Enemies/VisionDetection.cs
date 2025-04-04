@@ -44,9 +44,7 @@ public class VisionDetection : MonoBehaviour
         {
             if (PlayerInAngle(ref players))
             {
-
                 PlayerIsVisible(ref players);
-               
             }
         }
 
@@ -88,7 +86,6 @@ public class VisionDetection : MonoBehaviour
 
     private float GetAngle(Transform target)
     {
-        
         Vector2 targetDir = target.position - transform.position;
         float angle = Vector2.Angle(targetDir, - AngleDirection);
 
@@ -119,7 +116,7 @@ public class VisionDetection : MonoBehaviour
            DetectionRange,
            WhatIsVisible
         );
-        Debug.Log("Player detected");
+
         return (hit.collider.transform == target);
     }
 }

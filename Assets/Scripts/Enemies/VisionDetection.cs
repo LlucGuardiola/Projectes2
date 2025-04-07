@@ -10,7 +10,15 @@ public class VisionDetection : MonoBehaviour
 
     private void Update()
     {
-        
+        float leftOrRight = GetComponent<Enemy>().LookingForward ? visionRange : -visionRange;
+
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + leftOrRight, transform.position.y), visionSize, transform.rotation.z, playerLayer);
+        if (colliders.Length == 0) return;
+
+        foreach (var enemy in colliders)
+        {
+            Debug.Log("player detected");
+        }
     }
 
     private void OnDrawGizmos()

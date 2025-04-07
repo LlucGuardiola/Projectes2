@@ -11,8 +11,10 @@ public class Enemy : MonoBehaviour
     public bool IsPatrolling => !IsChasing;
     public float loseSightCooldown = 2f;
     private float loseSightTimer = 0f;
+    public bool LookingForward;
 
     private void Start()
     {
+        LookingForward = true;
     }
 }

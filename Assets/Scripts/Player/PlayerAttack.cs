@@ -13,15 +13,18 @@ public class PlayerAttack : MonoBehaviour
 
     private bool count;
     private float counter;
+    private float attackDuration;
+    [SerializeField] private float basicAttackDuration;
+    [SerializeField] private float dashAttackDuration;
     public float AttackRange;
     public Vector2 AttackSize;
-    public GameObject redCircle;
+    public GameObject RedCircle;
 
     private void Update()
     {
         Count();
-        if (isAttacking) redCircle.SetActive(true);      
-        else redCircle.SetActive(false);
+        if (isAttacking) RedCircle.SetActive(true);      
+        else RedCircle.SetActive(false);
     }
     private void OnEnable()
     {
@@ -65,12 +68,13 @@ public class PlayerAttack : MonoBehaviour
         if (!justDashed) 
         {
             colliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + leftOrRight , transform.position.y), AttackSize, transform.rotation.z, enemiesLayer);
+            attackDuration = basicAttackDuration;
         }
         else
         {
             colliders = Physics2D.OverlapBoxAll((Vector2)transform.position + direction * AttackRange, AttackSize, transform.rotation.z, enemiesLayer);
+            attackDuration = dashAttackDuration;
         }
-
 
         if (colliders.Length == 0) return;
 
@@ -83,10 +87,10 @@ public class PlayerAttack : MonoBehaviour
     private void Count()
     {
         if (!count) return;
-
+        
         counter += Time.deltaTime;
 
-        if (counter >= 0.2f)
+        if (counter >= attackDuration)
         {
             isAttacking = false;
             transform.rotation = Quaternion.identity;

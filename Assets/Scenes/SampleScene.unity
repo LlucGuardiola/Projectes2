@@ -2754,6 +2754,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 581469649473472869, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
+      propertyPath: dashSpeed
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 1060845196215884764, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
       propertyPath: m_FlipX
       value: 0
@@ -2819,8 +2823,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1643843247}
     - target: {fileID: 8368323704705007442, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
+      propertyPath: AttackRange
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8368323704705007442, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
       propertyPath: attackRange
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8368323704705007442, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
+      propertyPath: AttackSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8368323704705007442, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
+      propertyPath: AttackSize.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8368323704705007442, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
       propertyPath: attackSize.x

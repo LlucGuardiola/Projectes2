@@ -44,7 +44,12 @@ public class Dash : MonoBehaviour
 
     private bool CheckDashEnd()
     {
-        if (((Vector2)transform.position - target).sqrMagnitude < 1f)
+        float playerRange = GetComponent<PlayerAttack>().AttackRange + GetComponent<PlayerAttack>().AttackSize.x;
+
+        Debug.Log(GetComponent<PlayerAttack>().AttackRange);
+        Debug.Log(GetComponent<PlayerAttack>().AttackSize.x);
+
+        if (Vector2.Distance((Vector2)transform.position, target) <= playerRange)
         {
             GetComponent<PlayerMovement>().CanMove = true;
             rb.linearVelocity = Vector2.zero;

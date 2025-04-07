@@ -7,14 +7,15 @@ using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCou
 
 public class PlayerAttack : MonoBehaviour
 {
+    public bool CanAttack;
     [HideInInspector] public bool isAttacking = false;
     [SerializeField] private LayerMask enemiesLayer;
-    [SerializeField] private Vector2 attackSize;
-    [SerializeField] private float attackRange;
-    public GameObject redCircle;
+
     private bool count;
     private float counter;
-    public bool CanAttack;
+    public float AttackRange;
+    public Vector2 AttackSize;
+    public GameObject redCircle;
 
     private void Update()
     {
@@ -39,6 +40,7 @@ public class PlayerAttack : MonoBehaviour
         if (!CanAttack) return;
         if (isAttacking) return;
 
+        GetComponent <PlayerMovement>().CanMove = false;
         isAttacking = true;
         count = true;
         counter = 0;
@@ -55,9 +57,9 @@ public class PlayerAttack : MonoBehaviour
                 break;      
         }
 
-        float leftOrRight = GetComponent<PlayerMovement>().LookingForward ? attackRange : -attackRange;
+        float leftOrRight = GetComponent<PlayerMovement>().LookingForward ? AttackRange : -AttackRange;
 
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + leftOrRight, transform.position.y), attackSize, 0, enemiesLayer);
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + leftOrRight, transform.position.y), AttackSize, 0, enemiesLayer);
 
         if (colliders.Length == 0) return;
 
@@ -76,6 +78,7 @@ public class PlayerAttack : MonoBehaviour
         if (counter >= 0.2f)
         {
             isAttacking = false;
+            GetComponent<PlayerMovement>().CanMove = true;
             count = false;
         }
     }
@@ -83,6 +86,6 @@ public class PlayerAttack : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(new Vector2(transform.position.x + attackRange, transform.position.y), attackSize);
+        Gizmos.DrawWireCube(new Vector2(transform.position.x + AttackRange, transform.position.y), AttackSize);
     }
 }

@@ -14,24 +14,5 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        vision = GetComponent<VisionDetection>();
     }
-    private void Update()
-    {
-        if (vision.DetectedPlayer != null)
-        {
-            IsChasing = true;
-            loseSightTimer = loseSightCooldown;
-        }
-        else if (IsChasing)
-        {
-            loseSightTimer -= Time.deltaTime;
-            if (loseSightTimer <= 0)
-            {
-                IsChasing = false;
-            }
-        }
-    }
-
-
 }

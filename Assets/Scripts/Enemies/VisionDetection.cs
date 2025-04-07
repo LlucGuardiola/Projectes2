@@ -18,7 +18,7 @@ public class VisionDetection : MonoBehaviour
             if (GetComponent<Enemy>().IsChasing)
             {
                 GetComponent<Enemy>().IsPatrolling = true; 
-                GetComponent<Enemy>().IsChasing = false; 
+                GetComponent<Enemy>().IsChasing = false;
             }
             return;
         }

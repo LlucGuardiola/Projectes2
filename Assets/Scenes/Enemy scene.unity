@@ -610,6 +610,7 @@ GameObject:
   - component: {fileID: 254083091}
   - component: {fileID: 254083088}
   - component: {fileID: 254083089}
+  - component: {fileID: 254083094}
   m_Layer: 6
   m_Name: enemy
   m_TagString: Enemy
@@ -840,6 +841,23 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &254083094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254083082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ef6c9718a79b734ebeeec73b8f44d21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 5818517837997121802, guid: f2299d7cd3a8ea04e98d4abd56a13182, type: 3}
+  firePoint: {fileID: 34156861}
+  fireRate: 3
+  detectionRange: 5
+  player: {fileID: 1334339564}
 --- !u!1 &295971718
 GameObject:
   m_ObjectHideFlags: 0
@@ -1819,6 +1837,11 @@ MonoBehaviour:
 --- !u!1 &1221256723 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3071694125513526514, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
+  m_PrefabInstance: {fileID: 22539465}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1334339564 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2800772289420947385, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
   m_PrefabInstance: {fileID: 22539465}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1503005362

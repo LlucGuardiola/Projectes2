@@ -28,6 +28,7 @@ public class EnemyPatrol : MonoBehaviour
         if (Vector2.Distance(transform.position, currentPoint.position) < 0.1f)
         {
             Flip();
+
             currentPoint = (currentPoint == patrolPointA.transform) ? patrolPointB.transform : patrolPointA.transform;
         }
     }

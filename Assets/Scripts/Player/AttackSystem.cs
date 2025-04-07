@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class AttackSystem : MonoBehaviour
 {
-    public static Action OnAttackDone;
+    public static Action<float> OnAttackDone;
 
     public void OnAttack()
     {
         if (PauseLogic.IsPaused) return;
 
-        OnAttackDone?.Invoke();
+        OnAttackDone?.Invoke(1f);
     }
 }

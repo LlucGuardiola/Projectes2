@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.GraphicsBuffer;
 
@@ -6,17 +7,19 @@ public class Dash : MonoBehaviour
 {
     [SerializeField] private float dashCooldown; 
     [SerializeField] private float dashSpeed;
-    private Rigidbody2D _rigidbody;
+
+    private Rigidbody2D rb;
     private bool isDashing;
-    private Vector2 currentTarget;
-    private Vector2 nextTarget;
+    private Vector2 target;
     private Vector2 direction;
     private float initialGravity;
 
+    public static Action<float> OnDashEnd;
+
     private void Start()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
-        initialGravity = _rigidbody.gravityScale;
+        rb = GetComponent<Rigidbody2D>();
+        initialGravity = rb.gravityScale;
     }
 
     private void OnEnable()
@@ -33,33 +36,26 @@ public class Dash : MonoBehaviour
     {
         if (!isDashing && (dashCooldown == 0))
         {
-            currentTarget = target;
+            this.target = target;
             isDashing = true;
             direction = (target - (Vector2)transform.position).normalized;
         }
-        else if (isDashing) nextTarget = target;
     }
 
     private bool CheckDashEnd()
     {
-        if (((Vector2)transform.position - currentTarget).sqrMagnitude < 1f)
+        if (((Vector2)transform.position - target).sqrMagnitude < 1f)
         {
             GetComponent<PlayerMovement>().CanMove = true;
-            _rigidbody.linearVelocity = Vector2.zero;
+            rb.linearVelocity = Vector2.zero;
 
-            if (nextTarget != Vector2.positiveInfinity)
-            {
-                currentTarget = nextTarget;
-                nextTarget = Vector2.positiveInfinity;
-
-                //direction = (currentTarget - (Vector2)transform.position).normalized;
-                isDashing = true;
-            }
-
-            _rigidbody.gravityScale = initialGravity;
+            rb.gravityScale = initialGravity;
             transform.rotation = Quaternion.identity;
             GetComponent<BoxCollider2D>().enabled = true;
-            return false;
+
+            OnDashEnd?.Invoke(3f);
+
+            return false; // Dash has to end
         }
 
         return true;
@@ -68,7 +64,7 @@ public class Dash : MonoBehaviour
     private void FixedUpdate()
     {
         if (!isDashing) return;
-        _rigidbody.gravityScale = 0;
+        rb.gravityScale = 0;
 
         if(GetComponent<BoxCollider2D>().enabled) GetComponent<BoxCollider2D>().enabled = false;
 
@@ -79,7 +75,7 @@ public class Dash : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(0, 0, angle);
 
-        _rigidbody.linearVelocity = direction * dashSpeed;
+        rb.linearVelocity = direction * dashSpeed;
 
         isDashing = CheckDashEnd();
     }

@@ -25,17 +25,20 @@ public class PlayerAttack : MonoBehaviour
     private void OnEnable()
     {
         AttackSystem.OnAttackDone += Attack;
+        Dash.OnDashEnd += Attack;
     }
 
     private void OnDisable()
     {
         AttackSystem.OnAttackDone -= Attack;
+        Dash.OnDashEnd -= Attack;
     }
 
-    private void Attack()
+    private void Attack(float damageDealt)
     {
         if (!CanAttack) return;
         if (isAttacking) return;
+
         isAttacking = true;
         count = true;
         counter = 0;
@@ -60,7 +63,7 @@ public class PlayerAttack : MonoBehaviour
 
         foreach (var enemy in colliders)
         {
-            enemy.gameObject.GetComponent<Health>().TakeDamage(1);
+            enemy.gameObject.GetComponent<Health>().TakeDamage(damageDealt);
         }
     }
 

@@ -10,6 +10,7 @@ public class SpecialAbility : MonoBehaviour
     public void OnSpecialAbility()
     {
         if (PauseLogic.IsPaused) return;
+        if (!GetComponent<PlayerAttack>().CanAttack) return;
 
         Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane));
 

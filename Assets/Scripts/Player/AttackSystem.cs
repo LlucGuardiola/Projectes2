@@ -10,7 +10,6 @@ public class AttackSystem : MonoBehaviour
     {
         if (PauseLogic.IsPaused) return;
         
-        
         OnAttackDone?.Invoke(1f, false, Vector2.zero);
     }
 }

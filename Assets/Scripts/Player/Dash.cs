@@ -5,7 +5,6 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Dash : MonoBehaviour
 {
-    [SerializeField] private float dashCooldown; 
     [SerializeField] private float dashSpeed;
     [HideInInspector] public bool IsDashing;
 
@@ -32,7 +31,7 @@ public class Dash : MonoBehaviour
 
     private void DashToTarget(Vector2 target)
     {
-        if (!IsDashing && (dashCooldown == 0))
+        if (!IsDashing)
         {
             if (transform.localScale.x < 0)
             {

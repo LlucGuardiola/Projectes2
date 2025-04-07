@@ -9,7 +9,6 @@ public class DistanceAttack : MonoBehaviour
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-
     }
 
     // Update is called once per frame
@@ -22,5 +21,4 @@ public class DistanceAttack : MonoBehaviour
     {
      
     }
-
 }

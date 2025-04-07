@@ -7,19 +7,17 @@ public class Dash : MonoBehaviour
 {
     [SerializeField] private float dashCooldown; 
     [SerializeField] private float dashSpeed;
+    [HideInInspector] public bool IsDashing;
 
     private Rigidbody2D rb;
-    private bool isDashing;
     private Vector2 target;
     private Vector2 direction;
-    private float initialGravity;
 
     public static Action<float> OnDashEnd;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        initialGravity = rb.gravityScale;
     }
 
     private void OnEnable()
@@ -34,10 +32,11 @@ public class Dash : MonoBehaviour
 
     private void DashToTarget(Vector2 target)
     {
-        if (!isDashing && (dashCooldown == 0))
+        if (!IsDashing && (dashCooldown == 0))
         {
+            if (transform.localScale.x < 0) transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
             this.target = target;
-            isDashing = true;
+            IsDashing = true;
             direction = (target - (Vector2)transform.position).normalized;
         }
     }
@@ -46,16 +45,10 @@ public class Dash : MonoBehaviour
     {
         float playerRange = GetComponent<PlayerAttack>().AttackRange + GetComponent<PlayerAttack>().AttackSize.x;
 
-        Debug.Log(GetComponent<PlayerAttack>().AttackRange);
-        Debug.Log(GetComponent<PlayerAttack>().AttackSize.x);
-
         if (Vector2.Distance((Vector2)transform.position, target) <= playerRange)
         {
-            GetComponent<PlayerMovement>().CanMove = true;
             rb.linearVelocity = Vector2.zero;
 
-            rb.gravityScale = initialGravity;
-            transform.rotation = Quaternion.identity;
             GetComponent<BoxCollider2D>().enabled = true;
 
             OnDashEnd?.Invoke(3f);
@@ -68,12 +61,12 @@ public class Dash : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!isDashing) return;
+        if (!IsDashing) return;
         rb.gravityScale = 0;
 
         if(GetComponent<BoxCollider2D>().enabled) GetComponent<BoxCollider2D>().enabled = false;
 
-        GetComponent<Animator>().SetBool("IsOnAir?", isDashing);
+        GetComponent<Animator>().SetBool("IsOnAir?", IsDashing);
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         direction.Normalize();
@@ -82,6 +75,6 @@ public class Dash : MonoBehaviour
 
         rb.linearVelocity = direction * dashSpeed;
 
-        isDashing = CheckDashEnd();
+        IsDashing = CheckDashEnd();
     }
 }

@@ -41,6 +41,7 @@ public class PlayerAttack : MonoBehaviour
         if (isAttacking) return;
 
         GetComponent <PlayerMovement>().CanMove = false;
+
         isAttacking = true;
         count = true;
         counter = 0;
@@ -59,7 +60,7 @@ public class PlayerAttack : MonoBehaviour
 
         float leftOrRight = GetComponent<PlayerMovement>().LookingForward ? AttackRange : -AttackRange;
 
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + leftOrRight, transform.position.y), AttackSize, 0, enemiesLayer);
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + leftOrRight, transform.position.y), AttackSize, transform.rotation.z, enemiesLayer);
 
         if (colliders.Length == 0) return;
 
@@ -78,6 +79,7 @@ public class PlayerAttack : MonoBehaviour
         if (counter >= 0.2f)
         {
             isAttacking = false;
+            transform.rotation = Quaternion.identity;
             GetComponent<PlayerMovement>().CanMove = true;
             count = false;
         }

@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private CollisionDetection _collisionDetection;
     [HideInInspector] public bool LookingForward;
-    private float _initialGravity;
+    private float initialGravity;
 
     int CollisionPos => _collisionDetection.CollisionPos;
 
@@ -23,19 +23,24 @@ public class PlayerMovement : MonoBehaviour
         CanMove = true;
         _rigidbody = GetComponent<Rigidbody2D>();
         _collisionDetection = GetComponent<CollisionDetection>();
-        _initialGravity = _rigidbody.gravityScale;
+        initialGravity = _rigidbody.gravityScale;
     }
 
     void FixedUpdate()
     {
         GetComponent<Animator>().SetBool("IsRunning?", _rigidbody.linearVelocity.x != 0 && GetComponent<PlayerJump>().IsTouchingGround);
+        Debug.Log(CanMove);
 
-        if (!CanMove)
+        if (GetComponent<Dash>().IsDashing) return;
+
+        if (!CanMove) 
         {
             _rigidbody.gravityScale = 0;
+            _rigidbody.linearVelocity = Vector3.zero;
             return;
         }
-        else if (_rigidbody.gravityScale == 0) { _rigidbody.gravityScale = _initialGravity; }
+        else if (_rigidbody.gravityScale == 0) { _rigidbody.gravityScale = initialGravity; }
+
 
         _horizontalDir = inputVal;
 
@@ -53,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
     void OnMove(InputValue value)
     {
         if (PauseLogic.IsPaused) return;
+        if (!CanMove) return;
 
         inputVal = value.Get<Vector2>().x;
         _horizontalDir = inputVal;

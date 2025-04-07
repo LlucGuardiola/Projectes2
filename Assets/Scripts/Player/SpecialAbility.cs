@@ -20,7 +20,6 @@ public class SpecialAbility : MonoBehaviour
 
         Debug.Log(colliders[0].name);
 
-        GetComponent<PlayerMovement>().CanMove = false;
         OnDash?.Invoke(colliders[0].gameObject.transform.position);
     }
 }

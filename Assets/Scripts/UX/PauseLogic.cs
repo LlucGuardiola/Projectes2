@@ -4,7 +4,7 @@ public class PauseLogic : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public GameObject PausePanel;
-    private bool isPaused = false;
+    public static bool IsPaused = false;
     void Start()
     {
         
@@ -18,7 +18,7 @@ public class PauseLogic : MonoBehaviour
 
     public void OnPause()
     {
-        if (isPaused)
+        if (IsPaused)
         {
             PausePanel.SetActive(false);
             Time.timeScale = 1.0f;
@@ -29,7 +29,7 @@ public class PauseLogic : MonoBehaviour
             Time.timeScale = 0.0f;
         }
 
-        isPaused = !isPaused;
+        IsPaused = !IsPaused;
     }
 
 }

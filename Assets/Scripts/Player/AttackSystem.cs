@@ -7,6 +7,8 @@ public class AttackSystem : MonoBehaviour
 
     public void OnAttack()
     {
+        if (PauseLogic.IsPaused) return;
+
         OnAttackDone?.Invoke();
     }
 }

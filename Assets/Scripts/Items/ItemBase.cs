@@ -12,6 +12,8 @@ public abstract class ItemBase : MonoBehaviour
     }
     protected bool CanGrab()
     {
+        if (PauseLogic.IsPaused) return false;
+
         Collider2D[] colliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x, transform.position.y), grabSize, 0 /*angle*/, playerLayer);
 
         if (colliders.Length == 0) return false;

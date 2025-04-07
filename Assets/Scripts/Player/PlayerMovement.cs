@@ -45,6 +45,8 @@ public class PlayerMovement : MonoBehaviour
 
     void OnMove(InputValue value)
     {
+        if (PauseLogic.IsPaused) return;
+
         inputVal = value.Get<Vector2>().x;
         _horizontalDir = inputVal;
 

@@ -1138,7 +1138,6 @@ GameObject:
   - component: {fileID: 889845978}
   - component: {fileID: 889845977}
   - component: {fileID: 889845976}
-  - component: {fileID: 889845980}
   - component: {fileID: 889845979}
   m_Layer: 6
   m_Name: test (1)
@@ -1276,29 +1275,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &889845980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 889845975}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9ca1da1eda30254883c80d75f99a79e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  patrolPointA: {fileID: 1131360814}
-  patrolPointB: {fileID: 1395008833}
-  patrolSpeed: 2
-  detectionRange: 5
-  visionAngle: 90
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 0
-  whatIsObstacle:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1047389680
 GameObject:
   m_ObjectHideFlags: 0

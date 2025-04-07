@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class EnemyPatrol : MonoBehaviour
 {
-
     [SerializeField] private GameObject patrolPointA;
     [SerializeField] private GameObject patrolPointB;
     [SerializeField] private float patrolSpeed = 2f;
     [SerializeField] private float chaseSpeed = 5f; 
+
     private Transform currentPoint;
     public bool isPatrolling => GetComponent<Enemy>().IsPatrolling;
 
@@ -40,7 +40,6 @@ public class EnemyPatrol : MonoBehaviour
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
-        GetComponent<VisionDetection>().AngleDirection *= -1; 
     }
 
     public float GetSpeed()

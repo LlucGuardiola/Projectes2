@@ -279,7 +279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3071694125513526514, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
       propertyPath: m_Name
-      value: redCircle
+      value: RedCircle
       objectReference: {fileID: 0}
     - target: {fileID: 3071694125513526514, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
       propertyPath: m_Layer
@@ -333,6 +333,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8368323704705007442, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
+      propertyPath: RedCircle
+      value: 
+      objectReference: {fileID: 1221256723}
     - target: {fileID: 8368323704705007442, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
       propertyPath: redCircle
       value: 
@@ -670,6 +674,7 @@ MonoBehaviour:
   patrolPointA: {fileID: 295971718}
   patrolPointB: {fileID: 1794681494}
   patrolSpeed: 2
+  chaseSpeed: 5
 --- !u!50 &254083089
 Rigidbody2D:
   serializedVersion: 5
@@ -721,16 +726,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95eba312c14ad08489203f7141338354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRange: 5
-  visionAngle: 90
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 128
   whatIsObstacle:
     serializedVersion: 2
     m_Bits: 256
-  IsChasing: 0
-  IsPatrolling: 1
+  loseSightCooldown: 2
 --- !u!114 &254083093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1433,6 +1435,7 @@ MonoBehaviour:
   patrolPointA: {fileID: 295971718}
   patrolPointB: {fileID: 1794681494}
   patrolSpeed: 8
+  chaseSpeed: 5
 --- !u!50 &736617819
 Rigidbody2D:
   serializedVersion: 5

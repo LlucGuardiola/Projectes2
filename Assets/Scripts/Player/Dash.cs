@@ -13,7 +13,7 @@ public class Dash : MonoBehaviour
     private Vector2 target;
     private Vector2 direction;
 
-    public static Action<float> OnDashEnd;
+    public static Action<float, bool, Vector2> OnDashEnd;
 
     private void Start()
     {
@@ -51,7 +51,7 @@ public class Dash : MonoBehaviour
 
             GetComponent<BoxCollider2D>().enabled = true;
 
-            OnDashEnd?.Invoke(3f);
+            OnDashEnd?.Invoke(3f, true, direction);
 
             return false; // Dash has to end
         }

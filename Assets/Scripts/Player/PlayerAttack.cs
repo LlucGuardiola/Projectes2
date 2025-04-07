@@ -35,7 +35,7 @@ public class PlayerAttack : MonoBehaviour
         Dash.OnDashEnd -= Attack;
     }
 
-    private void Attack(float damageDealt)
+    private void Attack(float damageDealt, bool justDashed, Vector2 direction)
     {
         if (!CanAttack) return;
         if (isAttacking) return;
@@ -60,7 +60,17 @@ public class PlayerAttack : MonoBehaviour
 
         float leftOrRight = GetComponent<PlayerMovement>().LookingForward ? AttackRange : -AttackRange;
 
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + leftOrRight, transform.position.y), AttackSize, transform.rotation.z, enemiesLayer);
+        Collider2D[] colliders;
+
+        if (!justDashed) 
+        {
+            colliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + leftOrRight , transform.position.y), AttackSize, transform.rotation.z, enemiesLayer);
+        }
+        else
+        {
+            colliders = Physics2D.OverlapBoxAll((Vector2)transform.position + direction * AttackRange, AttackSize, transform.rotation.z, enemiesLayer);
+        }
+
 
         if (colliders.Length == 0) return;
 

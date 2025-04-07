@@ -23,7 +23,7 @@ public class Bullet : MonoBehaviour
 
     public void SetDirection(Vector2 targetPosition)
     {
-        direction = (targetPosition - targetPosition).normalized;
+        direction = (targetPosition - (Vector2)transform.position).normalized;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

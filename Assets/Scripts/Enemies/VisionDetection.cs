@@ -8,13 +8,14 @@ public class VisionDetection : MonoBehaviour
     public LayerMask WhatIsVisible;
     public float DetectionRange;
     public float VisionAngle;
-
     public Vector2 AngleDirection;
-
+    public Transform DetectedPlayer { get; private set; }
+    private Enemy enemy;
 
     private void Start()
     {
         AngleDirection = transform.right;
+        enemy = GetComponent<Enemy>();
     }
     private void OnDrawGizmos()
     {
@@ -29,11 +30,23 @@ public class VisionDetection : MonoBehaviour
         Gizmos.DrawRay(transform.position, direction2 * DetectionRange);
 
         Gizmos.color = Color.white;
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(transform.position, AngleDirection * DetectionRange);
     }
 
     private void Update()
     {
-        if (DetectPlayers().Length > 0) Debug.Log("Player detected2");
+        var detectedPlayers = DetectPlayers();
+     if (detectedPlayers.Length > 0)
+    {
+        DetectedPlayer = detectedPlayers[0];
+        enemy.IsChasing = true;
+    }
+    else
+    {
+        DetectedPlayer = null;
+        enemy.IsChasing = false;
+    }
     }
 
     private Transform[] DetectPlayers()
@@ -103,7 +116,7 @@ public class VisionDetection : MonoBehaviour
                 players.Remove(players[i]);
             }
         }
-
+        Debug.Log("tyui");
         return (players.Count > 0);
     }
 
@@ -116,7 +129,7 @@ public class VisionDetection : MonoBehaviour
            DetectionRange,
            WhatIsVisible
         );
-
+        Debug.Log("u");
         return (hit.collider.transform == target);
     }
 }

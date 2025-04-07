@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         GetComponent<Animator>().SetBool("IsRunning?", _rigidbody.linearVelocity.x != 0 && GetComponent<PlayerJump>().IsTouchingGround);
-        Debug.Log(CanMove);
+       // Debug.Log(CanMove);
 
         if (GetComponent<Dash>().IsDashing) return;
 

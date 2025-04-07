@@ -5,8 +5,6 @@ public class EnemyPatrol : MonoBehaviour
 {
     [SerializeField] private GameObject patrolPointA;
     [SerializeField] private GameObject patrolPointB;
-    [SerializeField] private float patrolSpeed = 2f;
-    [SerializeField] private float chaseSpeed = 5f; 
 
     private Transform currentPoint;
     public bool isPatrolling => GetComponent<Enemy>().IsPatrolling;
@@ -23,11 +21,10 @@ public class EnemyPatrol : MonoBehaviour
         {
             Patrol();
         }
-    
     }
     private void Patrol()
     {
-        transform.position = Vector2.MoveTowards(transform.position, currentPoint.position, patrolSpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, currentPoint.position, GetComponent<Enemy>().PatrolSpeed * Time.deltaTime);
         if (Vector2.Distance(transform.position, currentPoint.position) < 0.1f)
         {
             Flip();
@@ -40,11 +37,6 @@ public class EnemyPatrol : MonoBehaviour
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
-        GetComponent<Enemy>().LookingForward = !GetComponent<Enemy>();
-    }
-
-    public float GetSpeed()
-    {
-        return chaseSpeed;
+        GetComponent<Enemy>().LookingForward = !GetComponent<Enemy>().LookingForward;
     }
 }

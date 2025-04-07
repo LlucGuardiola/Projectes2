@@ -22,7 +22,7 @@ public class ChasePlayer : MonoBehaviour
     private void Chase()
     {
         Vector2 newPos = new Vector2(player.transform.position.x, transform.position.y);
-        transform.position = Vector2.MoveTowards(transform.position, newPos, GetComponent<EnemyPatrol>().GetSpeed() * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, newPos, GetComponent<Enemy>().ChaseSpeed * Time.deltaTime);
         if (player.transform.position.x > transform.position.x && transform.localScale.x < 0 ||  player.transform.position.x < transform.position.x && transform.localScale.x > 0)
         {
             Flip();
@@ -33,5 +33,6 @@ public class ChasePlayer : MonoBehaviour
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
+        GetComponent<Enemy>().LookingForward = !GetComponent<Enemy>().LookingForward;
     }
 }

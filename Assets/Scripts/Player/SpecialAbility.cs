@@ -11,6 +11,7 @@ public class SpecialAbility : MonoBehaviour
     private float counter;
     [SerializeField] private float dashCooldown;
     private bool canDash;
+    [SerializeField] private float dashDistance;
 
     private void Start()
     {
@@ -40,7 +41,10 @@ public class SpecialAbility : MonoBehaviour
 
         Debug.Log(colliders[0].name);
 
-        OnDash?.Invoke(colliders[0].gameObject.transform.position);
+        if(Vector2.Distance(transform.position, colliders[0].gameObject.transform.position) < dashDistance)
+        {
+            OnDash?.Invoke(colliders[0].gameObject.transform.position);
+        }
     }
 
     private void Count()

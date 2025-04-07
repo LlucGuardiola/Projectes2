@@ -34,7 +34,12 @@ public class Dash : MonoBehaviour
     {
         if (!IsDashing && (dashCooldown == 0))
         {
-            if (transform.localScale.x < 0) transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
+            if (transform.localScale.x < 0)
+            {
+                transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
+                GetComponent<PlayerMovement>().LookingForward = !GetComponent<PlayerMovement>().LookingForward;
+            }
+
             this.target = target;
             IsDashing = true;
             direction = (target - (Vector2)transform.position).normalized;

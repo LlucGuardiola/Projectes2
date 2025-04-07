@@ -12,6 +12,7 @@ public class Health : MonoBehaviour
     public void TakeDamage(float ammount)
     {
         Life -= ammount;
+        Debug.Log("-1");
     }
 }
 

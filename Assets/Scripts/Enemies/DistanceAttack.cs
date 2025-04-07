@@ -19,11 +19,16 @@ public class DistanceAttack : MonoBehaviour
     void Update()
     {
       fireCooldown -= Time.deltaTime;
-     // if(detection.DetectedPlayer != null && fireCooldown <= 0f) 
-      //{
-   //         Shoot(player.transform);
-     //       fireCooldown = fireRate; 
-     // }
+      if( fireCooldown <= 0f) 
+      {
+           Shoot(player.transform);
+           fireCooldown = fireRate; 
+      }
+        //if (detection.DetectedPlayer != null && fireCooldown <= 0f)
+       // {
+        //    Shoot(player.transform);
+       //     fireCooldown = fireRate;
+       // }
     }
 
     private void Shoot(Transform player)
@@ -31,6 +36,6 @@ public class DistanceAttack : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
         Bullet bulletScript = bullet.GetComponent<Bullet>();
         bulletScript.SetDirection(player.position);
-        Debug.Log("si");
+   
     }
 }

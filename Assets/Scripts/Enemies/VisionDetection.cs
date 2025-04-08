@@ -12,7 +12,7 @@ public class VisionDetection : MonoBehaviour
     {
         float leftOrRight = GetComponent<Enemy>().LookingForward ? visionRange : -visionRange;
 
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + leftOrRight, transform.position.y), visionSize, transform.rotation.z, playerLayer);
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + leftOrRight, transform.position.y + visionSize.y / 2 - 0.5f), visionSize, transform.rotation.z, playerLayer);
         
         if (colliders.Length == 0) 
         {
@@ -44,6 +44,6 @@ public class VisionDetection : MonoBehaviour
         float leftOrRight = GetComponent<Enemy>().LookingForward ? visionRange : -visionRange;
 
         Gizmos.color = Color.green;
-        Gizmos.DrawWireCube(new Vector2(transform.position.x + leftOrRight, transform.position.y), visionSize);
+        Gizmos.DrawWireCube(new Vector2(transform.position.x + leftOrRight, transform.position.y + visionSize.y/2 - 0.5f), visionSize);
     }
 }

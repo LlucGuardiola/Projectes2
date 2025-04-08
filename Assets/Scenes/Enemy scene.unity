@@ -754,6 +754,14 @@ PrefabInstance:
       propertyPath: patrolPointB
       value: 
       objectReference: {fileID: 1794681494}
+    - target: {fileID: 7481692400021645184, guid: a72bb32ff43c72b44a655eead69ca200, type: 3}
+      propertyPath: MeleeAttack
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481692400021645184, guid: a72bb32ff43c72b44a655eead69ca200, type: 3}
+      propertyPath: DistanceAttack
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7789747915981195641, guid: a72bb32ff43c72b44a655eead69ca200, type: 3}
       propertyPath: m_Name
       value: MeleeEnemy

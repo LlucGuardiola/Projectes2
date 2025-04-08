@@ -8,12 +8,19 @@ public class RmManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        virtualCam.SetActive(true);
+        if(collision.gameObject.CompareTag("Player"))
+        {   
+            virtualCam.SetActive(true);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        virtualCam.SetActive(false);
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            virtualCam.SetActive(false);
+        }
     }
 
 }

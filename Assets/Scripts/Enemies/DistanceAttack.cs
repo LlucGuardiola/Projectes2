@@ -5,10 +5,10 @@ public class DistanceAttack : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
     [SerializeField] private float fireRate = 1.5f;
-    [SerializeField] private float detectionRange = 5f;
 
     private float fireCooldown;
-    public GameObject player;
+    [HideInInspector] public GameObject player;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -19,7 +19,7 @@ public class DistanceAttack : MonoBehaviour
     {
         fireCooldown -= Time.deltaTime;
 
-        if (fireCooldown <= 1f && GetComponent<Enemy>().IsChasing)
+        if (fireCooldown <= 1f && GetComponent<Enemy>().InRange && GetComponent<Enemy>().DistanceAttack)
         {
             Shoot(player.transform);
             fireCooldown = fireRate;

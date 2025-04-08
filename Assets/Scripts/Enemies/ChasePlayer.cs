@@ -4,7 +4,7 @@ public class ChasePlayer : MonoBehaviour
 {
     private GameObject player;
     public bool isChasing => GetComponent<Enemy>().IsChasing;
-    [SerializeField] private Vector2 maxDistanceToTarget;
+    [SerializeField] private float maxDistanceToTarget;
 
     void Start()
     {
@@ -22,12 +22,17 @@ public class ChasePlayer : MonoBehaviour
 
     private void Chase()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y), 3f, GetComponent<Enemy>().WhatIsPlayer);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y), maxDistanceToTarget, GetComponent<Enemy>().WhatIsPlayer);
         
         if (colliders.Length != 0)
         {
-            Debug.Log(colliders[0].name);
             GetComponent<Enemy>().HasToChase = false;
+            GetComponent<Enemy>().InRange = true;
+        }
+        else 
+        {
+            GetComponent<Enemy>().HasToChase = true;
+            GetComponent<Enemy>().InRange = false;
         }
 
         if (GetComponent<Enemy>().HasToChase)
@@ -44,6 +49,6 @@ public class ChasePlayer : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(new Vector2(transform.position.x, transform.position.y), 3f);
+        Gizmos.DrawWireSphere(new Vector2(transform.position.x, transform.position.y), maxDistanceToTarget);
     }
 }

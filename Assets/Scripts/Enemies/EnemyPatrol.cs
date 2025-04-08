@@ -6,7 +6,7 @@ public class EnemyPatrol : MonoBehaviour
     [SerializeField] private GameObject patrolPointA;
     [SerializeField] private GameObject patrolPointB;
 
-    public Transform currentTarget;
+    [HideInInspector] public Transform currentTarget;
     public bool isPatrolling => GetComponent<Enemy>().IsPatrolling;
 
     void Start()

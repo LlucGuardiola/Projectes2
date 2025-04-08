@@ -14,6 +14,9 @@ public class Enemy : MonoBehaviour
     public bool IsChasing;
     public bool IsPatrolling;
     public bool LookingForward;
+    public bool InRange;
+    public bool DistanceAttack;
+    public bool MeleeAttack;
 
     private void Start()
     {

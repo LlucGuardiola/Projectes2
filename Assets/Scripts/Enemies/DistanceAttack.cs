@@ -18,6 +18,7 @@ public class DistanceAttack : MonoBehaviour
     void Update()
     {
         fireCooldown -= Time.deltaTime;
+
         if (fireCooldown <= 1f && GetComponent<Enemy>().IsChasing)
         {
             Shoot(player.transform);

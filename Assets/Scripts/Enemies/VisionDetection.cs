@@ -37,7 +37,6 @@ public class VisionDetection : MonoBehaviour
             GetComponent<Enemy>().IsChasing = true;
             GetComponent<Enemy>().IsPatrolling = false;
         }
-
     }
 
     private void OnDrawGizmos()

@@ -4,11 +4,12 @@ public class ChasePlayer : MonoBehaviour
 {
     private GameObject player;
     public bool isChasing => GetComponent<Enemy>().IsChasing;
-    private 
+    [SerializeField] private Vector2 maxDistanceToTarget;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        Debug.Log(player.layer);
     }
 
     void Update()
@@ -21,12 +22,28 @@ public class ChasePlayer : MonoBehaviour
 
     private void Chase()
     {
-        Vector2 newPos = new Vector2(player.transform.position.x, transform.position.y);
-        transform.position = Vector2.MoveTowards(transform.position, newPos, GetComponent<Enemy>().ChaseSpeed * Time.deltaTime);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y), 3f, GetComponent<Enemy>().WhatIsPlayer);
+        
+        if (colliders.Length != 0)
+        {
+            Debug.Log(colliders[0].name);
+            GetComponent<Enemy>().HasToChase = false;
+        }
+
+        if (GetComponent<Enemy>().HasToChase)
+        {
+            Vector2 newPos = new Vector2(player.transform.position.x, transform.position.y);
+            transform.position = Vector2.MoveTowards(transform.position, newPos, GetComponent<Enemy>().ChaseSpeed * Time.deltaTime);
+        }
         
         if (player.transform.position.x > transform.position.x && transform.localScale.x < 0 ||  player.transform.position.x < transform.position.x && transform.localScale.x > 0)
         {
             GetComponent<Enemy>().Flip();
         }
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(new Vector2(transform.position.x, transform.position.y), 3f);
     }
 }

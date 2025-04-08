@@ -4,12 +4,13 @@ public class Enemy : MonoBehaviour
 {
  // [SerializeField] private float detectionRange = 5f;
  // [SerializeField] private float visionAngle = 90f;
-    [SerializeField] private LayerMask whatIsPlayer;
+    [SerializeField] public LayerMask WhatIsPlayer;
     [SerializeField] private LayerMask whatIsObstacle;
 
     [SerializeField] public float PatrolSpeed;
     [SerializeField] public float ChaseSpeed;
 
+    public bool HasToChase;
     public bool IsChasing;
     public bool IsPatrolling;
     public bool LookingForward;

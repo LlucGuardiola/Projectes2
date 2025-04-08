@@ -19,7 +19,7 @@ public class DistanceAttack : MonoBehaviour
     {
         fireCooldown -= Time.deltaTime;
 
-        if (fireCooldown <= 1f && GetComponent<Enemy>().InRange && GetComponent<Enemy>().DistanceAttack)
+        if (fireCooldown <= 0f && GetComponent<Enemy>().InRange && GetComponent<Enemy>().DistanceAttack)
         {
             Shoot(player.transform);
             fireCooldown = fireRate;

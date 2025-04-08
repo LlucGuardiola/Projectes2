@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerJump : MonoBehaviour
 {
     public float JumpStrengh;
+    [HideInInspector] public bool IsWallJumping;
 
     private bool canJump;
     private Rigidbody2D _rigidbody;
@@ -27,6 +28,7 @@ public class PlayerJump : MonoBehaviour
         counter = 0;
         _rigidbody = GetComponent<Rigidbody2D>();
         _collisionDetection = GetComponent<CollisionDetection>();
+        IsWallJumping = false;
     }
 
     private void Update()
@@ -57,15 +59,14 @@ public class PlayerJump : MonoBehaviour
         if (PauseLogic.IsPaused) return;
         if (!canJump && coyoteTimeCounter < 0) return;
 
-
         var vel = new Vector2(_rigidbody.linearVelocity.x, JumpStrengh);
 
         if (IsWallSliding && !IsTouchingGround) 
         {
-            GetComponent<PlayerMovement>().CanMove = false;
             vel = new Vector2(-CollisionPos * JumpStrengh / 3, JumpStrengh);
             count = true;
             counter = 0;
+            IsWallJumping = true;
 
             if (GetComponent<PlayerMovement>().LookingForward == false && CollisionPos < 0)
             {
@@ -96,7 +97,7 @@ public class PlayerJump : MonoBehaviour
 
         if (counter >= 0.4f)
         {
-            GetComponent<PlayerMovement>().CanMove = true;
+            IsWallJumping = false;
             count = false;
         }
     }

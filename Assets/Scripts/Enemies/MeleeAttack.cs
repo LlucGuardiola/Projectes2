@@ -37,7 +37,7 @@ public class MeleeAttack : MonoBehaviour
         isAttacking = true;
         count = true;
         counter = 0;
-        redCircle.transform.localScale = new Vector2(redCircle.transform.localScale.x +1, redCircle.transform.localScale.y +1);
+        redCircle.transform.localScale = new Vector2(redCircle.transform.localScale.x + 3.5f, redCircle.transform.localScale.y + 3.5f);
 
         
         Collider2D[] colliders = Physics2D.OverlapBoxAll(new Vector2(redCircle.transform.position.x, redCircle. transform.position.y), new Vector2 (2,2), transform.rotation.z, GetComponent<Enemy>().WhatIsPlayer);
@@ -53,7 +53,7 @@ public class MeleeAttack : MonoBehaviour
 
         if (counter >= attackDuration)
         {
-            redCircle.transform.localScale = new Vector2(redCircle.transform.localScale.x - 1, redCircle.transform.localScale.y - 1);
+            redCircle.transform.localScale = new Vector2(redCircle.transform.localScale.x - 3.5f, redCircle.transform.localScale.y - 3.5f);
             isAttacking = false;
             count = false;
         }

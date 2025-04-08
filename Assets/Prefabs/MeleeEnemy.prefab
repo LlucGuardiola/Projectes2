@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4750525209505839821}
   - component: {fileID: 32302047953075772}
   - component: {fileID: 3929422934888987929}
+  - component: {fileID: 8021713307974021816}
   - component: {fileID: 586676089361737389}
   - component: {fileID: 8542186428259116785}
   - component: {fileID: 7481692400021645184}
@@ -142,6 +143,22 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8021713307974021816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7789747915981195641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf995e6e030abf344b0eedb834df0f46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 0}
+  firePoint: {fileID: 0}
+  attackRate: 1.5
+  player: {fileID: 0}
 --- !u!114 &586676089361737389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,7 +286,6 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5818517837997121802, guid: f2299d7cd3a8ea04e98d4abd56a13182, type: 3}
   firePoint: {fileID: 4811114528359266393}
   fireRate: 3
-  detectionRange: 5
   player: {fileID: 0}
 --- !u!1 &9171771795312495101
 GameObject:

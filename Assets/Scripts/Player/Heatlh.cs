@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -6,7 +7,19 @@ public class Health : MonoBehaviour
 
     void Update()
     {
-        if (Life <= 0) Destroy(gameObject);
+        if (Life <= 0)
+        {
+            Destroy(gameObject);
+
+            if (gameObject.CompareTag("Player"))
+            {
+              SceneManager.LoadScene("BlockoutScene");
+            }
+        }
+
+           
+         
+       
     }
 
     public void TakeDamage(float ammount)

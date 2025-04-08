@@ -26,14 +26,7 @@ public class ChasePlayer : MonoBehaviour
         
         if (player.transform.position.x > transform.position.x && transform.localScale.x < 0 ||  player.transform.position.x < transform.position.x && transform.localScale.x > 0)
         {
-            Flip();
+            GetComponent<Enemy>().Flip();
         }
-    }
-    private void Flip()
-    {
-        Vector3 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
-        GetComponent<Enemy>().LookingForward = !GetComponent<Enemy>().LookingForward;
     }
 }

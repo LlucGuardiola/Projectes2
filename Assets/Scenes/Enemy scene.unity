@@ -762,6 +762,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patrolPointA: {fileID: 295971718}
   patrolPointB: {fileID: 1794681494}
+  currentTarget: {fileID: 0}
 --- !u!50 &254083089
 Rigidbody2D:
   serializedVersion: 5
@@ -836,8 +837,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e9100be75b1ca1468c9d89dc3c63f93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visionRange: 3.13
-  visionSize: {x: 7.14, y: 2.65}
+  visionRange: 2.64
+  visionSize: {x: 8.76, y: 8.99}
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -1538,6 +1539,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patrolPointA: {fileID: 295971718}
   patrolPointB: {fileID: 1794681494}
+  currentTarget: {fileID: 0}
 --- !u!50 &736617819
 Rigidbody2D:
   serializedVersion: 5

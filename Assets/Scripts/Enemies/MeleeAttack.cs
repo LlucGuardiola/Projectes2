@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
@@ -11,6 +12,8 @@ public class MeleeAttack : MonoBehaviour
     private float counter;
     private bool isAttacking;
     [SerializeField] private float attackDuration;
+    [SerializeField] private GameObject redCircle;
+    
 
     void Start()
     {
@@ -35,6 +38,13 @@ public class MeleeAttack : MonoBehaviour
         isAttacking = true;
         count = true;
         counter = 0;
+        redCircle.transform.localScale = new Vector2(redCircle.transform.localScale.x +1, redCircle.transform.localScale.y +1);
+
+        
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(new Vector2(redCircle.transform.position.x, redCircle. transform.position.y), new Vector2 (2,2), transform.rotation.z, GetComponent<Enemy>().WhatIsPlayer);
+        if (colliders.Length == 0) return;
+        colliders[0].gameObject.GetComponent<Health>().TakeDamage(1f);
+
     }
     private void Count()
     {
@@ -44,6 +54,7 @@ public class MeleeAttack : MonoBehaviour
 
         if (counter >= attackDuration)
         {
+            redCircle.transform.localScale = new Vector2(redCircle.transform.localScale.x - 1, redCircle.transform.localScale.y - 1);
             isAttacking = false;
             count = false;
         }

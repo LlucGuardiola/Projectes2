@@ -16,10 +16,6 @@ public class Health : MonoBehaviour
               SceneManager.LoadScene("BlockoutScene");
             }
         }
-
-           
-         
-       
     }
 
     public void TakeDamage(float ammount)

@@ -5115,6 +5115,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 634678237539422160, guid: d06f7feb897aff04fb640eed224c2a60, type: 3}
+      propertyPath: maxDistanceToTarget
+      value: 13.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 1133528771509627795, guid: d06f7feb897aff04fb640eed224c2a60, type: 3}
+      propertyPath: visionSize.x
+      value: 25.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 1133528771509627795, guid: d06f7feb897aff04fb640eed224c2a60, type: 3}
+      propertyPath: visionSize.y
+      value: 12.41
+      objectReference: {fileID: 0}
     - target: {fileID: 2799707193333308144, guid: d06f7feb897aff04fb640eed224c2a60, type: 3}
       propertyPath: patrolPointA
       value: 

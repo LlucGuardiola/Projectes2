@@ -69,7 +69,6 @@ public class PlayerAttack : MonoBehaviour
         {
             colliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + leftOrRight , transform.position.y), AttackSize, transform.rotation.z, enemiesLayer);
             attackDuration = basicAttackDuration;
-
         }
         else
         {

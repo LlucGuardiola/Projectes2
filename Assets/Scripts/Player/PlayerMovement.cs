@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (GetComponent<Dash>().IsDashing) return;
         if (GetComponent<PlayerJump>().IsWallJumping) return;
+        if (PauseLogic.IsPaused) return;
 
         if (!CanMove) 
         {
@@ -41,26 +42,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (_rigidbody.gravityScale == 0) { _rigidbody.gravityScale = initialGravity; }
 
-
-        _horizontalDir = inputVal;
-
-        Vector2 velocity = _rigidbody.linearVelocity;
-        velocity.x = _horizontalDir * Speed;
-
-        if ((CollisionPos == 1 && _horizontalDir > 0) || (CollisionPos == -1 && _horizontalDir < 0))
-        {
-            velocity.x = 0;
-        }
-
-        _rigidbody.linearVelocity = velocity;
-    }
-
-    void OnMove(InputValue value)
-    {
-        if (PauseLogic.IsPaused) return;
-        if (!CanMove) return;
-
-        inputVal = value.Get<Vector2>().x;
+        inputVal = Input.GetAxis("Horizontal");
         _horizontalDir = inputVal;
 
         if (inputVal > 0 && !LookingForward) // right
@@ -73,5 +55,15 @@ public class PlayerMovement : MonoBehaviour
             LookingForward = false;
             transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
         }
+
+        Vector2 velocity = _rigidbody.linearVelocity;
+        velocity.x = _horizontalDir * Speed;
+
+        if ((CollisionPos == 1 && _horizontalDir > 0) || (CollisionPos == -1 && _horizontalDir < 0))
+        {
+            velocity.x = 0;
+        }
+
+        _rigidbody.linearVelocity = velocity;
     }
 }

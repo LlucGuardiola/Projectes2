@@ -27,7 +27,6 @@ public class CheckpointManager : MonoBehaviour
 
     public void RespawnPlayerAfterReload()
     {
-        // Espera a que se cargue completamente la escena
         UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneReloaded;
     }
 
@@ -45,7 +44,7 @@ public class CheckpointManager : MonoBehaviour
             }
         }
 
-        SceneManager.sceneLoaded -= OnSceneReloaded; // Desuscribirse después
+        SceneManager.sceneLoaded -= OnSceneReloaded; 
     }
 
 }

@@ -69,6 +69,7 @@ public class PlayerAttack : MonoBehaviour
         {
             colliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + leftOrRight , transform.position.y), AttackSize, transform.rotation.z, enemiesLayer);
             attackDuration = basicAttackDuration;
+
         }
         else
         {
@@ -81,6 +82,8 @@ public class PlayerAttack : MonoBehaviour
         foreach (var enemy in colliders)
         {
             enemy.gameObject.GetComponent<Health>().TakeDamage(damageDealt);
+            Vector2 knockbackDir = enemy.transform.position - transform.position;
+            enemy.GetComponent<KnockbackFeedback>().ApplyKnockback(knockbackDir);
         }
     }
 

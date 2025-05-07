@@ -6,6 +6,9 @@ public class Enemy : MonoBehaviour
  // [SerializeField] private float visionAngle = 90f;
     [SerializeField] public LayerMask WhatIsPlayer;
     [SerializeField] private LayerMask whatIsObstacle;
+  
+    // jjj
+    public static bool PlayerHasSword = false;
 
     [SerializeField] public float PatrolSpeed;
     [SerializeField] public float ChaseSpeed;

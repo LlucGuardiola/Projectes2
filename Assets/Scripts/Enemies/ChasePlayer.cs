@@ -14,6 +14,10 @@ public class ChasePlayer : MonoBehaviour
 
     void Update()
     {
+        // jjj
+
+        if (!Enemy.PlayerHasSword) return;
+
         if (isChasing)
         {
             Chase();

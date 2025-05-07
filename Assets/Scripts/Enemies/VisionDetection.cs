@@ -9,6 +9,9 @@ public class VisionDetection : MonoBehaviour
 
     private void Update()
     {
+        // jjj
+        if (!Enemy.PlayerHasSword) return;
+
         float leftOrRight = GetComponent<Enemy>().LookingForward ? visionRange : -visionRange;
 
         Collider2D[] colliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + leftOrRight, transform.position.y + visionSize.y / 2 - 0.5f), visionSize, transform.rotation.z, playerLayer);

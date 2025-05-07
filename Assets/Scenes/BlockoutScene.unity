@@ -10372,6 +10372,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Life: 4
+--- !u!114 &1298230786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298230757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77165e8225e0e2c429e52b7f6e7fd15c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ParryRange: 1.03
+  ParrySize: {x: 1.47, y: 1.68}
+  bulletLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &1304022959
 GameObject:
   m_ObjectHideFlags: 0
@@ -12013,6 +12030,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2800772289420947385, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
       insertIndex: 6
       addedObject: {fileID: 1298230771}
+    - targetCorrespondingSourceObject: {fileID: 2800772289420947385, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1298230786}
   m_SourcePrefab: {fileID: 100100000, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
 --- !u!1001 &1492561506
 PrefabInstance:

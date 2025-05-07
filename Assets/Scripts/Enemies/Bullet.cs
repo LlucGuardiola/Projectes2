@@ -6,15 +6,15 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float damage;
    // private Rigidbody2D _rigidbody;
     //private GameObject player;
-    private Vector2 direction;
+    public Vector2 Direction;
     private float destroyTimeInstantiate = 1f;
     private float destroyTime;
     private Camera mainCamera;
 
     void Start()
     {
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        direction.Normalize();
+        float angle = Mathf.Atan2(Direction.y, Direction.x) * Mathf.Rad2Deg;
+        Direction.Normalize();
         destroyTime = destroyTimeInstantiate;
 
         transform.rotation = Quaternion.Euler(0, 0, angle);
@@ -27,7 +27,7 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         mainCamera = Object.FindAnyObjectByType<Camera>();
-        transform.position += (Vector3)direction * speed * Time.deltaTime;
+        transform.position += (Vector3)Direction * speed * Time.deltaTime;
         destroyTime -= Time.deltaTime;
         Vector3 viewportPosition = mainCamera.WorldToViewportPoint(transform.position);
 
@@ -40,7 +40,7 @@ public class Bullet : MonoBehaviour
 
     public void SetDirection(Vector2 targetPosition)
     {
-        direction = (targetPosition - (Vector2)transform.position).normalized;
+        Direction = (targetPosition - (Vector2)transform.position).normalized;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

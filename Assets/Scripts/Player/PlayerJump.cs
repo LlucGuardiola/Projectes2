@@ -39,7 +39,7 @@ public class PlayerJump : MonoBehaviour
         else coyoteTimeCounter -= Time.deltaTime;
 
 
-        //GetComponent<Animator>().SetBool("IsOnAir?", !IsTouchingGround);
+        GetComponent<Animator>().SetBool("IsOnAir?", !IsTouchingGround);
 
         if (!IsTouchingGround && canJump)
         {

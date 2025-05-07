@@ -1776,7 +1776,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCam: {fileID: 1229646936}
-  checkpointPosition: {fileID: 0}
 --- !u!61 &176130125
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1914,7 +1913,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCam: {fileID: 27383322}
-  checkpointPosition: {fileID: 0}
 --- !u!61 &220669009
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3594,7 +3592,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCam: {fileID: 548364175}
-  checkpointPosition: {fileID: 14472193}
 --- !u!1 &441990529
 GameObject:
   m_ObjectHideFlags: 0
@@ -4119,7 +4116,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCam: {fileID: 126264803}
-  checkpointPosition: {fileID: 0}
 --- !u!61 &491869342
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5860,7 +5856,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCam: {fileID: 2122258962}
-  checkpointPosition: {fileID: 0}
 --- !u!61 &652563855
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6684,7 +6679,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCam: {fileID: 1045894217}
-  checkpointPosition: {fileID: 0}
 --- !u!61 &749967797
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7042,7 +7036,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCam: {fileID: 433405641}
-  checkpointPosition: {fileID: 0}
 --- !u!61 &828651921
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10410,7 +10403,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCam: {fileID: 537386731}
-  checkpointPosition: {fileID: 0}
 --- !u!61 &1304022961
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10585,7 +10577,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCam: {fileID: 1212340908}
-  checkpointPosition: {fileID: 0}
 --- !u!61 &1320254065
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11777,7 +11768,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCam: {fileID: 1512666196}
-  checkpointPosition: {fileID: 0}
 --- !u!61 &1486791850
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11900,6 +11890,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedCircle
       objectReference: {fileID: 0}
+    - target: {fileID: 7562156759449773368, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
+      propertyPath: m_Mass
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562156759449773368, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562156759449773368, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
+      propertyPath: m_GravityScale
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562156759449773368, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
+      propertyPath: m_LinearDamping
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562156759449773368, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
+      propertyPath: m_AngularDamping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7932904730090450941, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.7
@@ -11939,6 +11949,10 @@ PrefabInstance:
     - target: {fileID: 7932904730090450941, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194093892149912436, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
+      propertyPath: JumpStrengh
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8368323704705007442, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
       propertyPath: RedCircle
@@ -12240,7 +12254,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCam: {fileID: 1248499374}
-  checkpointPosition: {fileID: 0}
 --- !u!61 &1501674557
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12792,7 +12805,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCam: {fileID: 574730456}
-  checkpointPosition: {fileID: 0}
 --- !u!1 &1540529860
 GameObject:
   m_ObjectHideFlags: 0
@@ -13086,7 +13098,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCam: {fileID: 1495178979}
-  checkpointPosition: {fileID: 0}
 --- !u!61 &1550394537
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13384,7 +13395,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCam: {fileID: 1548666497}
-  checkpointPosition: {fileID: 21785882}
 --- !u!61 &1585310534
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14850,7 +14860,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCam: {fileID: 702788195}
-  checkpointPosition: {fileID: 0}
 --- !u!61 &1803650119
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15078,7 +15087,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCam: {fileID: 1633405898}
-  checkpointPosition: {fileID: 0}
 --- !u!61 &1832126822
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15654,7 +15662,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCam: {fileID: 1438951181}
-  checkpointPosition: {fileID: 0}
 --- !u!61 &1865469695
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16379,7 +16386,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCam: {fileID: 2131107075}
-  checkpointPosition: {fileID: 0}
 --- !u!61 &1938081812
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16669,7 +16675,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCam: {fileID: 1148306953}
-  checkpointPosition: {fileID: 0}
 --- !u!1 &1970148234
 GameObject:
   m_ObjectHideFlags: 0
@@ -18185,7 +18190,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCam: {fileID: 2126954303}
-  checkpointPosition: {fileID: 0}
 --- !u!61 &2127178780
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18279,7 +18283,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCam: {fileID: 1055761344}
-  checkpointPosition: {fileID: 0}
 --- !u!61 &2131079571
 BoxCollider2D:
   m_ObjectHideFlags: 0

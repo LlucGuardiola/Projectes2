@@ -33,7 +33,6 @@ public class PlayerMovement : MonoBehaviour
         if (GetComponent<Dash>().IsDashing) return;
         if (GetComponent<PlayerJump>().IsWallJumping) return;
         if (PauseLogic.IsPaused) return;
-        if (!GetComponent<PlayerJump>().IsTouchingGround) Speed = Speed / 2;
 
         if (!CanMove) 
         {
@@ -66,6 +65,5 @@ public class PlayerMovement : MonoBehaviour
         }
 
         _rigidbody.linearVelocity = velocity;
-        if (!GetComponent<PlayerJump>().IsTouchingGround) Speed = Speed * 2;
     }
 }

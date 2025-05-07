@@ -1,9 +1,15 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using System.Collections;
 
 public class Health : MonoBehaviour
 {
     public float Life;
+    public bool isPlayer;
+    public Image[] hearts;
+    public Sprite redHeart;
+    public Sprite emptyHeart;
 
     void Update()
     {
@@ -22,10 +28,14 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float ammount)
+    public void TakeDamage(float amount)
     {
-        Life -= ammount;
+        Life -= amount;
         Debug.Log("-1");
+        if (isPlayer)
+        {
+            UpdateHearts();
+        }
     }
 
     Camera GetActiveCamera()
@@ -41,6 +51,21 @@ public class Health : MonoBehaviour
         }
         return null; 
     }
+    public void UpdateHearts()
+    { 
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            if (i < Life)
+            {
+                hearts[i].sprite = redHeart;
+            }
+            else
+            {
+                hearts[i].sprite = emptyHeart;
+            }
+        }
+    }
+
 
 }
 

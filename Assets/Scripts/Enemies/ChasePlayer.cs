@@ -9,7 +9,7 @@ public class ChasePlayer : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        Debug.Log(player.layer);
+    
     }
 
     void Update()

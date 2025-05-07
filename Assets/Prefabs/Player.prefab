@@ -39,7 +39,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.31, y: -3.727, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1674388061379863560}
@@ -92,7 +92,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_Sprite: {fileID: -7176757912517552697, guid: 2e46b53fb1c556d4a8c174ce0a15b692, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -137,17 +137,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.021396898, y: 0.0005662143}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.6, y: 0.6}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.25050092, y: 0.47031558}
   m_EdgeRadius: 0
 --- !u!50 &7562156759449773368
 Rigidbody2D:
@@ -216,7 +216,7 @@ Animator:
   m_GameObject: {fileID: 2800772289420947385}
   m_Enabled: 0
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e78a02fc988ee4d4aa69027a3de4ef28, type: 2}
+  m_Controller: {fileID: 9100000, guid: 83f26eff0ef386f4983c1806e0b1c0e7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -354,7 +354,7 @@ MonoBehaviour:
   dashAttackDuration: 0
   AttackRange: 0
   AttackSize: {x: 0, y: 0}
-  RedCircle: {fileID: 0}
+  RedCircle: {fileID: 3071694125513526514}
 --- !u!1 &3027542915025339787
 GameObject:
   m_ObjectHideFlags: 0

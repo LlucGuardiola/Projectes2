@@ -17,11 +17,13 @@ public class Enemy : MonoBehaviour
     public bool InRange;
     public bool DistanceAttack;
     public bool MeleeAttack;
+    private Animator animator;
 
     private void Start()
     {
         LookingForward = true;
         IsPatrolling = true;
+        animator = GetComponent<Animator>();
     }
 
     public void Flip()
@@ -30,5 +32,17 @@ public class Enemy : MonoBehaviour
         scale.x *= -1;
         transform.localScale = scale;
         GetComponent<Enemy>().LookingForward = !GetComponent<Enemy>().LookingForward;
+    }
+
+    private void Update()
+    {
+        if (InRange)
+        {
+            animator.SetBool("isChasing?", false);
+        }
+        else if (IsChasing || IsPatrolling)
+        {
+            animator.SetBool("isChasing?", true);
+        }
     }
 }

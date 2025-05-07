@@ -8,10 +8,12 @@ public class DistanceAttack : MonoBehaviour
 
     private float fireCooldown;
     [HideInInspector] public GameObject player;
+    private Animator animator;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -28,6 +30,7 @@ public class DistanceAttack : MonoBehaviour
 
     private void Shoot(Transform player)
     {
+        animator.SetTrigger("Shoot");
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
         Bullet bulletScript = bullet.GetComponent<Bullet>();
         bulletScript.SetDirection(player.position);

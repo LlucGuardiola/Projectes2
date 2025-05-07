@@ -1,19 +1,13 @@
 fileFormatVersion: 2
-guid: 830edcf1df341b24aa7a9939679279c9
+guid: 2e46b53fb1c556d4a8c174ce0a15b692
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6568381017807469242
-    second: enemy_walk_0
+      213: -7176757912517552697
+    second: EnemigoGordoWalk_0
   - first:
-      213: -7724142208158362519
-    second: enemy_walk_1
-  - first:
-      213: 6291463294519083085
-    second: enemy_walk_2
-  - first:
-      213: -5716283468139608365
-    second: enemy_walk_3
+      213: 4410874409790122552
+    second: EnemigoGordoWalk_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy_walk_0
+      name: EnemigoGordoWalk_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 40
-        height: 45
+        width: 60
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 645ca2cd34c68d4a0800000000000000
-      internalID: -6568381017807469242
+      spriteID: 7c5da61e3b8076c90800000000000000
+      internalID: -7176757912517552697
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_walk_1
+      name: EnemigoGordoWalk_1
       rect:
         serializedVersion: 2
-        x: 40
+        x: 60
         y: 0
-        width: 40
-        height: 45
+        width: 60
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,30 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9649e1006955ec490800000000000000
-      internalID: -7724142208158362519
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy_walk_2
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 0
-        width: 40
-        height: 45
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d4008336884cf4750800000000000000
-      internalID: 6291463294519083085
+      spriteID: 83aa668e7e2963d30800000000000000
+      internalID: 4410874409790122552
       vertices: []
       indices: 
       edges: []
@@ -178,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: b59496d29cb370b498360691fb21abeb
+    spriteID: ce4fbfba40401064eb77dabcacae7f35
     internalID: 0
     vertices: []
     indices: 
@@ -188,9 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      enemy_walk_0: -6568381017807469242
-      enemy_walk_1: -7724142208158362519
-      enemy_walk_2: 6291463294519083085
+      EnemigoGordoWalk_0: -7176757912517552697
+      EnemigoGordoWalk_1: 4410874409790122552
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

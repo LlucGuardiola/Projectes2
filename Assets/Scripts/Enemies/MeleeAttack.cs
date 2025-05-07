@@ -12,11 +12,13 @@ public class MeleeAttack : MonoBehaviour
     private bool isAttacking;
     [SerializeField] private float attackDuration;
     [SerializeField] private GameObject redCircle;
-    
+    private Animator animator;
+
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -33,12 +35,13 @@ public class MeleeAttack : MonoBehaviour
 
     private void Attack(Transform player)
     {
-        if (isAttacking) return; 
+        if (isAttacking) return;
+        animator.SetTrigger("MeleeAttack");
         isAttacking = true;
         count = true;
         counter = 0;
         redCircle.transform.localScale = new Vector2(redCircle.transform.localScale.x + 3.5f, redCircle.transform.localScale.y + 3.5f);
-
+        
         
         Collider2D[] colliders = Physics2D.OverlapBoxAll(new Vector2(redCircle.transform.position.x, redCircle. transform.position.y), new Vector2 (2,2), transform.rotation.z, GetComponent<Enemy>().WhatIsPlayer);
         if (colliders.Length == 0) return;

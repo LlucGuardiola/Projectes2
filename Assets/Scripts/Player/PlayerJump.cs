@@ -63,7 +63,7 @@ public class PlayerJump : MonoBehaviour
 
         if (IsWallSliding && !IsTouchingGround) 
         {
-            vel = new Vector2(-CollisionPos * JumpStrengh / 3, JumpStrengh);
+            vel = new Vector2(-CollisionPos * JumpStrengh / 5, JumpStrengh);
             count = true;
             counter = 0;
             IsWallJumping = true;

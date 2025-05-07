@@ -5,8 +5,6 @@ using System.Collections;
 public class RmManager : MonoBehaviour
 {
     public GameObject virtualCam;
-    public Transform checkpointPosition;
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("Player"))
@@ -18,17 +16,14 @@ public class RmManager : MonoBehaviour
             }  */
 
             virtualCam.SetActive(true);
-            CheckpointManager.Instance.SetCheckpoint(checkpointPosition.position, virtualCam);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-
         if (collision.gameObject.CompareTag("Player"))
         {
             virtualCam.SetActive(false);
         }
     }
-
 }

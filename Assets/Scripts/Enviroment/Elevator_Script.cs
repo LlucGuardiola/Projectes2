@@ -2,64 +2,55 @@ using UnityEngine;
 
 public class Elevator_Script : MonoBehaviour
 {
-
-
     public GameObject PatrolPointUp;
     public GameObject PatrolPointDown;
 
     private bool isPlayer;
+    private bool isMoving;
 
     public float Speed = 5.0f;
 
-    [SerializeField] private GameObject triggerZone;
-   
 
-    private Vector3 direction;  
+    private Vector3 direction;
+
     private void Start()
     {
         isPlayer = false;
-  
-        if (isPlayer)
-        {
-            transform.position = PatrolPointUp.transform.position;
-            direction = (PatrolPointUp.transform.position - PatrolPointDown.transform.position).normalized;
-        } 
+        isMoving = false;
     }
 
     private void Update()
     {
-       if(isPlayer) 
-       {
+        if (isMoving)
+        {
             transform.Translate(direction * Speed * Time.deltaTime);
-            if (Vector2.Distance(transform.position, PatrolPointUp.transform.position) < 0.1f)
+
+            if (Vector2.Distance(transform.position, PatrolPointDown.transform.position) < 0.1f)
             {
-                direction = (PatrolPointDown.transform.position - PatrolPointUp.transform.position).normalized;
-            }
-            else if (Vector2.Distance(transform.position, PatrolPointDown.transform.position) < 0.1f)
-            {
-                direction = (PatrolPointUp.transform.position - PatrolPointDown.transform.position).normalized;
+                Debug.Log("Elevador llegó al punto inferior");
+                isMoving = false; // Se detiene
             }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("1");
+            Debug.Log("Jugador activó el elevador");
             isPlayer = true;
+            isMoving = true;
+
+            direction = (PatrolPointDown.transform.position - transform.position).normalized;
         }
-      
     }
 
     private void OnTriggerExit2D(Collider2D collision)
-    {   
+    {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("2");
+            Debug.Log("Jugador salió del trigger");
             isPlayer = false;
         }
     }
-
 }

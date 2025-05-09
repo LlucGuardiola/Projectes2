@@ -10,7 +10,6 @@ public class Sword : ItemBase
     public override void Grab()
     {
         player.GetComponent<PlayerAttack>().CanAttack = true;
-        // jjj
         Enemy.PlayerHasSword = true;
         Destroy(gameObject);
     }

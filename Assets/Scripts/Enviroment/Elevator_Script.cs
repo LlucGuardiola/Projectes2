@@ -7,6 +7,7 @@ public class Elevator_Script : MonoBehaviour
 
     private bool isPlayer;
     private bool isMoving;
+    private bool buttonSwitch;
 
     public float Speed = 5.0f;
 
@@ -15,20 +16,19 @@ public class Elevator_Script : MonoBehaviour
 
     private void Start()
     {
-        isPlayer = false;
         isMoving = false;
+        buttonSwitch= false;
     }
 
     private void Update()
     {
-        if (isMoving)
+        if (isMoving && buttonSwitch)
         {
             transform.Translate(direction * Speed * Time.deltaTime);
 
             if (Vector2.Distance(transform.position, PatrolPointDown.transform.position) < 0.1f)
             {
-                Debug.Log("Elevador llegó al punto inferior");
-                isMoving = false; // Se detiene
+                isMoving = false; 
             }
         }
     }
@@ -37,8 +37,6 @@ public class Elevator_Script : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Jugador activó el elevador");
-            isPlayer = true;
             isMoving = true;
 
             direction = (PatrolPointDown.transform.position - transform.position).normalized;
@@ -49,8 +47,12 @@ public class Elevator_Script : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Jugador salió del trigger");
-            isPlayer = false;
+            isMoving = false;
         }
+    }
+
+    public void OnElevator()
+    {
+        buttonSwitch = true;
     }
 }

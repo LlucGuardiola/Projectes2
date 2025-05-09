@@ -38,7 +38,6 @@ public class PlayerJump : MonoBehaviour
         if (IsTouchingGround) coyoteTimeCounter = coyoteTime;
         else coyoteTimeCounter -= Time.deltaTime;
 
-
         //GetComponent<Animator>().SetBool("IsOnAir?", !IsTouchingGround);
 
         if (!IsTouchingGround && canJump)
@@ -81,6 +80,7 @@ public class PlayerJump : MonoBehaviour
         }
 
         _rigidbody.linearVelocity = vel;
+
         canJump = false;
 
         //if (audioSource != null && JumpSound != null)

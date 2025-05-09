@@ -4,17 +4,14 @@ using UnityEngine;
 public class Platform : MonoBehaviour
 {
     [SerializeField] private Vector2 collisionSize;
+    [SerializeField] private Vector2 collisionOffset;
     [SerializeField] private LayerMask playerLayer;
-
-    void Start()
-    {
-    }
 
     void Update()
     {
         Collider2D[] colliders;
 
-        colliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x, transform.position.y), collisionSize, transform.rotation.z, playerLayer);
+        colliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + collisionOffset.x, transform.position.y + collisionOffset.y), collisionSize, transform.rotation.z, playerLayer);
 
         if (colliders.Length == 0)
         {
@@ -31,6 +28,6 @@ public class Platform : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(new Vector2(transform.position.x, transform.position.y), collisionSize);
+        Gizmos.DrawWireCube(new Vector2(transform.position.x + collisionOffset.x, transform.position.y + collisionOffset.y), collisionSize);
     }
 }

@@ -9,14 +9,14 @@ public class CameraSystem : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float distanceToMove;
     [SerializeField] private LayerMask cameraZoneLayer;
-    private bool moveCamera;
+    // private bool moveCamera;
     private Vector2 direction;
 
     private void Start()
     {
         cam = GameObject.Find("Main Camera");
         player = GameObject.Find("Player");
-        moveCamera = true;
+        //moveCamera = true;
     }
 
     private void Update()
@@ -24,26 +24,29 @@ public class CameraSystem : MonoBehaviour
         direction = player.transform.position - cam.transform.position;
         direction = direction.normalized;
 
-        float newSpeed = speed;
+        Vector3 newPos;
 
-        if (!player.GetComponent<PlayerJump>().IsTouchingGround)
+        if (player.GetComponent<PlayerJump>().IsTouchingGround)
         {
-            newSpeed = speed / 3;
+            newPos = cam.transform.position + (Vector3)direction * speed * Time.deltaTime;
         }
-
-        Vector3 newPos = cam.transform.position + (Vector3)direction * newSpeed * Time.deltaTime;
+        else
+        {
+            newPos = new Vector3(cam.transform.position.x + direction.x * speed * Time.deltaTime,
+                                 cam.transform.position.y + direction.y * speed / 2 * Time.deltaTime,
+                                 cam.transform.position.z);
+        }
 
         Collider2D[] colliders;
 
-        colliders = Physics2D.OverlapBoxAll(new Vector2(newPos.x, newPos.y), Vector2.one, 0, cameraZoneLayer);
-        
+        colliders = Physics2D.OverlapBoxAll(new Vector2(newPos.x, newPos.y), Vector2.one, 0f, cameraZoneLayer);
+
         if (colliders.Length == 0) 
         {
-            Debug.Log("biahdw");
             newPos.y = cam.transform.position.y;
         }
 
-        if (moveCamera && (player.transform.position - cam.transform.position).sqrMagnitude > 1f)
+        if (Vector2.Distance(cam.transform.position, player.transform.position) > 1f)
         {
             cam.transform.position = newPos;
         }

@@ -27,8 +27,7 @@ public class Elevator_Script : MonoBehaviour
 
             if (Vector2.Distance(transform.position, PatrolPointDown.transform.position) < 0.1f)
             {
-                Debug.Log("Elevador llegó al punto inferior");
-                isMoving = false; // Se detiene
+                isMoving = false; 
             }
         }
     }
@@ -37,7 +36,6 @@ public class Elevator_Script : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Jugador activó el elevador");
             isPlayer = true;
             isMoving = true;
 
@@ -49,7 +47,6 @@ public class Elevator_Script : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Jugador salió del trigger");
             isPlayer = false;
         }
     }

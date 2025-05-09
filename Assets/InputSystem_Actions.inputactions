@@ -105,6 +105,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Elevator",
+                    "type": "Button",
+                    "id": "2b1dafe7-0462-4e68-84cd-4c7bf2f91522",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Grab",
                     "type": "Button",
                     "id": "f2301b68-20aa-48e3-84ed-1e0bc39c5081",
@@ -519,6 +528,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2f0c9250-7206-4d95-8bc6-05a5b59981f5",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Elevator",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

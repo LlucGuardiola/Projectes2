@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -25,15 +26,16 @@ public class CameraSystem : MonoBehaviour
         direction = direction.normalized;
 
         Vector3 newPos;
+        float distance = (cam.transform.position - player.transform.position).magnitude * 0.1f;
 
         if (player.GetComponent<PlayerJump>().IsTouchingGround)
         {
-            newPos = cam.transform.position + (Vector3)direction * speed * Time.deltaTime;
+            newPos = cam.transform.position + (Vector3)direction * speed * distance * Time.deltaTime;
         }
         else
         {
-            newPos = new Vector3(cam.transform.position.x + direction.x * speed * Time.deltaTime,
-                                 cam.transform.position.y + direction.y * speed / 2 * Time.deltaTime,
+            newPos = new Vector3(cam.transform.position.x + direction.x * speed * distance * Time.deltaTime,
+                                 cam.transform.position.y + direction.y * speed / 2 * distance * Time.deltaTime,
                                  cam.transform.position.z);
         }
 

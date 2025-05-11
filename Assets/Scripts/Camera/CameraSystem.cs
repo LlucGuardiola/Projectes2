@@ -26,7 +26,7 @@ public class CameraSystem : MonoBehaviour
         direction = direction.normalized;
 
         Vector3 newPos;
-        float distance = (cam.transform.position - player.transform.position).magnitude * 0.1f;
+        float distance = 1f; //(cam.transform.position - player.transform.position).magnitude * 0.1f;
 
         if (player.GetComponent<PlayerJump>().IsTouchingGround)
         {

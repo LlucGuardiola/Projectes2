@@ -10,8 +10,10 @@ public class CameraSystem : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float distanceToMove;
     [SerializeField] private LayerMask cameraZoneLayer;
+    [SerializeField] private float heightIncrease;
     // private bool moveCamera;
     private Vector2 direction;
+    private Vector3 playerPosition;
 
     private void Start()
     {
@@ -22,7 +24,10 @@ public class CameraSystem : MonoBehaviour
 
     private void Update()
     {
-        direction = player.transform.position - cam.transform.position;
+        playerPosition = player.transform.position;
+        playerPosition.y += heightIncrease;
+
+        direction = playerPosition - cam.transform.position;
         direction = direction.normalized;
 
         Vector3 newPos;
@@ -48,7 +53,7 @@ public class CameraSystem : MonoBehaviour
             newPos.y = cam.transform.position.y;
         }
 
-        if (Vector2.Distance(cam.transform.position, player.transform.position) > 1f)
+        if (Vector2.Distance(cam.transform.position, playerPosition) > 1f)
         {
             cam.transform.position = newPos;
         }

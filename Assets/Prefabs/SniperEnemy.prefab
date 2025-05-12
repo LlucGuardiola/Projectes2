@@ -243,8 +243,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e9100be75b1ca1468c9d89dc3c63f93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visionRange: 3.26
-  visionSize: {x: 9.76, y: 8.99}
+  visionRangeX: 3.38
+  visionRangeY: 2.32
+  visionSize: {x: 12.9, y: 7.5}
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -288,6 +289,8 @@ MonoBehaviour:
   InRange: 0
   DistanceAttack: 1
   MeleeAttack: 0
+  IsAttacking: 0
+  PatrollingDisabled: 0
 --- !u!114 &634678237539422160
 MonoBehaviour:
   m_ObjectHideFlags: 0

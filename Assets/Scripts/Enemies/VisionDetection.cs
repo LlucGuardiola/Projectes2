@@ -3,18 +3,19 @@ using UnityEngine;
 
 public class VisionDetection : MonoBehaviour
 {
-    [SerializeField] private float visionRange;
+    [SerializeField] private float visionRangeX;
+    [SerializeField] private float visionRangeY;
+
     [SerializeField] private Vector2 visionSize;
     [SerializeField] private LayerMask playerLayer;
 
     private void Update()
     {
-        // jjj
         if (!Enemy.PlayerHasSword) return;
 
-        float leftOrRight = GetComponent<Enemy>().LookingForward ? visionRange : -visionRange;
+        float leftOrRight = GetComponent<Enemy>().LookingForward ? visionRangeX : -visionRangeX;
 
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + leftOrRight, transform.position.y + visionSize.y / 2 - 0.5f), visionSize, transform.rotation.z, playerLayer);
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + leftOrRight, transform.position.y + visionRangeY / 2 - 0.5f), visionSize, transform.rotation.z, playerLayer);
         
         if (colliders.Length == 0) 
         {
@@ -43,9 +44,9 @@ public class VisionDetection : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        float leftOrRight = GetComponent<Enemy>().LookingForward ? visionRange : -visionRange;
+        float leftOrRight = GetComponent<Enemy>().LookingForward ? visionRangeX : -visionRangeX;
 
         Gizmos.color = Color.green;
-        Gizmos.DrawWireCube(new Vector2(transform.position.x + leftOrRight, transform.position.y + visionSize.y/2 - 0.5f), visionSize);
+        Gizmos.DrawWireCube(new Vector2(transform.position.x + leftOrRight, transform.position.y + visionRangeY), visionSize);
     }
 }

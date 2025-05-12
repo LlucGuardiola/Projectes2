@@ -895,7 +895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f959e15edd38beb49b8b83a2336f3aed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PausePanel: {fileID: 137742532}
+  PausePanel: {fileID: 0}
 --- !u!4 &48550463
 Transform:
   m_ObjectHideFlags: 0
@@ -1866,11 +1866,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4861540042567176713, guid: a2ff3a1b446c29d43979bb67676114b3, type: 3}
   m_PrefabInstance: {fileID: 936965785}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &137742532 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2801396202067972042, guid: 8a8e9a981103d664f905fdb2b50eae64, type: 3}
-  m_PrefabInstance: {fileID: 273212633}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &150130617
 GameObject:
   m_ObjectHideFlags: 0
@@ -2035,7 +2030,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf306ef4208dca142897d4784e898dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virtualCam: {fileID: 1229646936}
 --- !u!61 &176130125
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2246,7 +2240,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf306ef4208dca142897d4784e898dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virtualCam: {fileID: 27383322}
 --- !u!61 &220669009
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2448,139 +2441,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1001 &273212633
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 26786776787789449, guid: 8a8e9a981103d664f905fdb2b50eae64, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 26786776787789449, guid: 8a8e9a981103d664f905fdb2b50eae64, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 26786776787789449, guid: 8a8e9a981103d664f905fdb2b50eae64, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 26786776787789449, guid: 8a8e9a981103d664f905fdb2b50eae64, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 26786776787789449, guid: 8a8e9a981103d664f905fdb2b50eae64, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 26786776787789449, guid: 8a8e9a981103d664f905fdb2b50eae64, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 26786776787789449, guid: 8a8e9a981103d664f905fdb2b50eae64, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 26786776787789449, guid: 8a8e9a981103d664f905fdb2b50eae64, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 26786776787789449, guid: 8a8e9a981103d664f905fdb2b50eae64, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 26786776787789449, guid: 8a8e9a981103d664f905fdb2b50eae64, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 26786776787789449, guid: 8a8e9a981103d664f905fdb2b50eae64, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 26786776787789449, guid: 8a8e9a981103d664f905fdb2b50eae64, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 26786776787789449, guid: 8a8e9a981103d664f905fdb2b50eae64, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 26786776787789449, guid: 8a8e9a981103d664f905fdb2b50eae64, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 26786776787789449, guid: 8a8e9a981103d664f905fdb2b50eae64, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 26786776787789449, guid: 8a8e9a981103d664f905fdb2b50eae64, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 26786776787789449, guid: 8a8e9a981103d664f905fdb2b50eae64, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 26786776787789449, guid: 8a8e9a981103d664f905fdb2b50eae64, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 26786776787789449, guid: 8a8e9a981103d664f905fdb2b50eae64, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 26786776787789449, guid: 8a8e9a981103d664f905fdb2b50eae64, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 186907422188427084, guid: 8a8e9a981103d664f905fdb2b50eae64, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 1199
-      objectReference: {fileID: 0}
-    - target: {fileID: 186907422188427084, guid: 8a8e9a981103d664f905fdb2b50eae64, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 674
-      objectReference: {fileID: 0}
-    - target: {fileID: 186907422188427084, guid: 8a8e9a981103d664f905fdb2b50eae64, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.1667
-      objectReference: {fileID: 0}
-    - target: {fileID: 186907422188427084, guid: 8a8e9a981103d664f905fdb2b50eae64, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.1667
-      objectReference: {fileID: 0}
-    - target: {fileID: 186907422188427084, guid: 8a8e9a981103d664f905fdb2b50eae64, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.1667
-      objectReference: {fileID: 0}
-    - target: {fileID: 186907422188427084, guid: 8a8e9a981103d664f905fdb2b50eae64, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 186907422188427084, guid: 8a8e9a981103d664f905fdb2b50eae64, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2801396202067972042, guid: 8a8e9a981103d664f905fdb2b50eae64, type: 3}
-      propertyPath: m_Name
-      value: PauseScreen
-      objectReference: {fileID: 0}
-    - target: {fileID: 2801396202067972042, guid: 8a8e9a981103d664f905fdb2b50eae64, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4904047254371482471, guid: 8a8e9a981103d664f905fdb2b50eae64, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8a8e9a981103d664f905fdb2b50eae64, type: 3}
 --- !u!1 &277091755
 GameObject:
   m_ObjectHideFlags: 0
@@ -3862,7 +3722,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf306ef4208dca142897d4784e898dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virtualCam: {fileID: 548364175}
 --- !u!1 &441122542
 GameObject:
   m_ObjectHideFlags: 0
@@ -4872,7 +4731,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf306ef4208dca142897d4784e898dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virtualCam: {fileID: 126264803}
 --- !u!61 &491869342
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6654,7 +6512,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf306ef4208dca142897d4784e898dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virtualCam: {fileID: 2122258962}
 --- !u!61 &652563855
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7559,7 +7416,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf306ef4208dca142897d4784e898dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virtualCam: {fileID: 1045894217}
 --- !u!61 &749967797
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7749,7 +7605,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf306ef4208dca142897d4784e898dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virtualCam: {fileID: 433405641}
 --- !u!61 &828651921
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -282736,7 +282591,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf306ef4208dca142897d4784e898dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virtualCam: {fileID: 537386731}
 --- !u!61 &1304022961
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -282920,7 +282774,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf306ef4208dca142897d4784e898dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virtualCam: {fileID: 1212340908}
 --- !u!61 &1320254065
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -284093,7 +283946,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf306ef4208dca142897d4784e898dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virtualCam: {fileID: 1512666196}
 --- !u!61 &1486791850
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -284395,7 +284247,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf306ef4208dca142897d4784e898dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virtualCam: {fileID: 1248499374}
 --- !u!61 &1501674557
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -284951,7 +284802,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf306ef4208dca142897d4784e898dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virtualCam: {fileID: 574730456}
 --- !u!4 &1540346810 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6161689928404069127, guid: a2ff3a1b446c29d43979bb67676114b3, type: 3}
@@ -285120,7 +284970,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf306ef4208dca142897d4784e898dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virtualCam: {fileID: 1495178979}
 --- !u!61 &1550394537
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -285434,7 +285283,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf306ef4208dca142897d4784e898dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virtualCam: {fileID: 1548666497}
 --- !u!61 &1585310534
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -287051,7 +286899,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf306ef4208dca142897d4784e898dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virtualCam: {fileID: 702788195}
 --- !u!61 &1803650119
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -287278,7 +287125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf306ef4208dca142897d4784e898dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virtualCam: {fileID: 1633405898}
 --- !u!61 &1832126822
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -287451,7 +287297,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf306ef4208dca142897d4784e898dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virtualCam: {fileID: 1438951181}
 --- !u!61 &1865469695
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -288175,7 +288020,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf306ef4208dca142897d4784e898dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virtualCam: {fileID: 2131107075}
 --- !u!61 &1938081812
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -288354,7 +288198,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf306ef4208dca142897d4784e898dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virtualCam: {fileID: 1148306953}
 --- !u!1 &1970148234
 GameObject:
   m_ObjectHideFlags: 0
@@ -290142,7 +289985,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf306ef4208dca142897d4784e898dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virtualCam: {fileID: 2126954303}
 --- !u!61 &2127178780
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -290235,7 +290077,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf306ef4208dca142897d4784e898dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virtualCam: {fileID: 1055761344}
 --- !u!61 &2131079571
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -290514,7 +290355,6 @@ SceneRoots:
   - {fileID: 783792638}
   - {fileID: 642930242}
   - {fileID: 48550463}
-  - {fileID: 273212633}
   - {fileID: 194880991}
   - {fileID: 1350937050}
   - {fileID: 1280681894}

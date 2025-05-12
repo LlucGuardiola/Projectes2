@@ -21,6 +21,7 @@ public class KnockbackFeedback : MonoBehaviour
         if (!isKnocked)
         {
             isKnocked = true;
+            GetComponent<Enemy>().IsChasing = true;
             rb.linearVelocity = Vector2.zero; // Resetea velocidad anterior
             rb.AddForce(direction.normalized * knockbackForce, ForceMode2D.Impulse);
             Invoke("ResetKnockback", knockbackDuration);
@@ -32,5 +33,4 @@ public class KnockbackFeedback : MonoBehaviour
         isKnocked = false;
         rb.linearVelocity = Vector2.zero;
     }
-
 }

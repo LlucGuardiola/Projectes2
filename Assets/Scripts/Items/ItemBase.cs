@@ -27,4 +27,10 @@ public abstract class ItemBase : MonoBehaviour
     }
 
     public virtual void Grab() { Destroy(gameObject); }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireCube(transform.position, grabSize);
+    }
 }

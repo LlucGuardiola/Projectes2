@@ -9,7 +9,6 @@ public class MeleeAttack : MonoBehaviour
     [HideInInspector] public GameObject player;
     private bool count;
     private float counter;
-    private bool isAttacking;
     [SerializeField] private float attackDuration;
     [SerializeField] private GameObject redCircle;
     private Animator animator;
@@ -35,9 +34,9 @@ public class MeleeAttack : MonoBehaviour
 
     private void Attack(Transform player)
     {
-        if (isAttacking) return;
+        if (GetComponent<Enemy>().IsAttacking) return;
         animator.SetTrigger("MeleeAttack");
-        isAttacking = true;
+        GetComponent<Enemy>().IsAttacking = true;
         count = true;
         counter = 0;
         redCircle.transform.localScale = new Vector2(redCircle.transform.localScale.x + 3.5f, redCircle.transform.localScale.y + 3.5f);
@@ -57,7 +56,7 @@ public class MeleeAttack : MonoBehaviour
         if (counter >= attackDuration)
         {
             redCircle.transform.localScale = new Vector2(redCircle.transform.localScale.x - 3.5f, redCircle.transform.localScale.y - 3.5f);
-            isAttacking = false;
+            GetComponent<Enemy>().IsAttacking = false;
             count = false;
         }
     }

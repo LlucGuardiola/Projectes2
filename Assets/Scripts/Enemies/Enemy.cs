@@ -13,13 +13,15 @@ public class Enemy : MonoBehaviour
     [SerializeField] public float PatrolSpeed;
     [SerializeField] public float ChaseSpeed;
 
-    public bool HasToChase;
-    public bool IsChasing;
-    public bool IsPatrolling;
-    public bool LookingForward;
+    [HideInInspector] public bool HasToChase;
+    [HideInInspector] public bool IsChasing;
+    [HideInInspector] public bool IsPatrolling;
+    [HideInInspector] public bool LookingForward;
     public bool InRange;
     public bool DistanceAttack;
     public bool MeleeAttack;
+    [HideInInspector] public bool IsAttacking;
+    public bool PatrollingDisabled;
     private Animator animator;
 
     private void Start()

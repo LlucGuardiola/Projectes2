@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseLogic : MonoBehaviour
 {
@@ -16,6 +17,10 @@ public class PauseLogic : MonoBehaviour
         
     }
 
+    public void Return()
+    {
+        SceneManager.LoadScene("MainMenuScene");
+    }
     public void OnPause()
     {
         if (IsPaused)

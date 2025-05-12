@@ -20,6 +20,9 @@ public class PauseLogic : MonoBehaviour
     public void Return()
     {
         SceneManager.LoadScene("MainMenuScene");
+        IsPaused = false;
+        PausePanel.SetActive(false);
+        Time.timeScale = 1.0f;
     }
     public void OnPause()
     {
@@ -35,6 +38,15 @@ public class PauseLogic : MonoBehaviour
         }
 
         IsPaused = !IsPaused;
+    }
+
+    public void Resart()
+    {
+        SceneManager.LoadScene("Blockout");
+        IsPaused = false;
+        PausePanel.SetActive(false);
+        Time.timeScale = 1.0f;
+
     }
 
 }

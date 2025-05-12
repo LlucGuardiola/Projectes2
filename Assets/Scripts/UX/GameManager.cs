@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
  
     public void GameStart()
     {
-        SceneManager.LoadScene("BlockoutScene");
+        SceneManager.LoadScene("Blockout");
     }
 
     public void OnQuit()

@@ -17,12 +17,13 @@ public class EnemyPatrol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GetComponent<Enemy>().IsAttacking) return;
         if (GetComponent<Enemy>().PatrollingDisabled)
         {
-            
+            GetComponent<Animator>().SetBool("IsIdle?", true);   
             return;
         }
+
+        if (GetComponent<Enemy>().IsAttacking) return;
 
         if (isPatrolling)
         {

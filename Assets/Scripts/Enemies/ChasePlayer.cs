@@ -9,13 +9,10 @@ public class ChasePlayer : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-    
     }
 
     void Update()
     {
-        // jjj
-
         if (!Enemy.PlayerHasSword) return;
         if (GetComponent<Enemy>().IsAttacking) return;
 

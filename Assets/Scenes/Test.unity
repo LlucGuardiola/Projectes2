@@ -2069,7 +2069,7 @@ Transform:
   m_GameObject: {fileID: 529236156}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.505257, y: -9.375593, z: 0.453125}
+  m_LocalPosition: {x: 13.505257, y: -9.3170185, z: 0.453125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19217,6 +19217,11 @@ MonoBehaviour:
     MaxWindowSize: 0
     Padding: 0
   m_LegacyMaxWindowSize: -2
+--- !u!1 &1274697243 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3693009344413952704, guid: f6c97c3823794024d9573fea145ff66a, type: 3}
+  m_PrefabInstance: {fileID: 3194311995851073323}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1280681893
 GameObject:
   m_ObjectHideFlags: 0
@@ -19578,36 +19583,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2572087929170843024, guid: f6c97c3823794024d9573fea145ff66a, type: 3}
   m_PrefabInstance: {fileID: 3194311995851073323}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1489421209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1489421203}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!1001 &1554719964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20722,6 +20697,10 @@ PrefabInstance:
       value: 0.8836272
       objectReference: {fileID: 0}
     - target: {fileID: 224929881290630381, guid: f6c97c3823794024d9573fea145ff66a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224929881290630381, guid: f6c97c3823794024d9573fea145ff66a, type: 3}
       propertyPath: m_Offset.x
       value: -0.011369765
       objectReference: {fileID: 0}
@@ -20733,13 +20712,17 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.01215665
       objectReference: {fileID: 0}
+    - target: {fileID: 276244980142292515, guid: f6c97c3823794024d9573fea145ff66a, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1898553280709650937, guid: f6c97c3823794024d9573fea145ff66a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.55
       objectReference: {fileID: 0}
     - target: {fileID: 1898553280709650937, guid: f6c97c3823794024d9573fea145ff66a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.9499998
+      value: 2.0085754
       objectReference: {fileID: 0}
     - target: {fileID: 1898553280709650937, guid: f6c97c3823794024d9573fea145ff66a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -20778,6 +20761,18 @@ PrefabInstance:
       value: Elevator
       objectReference: {fileID: 0}
     - target: {fileID: 5934374709408403400, guid: f6c97c3823794024d9573fea145ff66a, type: 3}
+      propertyPath: key
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5934374709408403400, guid: f6c97c3823794024d9573fea145ff66a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5934374709408403400, guid: f6c97c3823794024d9573fea145ff66a, type: 3}
+      propertyPath: TriggerZone
+      value: 
+      objectReference: {fileID: 1274697243}
+    - target: {fileID: 5934374709408403400, guid: f6c97c3823794024d9573fea145ff66a, type: 3}
       propertyPath: PatrolPointUp
       value: 
       objectReference: {fileID: 880659748}
@@ -20785,13 +20780,31 @@ PrefabInstance:
       propertyPath: PatrolPointDown
       value: 
       objectReference: {fileID: 529236156}
-    m_RemovedComponents: []
+    - target: {fileID: 7981479100880909797, guid: f6c97c3823794024d9573fea145ff66a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8845846994976182218, guid: f6c97c3823794024d9573fea145ff66a, type: 3}
+      propertyPath: key
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8845846994976182218, guid: f6c97c3823794024d9573fea145ff66a, type: 3}
+      propertyPath: Elevator
+      value: 
+      objectReference: {fileID: 1489421203}
+    - target: {fileID: 8845846994976182218, guid: f6c97c3823794024d9573fea145ff66a, type: 3}
+      propertyPath: PatrolPointUp
+      value: 
+      objectReference: {fileID: 880659748}
+    - target: {fileID: 8845846994976182218, guid: f6c97c3823794024d9573fea145ff66a, type: 3}
+      propertyPath: PatrolPointDown
+      value: 
+      objectReference: {fileID: 529236156}
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2572087929170843024, guid: f6c97c3823794024d9573fea145ff66a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1489421209}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6c97c3823794024d9573fea145ff66a, type: 3}
 --- !u!1 &4904047254106693566
 GameObject:

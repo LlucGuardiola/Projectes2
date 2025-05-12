@@ -4,16 +4,15 @@ public class Elevator_Script : MonoBehaviour
 {
     public GameObject PatrolPointUp;
     public GameObject PatrolPointDown;
+    public GameObject Elevator;
 
-    private bool isPlayer;
     private bool isMoving;
     private bool buttonSwitch;
     private string level = "1";
-
+    public bool key;
+    private bool isPlayerInside;
 
     public float Speed = 5.0f;
-
-
     private Vector3 direction;
     private Vector3 targetPosition;
 
@@ -21,51 +20,55 @@ public class Elevator_Script : MonoBehaviour
     {
         isMoving = false;
         buttonSwitch= false;
+        isPlayerInside = false;
     }
 
     private void Update()
     {
-        if (isMoving)
+        if (buttonSwitch && !isMoving)
         {
-            transform.Translate(direction * Speed * Time.deltaTime);
+            isMoving = true;
 
             if (level == "1")
             {
                 targetPosition = PatrolPointDown.transform.position;
-                direction = (targetPosition - transform.position).normalized;
+                direction = (targetPosition - Elevator.transform.position).normalized;
             }
             else if (level == "2")
             {
                 targetPosition = PatrolPointUp.transform.position;
-                direction = (targetPosition - transform.position).normalized;
+                direction = (targetPosition - Elevator.transform.position).normalized;
             }
+        }
 
-            if (Vector2.Distance(transform.position, targetPosition) < 0.00000001f)
+        if (isMoving)
+        {
+            Elevator.transform.Translate(direction * Speed * Time.deltaTime);
+
+            if (Vector3.Distance(Elevator.transform.position, targetPosition) < 0.1f)
             {
+                Elevator.transform.position = targetPosition;
                 isMoving = false;
-                if (level == "1") level = "2";
-                else if (level == "2") level = "1";
+                buttonSwitch = false;
+                if (level == "1") level = "2"; else level = "1";
             }
         }
-        Debug.Log(buttonSwitch);
+    }
 
-        if(buttonSwitch)
+    public void OnElevator()
+    {
+        if(key && isPlayerInside)
         {
-            isMoving = true;
+            buttonSwitch = true;
         }
-        else
-        {
-            isMoving = false;
-        }
-
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-                
+            Debug.Log("player");
+            isPlayerInside = true;  
         }
     }
 
@@ -73,13 +76,8 @@ public class Elevator_Script : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-           
+            Debug.Log("playerlolo");
+            isPlayerInside = false;
         }
-    }
-
-    public void OnElevator()
-    {
-        buttonSwitch = !buttonSwitch;
-      
     }
 }

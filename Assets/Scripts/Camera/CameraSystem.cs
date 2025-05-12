@@ -35,7 +35,7 @@ public class CameraSystem : MonoBehaviour
 
         if (player.GetComponent<PlayerJump>().IsTouchingGround)
         {
-            newPos = cam.transform.position + (Vector3)direction * speed * distance * Time.deltaTime;
+            newPos = cam.transform.position + (Vector3)direction * speed * 2 * distance * Time.deltaTime;
         }
         else
         {

@@ -10,19 +10,20 @@ public class Enemy : MonoBehaviour
     // jjj
     public static bool PlayerHasSword = false;
 
-    [SerializeField] public float PatrolSpeed;
     [SerializeField] public float ChaseSpeed;
+    [SerializeField] public float PatrolSpeed;
 
-    [HideInInspector] public bool HasToChase;
     [HideInInspector] public bool IsChasing;
+    [HideInInspector] public bool HasToChase;
+    [HideInInspector] public bool IsAttacking;
     [HideInInspector] public bool IsPatrolling;
     [HideInInspector] public bool LookingForward;
-    public bool InRange;
-    public bool DistanceAttack;
-    public bool MeleeAttack;
-    [HideInInspector] public bool IsAttacking;
-    public bool PatrollingDisabled;
+
     private Animator animator;
+    public bool InRange;
+    public bool MeleeAttack;
+    public bool DistanceAttack;
+    public bool PatrollingDisabled;
 
     private void Start()
     {

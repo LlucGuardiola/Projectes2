@@ -4,8 +4,8 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float damage;
-   // private Rigidbody2D _rigidbody;
-    //private GameObject player;
+    // private Rigidbody2D _rigidbody;
+    // private GameObject player;
     public Vector2 Direction;
     private float destroyTimeInstantiate = 1f;
     private float destroyTime;

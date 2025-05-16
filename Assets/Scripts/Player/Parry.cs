@@ -1,40 +1,80 @@
 using UnityEngine;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class Parry : MonoBehaviour
 {
     public float ParryRange;
     public Vector2 ParrySize;
+    public bool CanParry;
+    public bool IsParring;
+    private bool count;
+    private float counter;
+
+    [SerializeField] private float parryCooldown;
+
+    [SerializeField] private float parryDuration;
+
     [SerializeField] private LayerMask bulletLayer;
 
     private void Start()
     {
-        
+        CanParry = true;
+        counter = 0;
     }
 
     void Update()
     {
-        if (Input.GetKey("t"))
+        if (Input.GetKeyDown("t"))
         {
-            Debug.Log("parryStart");
-
-            float leftOrRight = GetComponent<PlayerMovement>().LookingForward ? ParryRange : -ParryRange;
-
-            Collider2D[] colliders;
-            colliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + leftOrRight, transform.position.y), ParrySize, transform.rotation.z, bulletLayer);
-
-            if (colliders.Length == 0) return;
-            Debug.Log("parry");
-
-            foreach (var bullet in colliders)
+            if (CanParry && !IsParring)
             {
-                Debug.Log("parry");
-                bullet.gameObject.GetComponent<Bullet>().Direction *= -1;
+                Debug.Log("startParry");
+                IsParring = true;
+                count = true;
+                counter = 0;
+                Parr();
             }
         }
+
+        Count();
     }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireCube(new Vector2(transform.position.x + ParryRange, transform.position.y), ParrySize);
+    }
+    private void Parr()
+    {
+        Debug.Log("parring");
+        float leftOrRight = GetComponent<PlayerMovement>().LookingForward ? ParryRange : -ParryRange;
+
+        Collider2D[] colliders;
+        colliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + leftOrRight, transform.position.y), ParrySize, transform.rotation.z, bulletLayer);
+
+        if (colliders.Length == 0) return;
+
+        foreach (var bullet in colliders)
+        {
+            bullet.gameObject.GetComponent<Bullet>().Direction *= -1;
+        }
+    }
+    private void Count()
+    {
+        if (!count) return;
+
+        counter += Time.deltaTime;
+
+        if (counter >= parryDuration)
+        {
+            IsParring = false;
+            count = false;
+            Debug.Log("endparry");
+            Invoke("startparrycooldown", parryCooldown);
+        }
+    }
+    private void EnableParry()
+    {
+        Debug.Log("endparrycooldown");
+        CanParry = true;
     }
 }

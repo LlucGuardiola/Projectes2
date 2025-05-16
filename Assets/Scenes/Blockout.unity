@@ -3549,6 +3549,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ParryRange: 0.44
   ParrySize: {x: 1.16, y: 2.6}
+  CanParry: 0
+  IsParring: 0
+  parryCooldown: 0
+  parryDuration: 0
   bulletLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -29153,7 +29157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1133528771509627795, guid: d06f7feb897aff04fb640eed224c2a60, type: 3}
       propertyPath: visionRangeY
-      value: -0.47
+      value: 1.66
       objectReference: {fileID: 0}
     - target: {fileID: 1133528771509627795, guid: d06f7feb897aff04fb640eed224c2a60, type: 3}
       propertyPath: visionSize.x
@@ -29161,7 +29165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1133528771509627795, guid: d06f7feb897aff04fb640eed224c2a60, type: 3}
       propertyPath: visionSize.y
-      value: 11.67
+      value: 11.1
       objectReference: {fileID: 0}
     - target: {fileID: 1133528771509627795, guid: d06f7feb897aff04fb640eed224c2a60, type: 3}
       propertyPath: visionPosition.x

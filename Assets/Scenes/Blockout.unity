@@ -12087,7 +12087,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardPrefab: {fileID: 2275671718427191609, guid: d9490a5d1b2e4c843b2a9987d1c91bf3, type: 3}
   color: {r: 1, g: 0, b: 0, a: 1}
-  index: 2
+  index: 1
 --- !u!1 &762710019
 GameObject:
   m_ObjectHideFlags: 0
@@ -12540,7 +12540,6 @@ GameObject:
   m_Component:
   - component: {fileID: 785245104}
   - component: {fileID: 785245108}
-  - component: {fileID: 785245107}
   - component: {fileID: 785245106}
   - component: {fileID: 785245105}
   - component: {fileID: 785245109}
@@ -12658,20 +12657,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &785245107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 785245103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 463f0507f369f8749aaa8c6f82adcc80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  JumpStrengh: 0
-  IsWallJumping: 0
 --- !u!212 &785245108
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12739,7 +12724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d052de159259a0948953e41dee92ee6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cards: 0100000002000000
+  cards: 02000000
 --- !u!1 &798967814
 GameObject:
   m_ObjectHideFlags: 0

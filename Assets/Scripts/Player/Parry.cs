@@ -69,7 +69,8 @@ public class Parry : MonoBehaviour
             IsParring = false;
             count = false;
             Debug.Log("endparry");
-            Invoke("startparrycooldown", parryCooldown);
+            CanParry = false;
+            Invoke("EnableParry", parryCooldown);
         }
     }
     private void EnableParry()

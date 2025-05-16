@@ -33,6 +33,7 @@ public class Parry : MonoBehaviour
                 count = true;
                 counter = 0;
                 Parr();
+                ParryAnimationController.TriggerParryAnimation();
             }
         }
 
@@ -69,6 +70,7 @@ public class Parry : MonoBehaviour
             IsParring = false;
             count = false;
             Debug.Log("endparry");
+            ParryAnimationController.EndParryAnimation();
             CanParry = false;
             Invoke("EnableParry", parryCooldown);
         }

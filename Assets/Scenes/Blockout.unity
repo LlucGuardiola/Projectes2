@@ -3552,7 +3552,7 @@ MonoBehaviour:
   CanParry: 0
   IsParring: 0
   parryCooldown: 1
-  parryDuration: 0.4
+  parryDuration: 0.3
   bulletLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -131369,7 +131369,7 @@ GameObject:
   - component: {fileID: 1456371885}
   - component: {fileID: 1456371888}
   m_Layer: 0
-  m_Name: Slash
+  m_Name: Parry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -131461,7 +131461,7 @@ Transform:
   m_GameObject: {fileID: 1456371884}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.071, y: 0.063, z: 0.7354978}
+  m_LocalPosition: {x: 0.292, y: 0.063, z: 0.7354978}
   m_LocalScale: {x: 1.4197515, y: 1.4197515, z: 5.679006}
   m_ConstrainProportionsScale: 0
   m_Children: []

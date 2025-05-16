@@ -6,6 +6,8 @@ public class PlayerInventory : MonoBehaviour
 {
     public static List<int> PlayerCards { get; private set; }
 
+    public static bool PlayerHasSword = false;
+
     void Start()
     {
         PlayerCards = new List<int>();

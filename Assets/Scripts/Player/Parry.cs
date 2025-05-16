@@ -24,6 +24,8 @@ public class Parry : MonoBehaviour
 
     void Update()
     {
+        if (!PlayerInventory.PlayerHasSword) return;
+
         if (Input.GetMouseButtonDown(1))
         {
             if (CanParry && !IsParring)

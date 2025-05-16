@@ -13,7 +13,7 @@ public class ChasePlayer : MonoBehaviour
 
     void Update()
     {
-        if (!Enemy.PlayerHasSword) return;
+        if (!PlayerInventory.PlayerHasSword) return;
         if (GetComponent<Enemy>().IsAttacking) return;
 
         if (isChasing)

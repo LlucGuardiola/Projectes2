@@ -3547,12 +3547,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77165e8225e0e2c429e52b7f6e7fd15c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ParryRange: 0.44
-  ParrySize: {x: 1.16, y: 2.6}
+  ParryRange: 0.67
+  ParrySize: {x: 3, y: 2.43}
   CanParry: 0
   IsParring: 0
-  parryCooldown: 3.16
-  parryDuration: 0.2
+  parryCooldown: 1
+  parryDuration: 0.4
   bulletLayer:
     serializedVersion: 2
     m_Bits: 512

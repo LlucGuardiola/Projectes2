@@ -24,7 +24,7 @@ public class Parry : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown("t"))
+        if (Input.GetMouseButtonDown(1))
         {
             if (CanParry && !IsParring)
             {

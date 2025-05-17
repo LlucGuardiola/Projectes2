@@ -1,16 +1,19 @@
 fileFormatVersion: 2
-guid: 3259bdee05ea0ca45beea25e6138ad81
+guid: b955dee43f5375748954c623066770c6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4128968185663550638
-    second: Boton Opciones 2_0
+      213: 621740634302788548
+    second: Capa de pintura 6_0
   - first:
-      213: -5260513732221498790
-    second: Boton Opciones 2_1
+      213: 8129211735799147324
+    second: Capa de pintura 6_1
   - first:
-      213: 11164394314984184
-    second: Boton Opciones 2_2
+      213: 6731872674446231354
+    second: Capa de pintura 6_2
+  - first:
+      213: 329250883952449794
+    second: Capa de pintura 6_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -43,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -106,13 +109,79 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Boton Opciones 2_0
+      name: Capa de pintura 6_0
       rect:
         serializedVersion: 2
         x: 0
+        y: 2847
+        width: 134
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c33b0210ddd0a800800000000000000
+      internalID: 621740634302788548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capa de pintura 6_1
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 533
+        width: 3842
+        height: 1824
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3bae38d003c0d070800000000000000
+      internalID: 8129211735799147324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capa de pintura 6_2
+      rect:
+        serializedVersion: 2
+        x: 3814
+        y: 369
+        width: 126
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a37c689c78a6c6d50800000000000000
+      internalID: 6731872674446231354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capa de pintura 6_3
+      rect:
+        serializedVersion: 2
+        x: 5591
         y: 0
-        width: 480
-        height: 180
+        width: 130
+        height: 127
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,52 +190,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ea47d5b40ba0d4930800000000000000
-      internalID: 4128968185663550638
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boton Opciones 2_1
-      rect:
-        serializedVersion: 2
-        x: 458
-        y: 35
-        width: 297
-        height: 166
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a5a8fd6c1a6eef6b0800000000000000
-      internalID: -5260513732221498790
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boton Opciones 2_2
-      rect:
-        serializedVersion: 2
-        x: 719
-        y: 5
-        width: 253
-        height: 166
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8fae64d15f9a72000800000000000000
-      internalID: 11164394314984184
+      spriteID: 20918fb3febb19400800000000000000
+      internalID: 329250883952449794
       vertices: []
       indices: 
       edges: []
@@ -185,9 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Boton Opciones 2_0: 4128968185663550638
-      Boton Opciones 2_1: -5260513732221498790
-      Boton Opciones 2_2: 11164394314984184
+      Capa de pintura 6_0: 621740634302788548
+      Capa de pintura 6_1: 8129211735799147324
+      Capa de pintura 6_2: 6731872674446231354
+      Capa de pintura 6_3: 329250883952449794
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -10157,6 +10157,10 @@ PrefabInstance:
       propertyPath: JumpStrengh
       value: 22
       objectReference: {fileID: 0}
+    - target: {fileID: 8194093892149912436, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
+      propertyPath: WallJumpStrength
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 8368323704705007442, guid: f03daf28f0002e74395181e7e63a6c3b, type: 3}
       propertyPath: AttackRange
       value: 1.59
@@ -131688,7 +131692,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.292, y: 0.063, z: 0.7354978}
-  m_LocalScale: {x: 1.4197515, y: 1.4197515, z: 5.679006}
+  m_LocalScale: {x: 1.4197515, y: 2.4439602, z: 5.679006}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 199124359}

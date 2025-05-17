@@ -1,4 +1,4 @@
-using System.Threading;
+﻿using System.Threading;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.InputSystem;
@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerJump : MonoBehaviour
 {
     public float JumpStrengh;
+    [SerializeField] private float WallJumpStrength;
     [HideInInspector] public bool IsWallJumping;
 
     private bool canJump;
@@ -20,7 +21,6 @@ public class PlayerJump : MonoBehaviour
     private float counter;
 
     [HideInInspector] public bool IsWallSliding => _collisionDetection.IsTouchingFront;
-
     [HideInInspector] public bool IsTouchingGround => _collisionDetection.IsGrounded;
 
     void Start()
@@ -33,7 +33,7 @@ public class PlayerJump : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyUp("space")) coyoteTimeCounter = 0; 
+        if (Input.GetKeyUp("space")) coyoteTimeCounter = 0;
 
         if (IsTouchingGround)
         {
@@ -41,8 +41,6 @@ public class PlayerJump : MonoBehaviour
             _rigidbody.gravityScale = 7;
         }
         else coyoteTimeCounter -= Time.deltaTime;
-
-        //GetComponent<Animator>().SetBool("IsOnAir?", !IsTouchingGround);
 
         if (!IsTouchingGround && canJump)
         {
@@ -62,11 +60,11 @@ public class PlayerJump : MonoBehaviour
         if (PauseLogic.IsPaused) return;
         if (!canJump && coyoteTimeCounter < 0) return;
 
-        var vel = new Vector2(_rigidbody.linearVelocity.x, JumpStrengh);
+        var vel = new Vector2(_rigidbody.linearVelocity.x * 1.5f, JumpStrengh);
 
-        if (IsWallSliding && !IsTouchingGround) 
+        if (IsWallSliding && !IsTouchingGround)
         {
-            vel = new Vector2(-CollisionPos * JumpStrengh / 3, JumpStrengh/1.25f);
+            vel = new Vector2(-CollisionPos * WallJumpStrength, JumpStrengh); 
             count = true;
             counter = 0;
             IsWallJumping = true;
@@ -83,15 +81,12 @@ public class PlayerJump : MonoBehaviour
             }
         }
 
+        GetComponent<PlayerMovement>().BlockHorizontalMovement(0.2f);
+
         _rigidbody.linearVelocity = vel;
 
         Invoke("SlowGravity", 0.4f);
         canJump = false;
-
-        //if (audioSource != null && JumpSound != null)
-        //{
-        //    audioSource.PlayOneShot(JumpSound);
-        //}
     }
 
     private void Count()
@@ -106,6 +101,7 @@ public class PlayerJump : MonoBehaviour
             count = false;
         }
     }
+
     private void SlowGravity()
     {
         _rigidbody.gravityScale = 4f;

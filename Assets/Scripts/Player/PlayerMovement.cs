@@ -1,11 +1,10 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
     [HideInInspector] public bool CanMove;
-
     [SerializeField] private float Speed = 5.0f;
 
     private float inputVal;
@@ -20,6 +19,9 @@ public class PlayerMovement : MonoBehaviour
 
     int CollisionPos => _collisionDetection.CollisionPos;
 
+    private bool blockHorizontalMovement = false;
+    private float blockTimer = 0f;
+
     void Start()
     {
         LookingForward = true;
@@ -27,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _collisionDetection = GetComponent<CollisionDetection>();
         initialGravity = _rigidbody.gravityScale;
-        
+
         animator = GetComponent<Animator>();
         playerJump = GetComponent<PlayerJump>();
         dash = GetComponent<Dash>();
@@ -41,23 +43,36 @@ public class PlayerMovement : MonoBehaviour
         if (playerJump.IsWallJumping) return;
         if (PauseLogic.IsPaused) return;
 
-        if (!CanMove) 
+        if (!CanMove)
         {
             _rigidbody.gravityScale = 0;
             _rigidbody.linearVelocity = Vector3.zero;
             return;
         }
-        else if (_rigidbody.gravityScale == 0) { _rigidbody.gravityScale = initialGravity; }
+        else if (_rigidbody.gravityScale == 0)
+        {
+            _rigidbody.gravityScale = initialGravity;
+        }
+
+        if (blockHorizontalMovement)
+        {
+            blockTimer -= Time.fixedDeltaTime;
+            if (blockTimer <= 0f)
+            {
+                blockHorizontalMovement = false;
+            }
+            return;
+        }
 
         inputVal = Input.GetAxis("Horizontal");
         _horizontalDir = inputVal;
 
-        if (inputVal > 0 && !LookingForward) // right
+        if (inputVal > 0 && !LookingForward)
         {
             LookingForward = true;
             transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
         }
-        if (inputVal < 0 && LookingForward) // left
+        if (inputVal < 0 && LookingForward)
         {
             LookingForward = false;
             transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
@@ -74,5 +89,11 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log(velocity.x);
 
         _rigidbody.linearVelocity = velocity;
+    }
+
+    public void BlockHorizontalMovement(float duration)
+    {
+        blockHorizontalMovement = true;
+        blockTimer = duration;
     }
 }

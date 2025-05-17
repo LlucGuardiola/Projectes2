@@ -35,7 +35,11 @@ public class PlayerJump : MonoBehaviour
     {
         if (Input.GetKeyUp("space")) coyoteTimeCounter = 0; 
 
-        if (IsTouchingGround) coyoteTimeCounter = coyoteTime;
+        if (IsTouchingGround)
+        {
+            coyoteTimeCounter = coyoteTime;
+            _rigidbody.gravityScale = 7;
+        }
         else coyoteTimeCounter -= Time.deltaTime;
 
         //GetComponent<Animator>().SetBool("IsOnAir?", !IsTouchingGround);
@@ -81,6 +85,7 @@ public class PlayerJump : MonoBehaviour
 
         _rigidbody.linearVelocity = vel;
 
+        Invoke("SlowGravity", 0.4f);
         canJump = false;
 
         //if (audioSource != null && JumpSound != null)
@@ -100,5 +105,9 @@ public class PlayerJump : MonoBehaviour
             IsWallJumping = false;
             count = false;
         }
+    }
+    private void SlowGravity()
+    {
+        _rigidbody.gravityScale = 4f;
     }
 }

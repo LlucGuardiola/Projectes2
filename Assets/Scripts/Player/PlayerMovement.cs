@@ -14,6 +14,9 @@ public class PlayerMovement : MonoBehaviour
     private CollisionDetection _collisionDetection;
     [HideInInspector] public bool LookingForward;
     private float initialGravity;
+    private Animator animator;
+    private Dash dash;
+    private PlayerJump playerJump;
 
     int CollisionPos => _collisionDetection.CollisionPos;
 
@@ -24,14 +27,18 @@ public class PlayerMovement : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _collisionDetection = GetComponent<CollisionDetection>();
         initialGravity = _rigidbody.gravityScale;
+        
+        animator = GetComponent<Animator>();
+        playerJump = GetComponent<PlayerJump>();
+        dash = GetComponent<Dash>();
     }
 
     void FixedUpdate()
     {
-        GetComponent<Animator>().SetBool("IsRunning?", (_rigidbody.linearVelocity.x >= 1.2f || _rigidbody.linearVelocity.x <= -1.2f) && GetComponent<PlayerJump>().IsTouchingGround);
+        animator.SetBool("IsRunning?", (_rigidbody.linearVelocity.x >= 1.2f || _rigidbody.linearVelocity.x <= -1.2f) && GetComponent<PlayerJump>().IsTouchingGround);
 
-        if (GetComponent<Dash>().IsDashing) return;
-        if (GetComponent<PlayerJump>().IsWallJumping) return;
+        if (dash.IsDashing) return;
+        if (playerJump.IsWallJumping) return;
         if (PauseLogic.IsPaused) return;
 
         if (!CanMove) 
@@ -63,6 +70,8 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.x = 0;
         }
+
+        Debug.Log(velocity.x);
 
         _rigidbody.linearVelocity = velocity;
     }

@@ -1,13 +1,16 @@
 fileFormatVersion: 2
-guid: 39d5a747b0ebe8b4486f227d5697bc7a
+guid: a825fcf90bb21254f94a5a72c81c8e08
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 377276410270867743
-    second: Capa de pintura 3_0
+      213: 5379451052276021288
+    second: Capa vectorial 1_0
   - first:
-      213: 2859518919044021325
-    second: Capa de pintura 3_1
+      213: 7720287430314141989
+    second: Capa vectorial 1_1
+  - first:
+      213: 1745519048591927140
+    second: Capa vectorial 1_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -103,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Capa de pintura 3_0
+      name: Capa vectorial 1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 2037
-        width: 3965
-        height: 162
+        y: 0
+        width: 265
+        height: 219
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +121,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f11645075ea5c3500800000000000000
-      internalID: 377276410270867743
+      spriteID: 82873810b36a7aa40800000000000000
+      internalID: 5379451052276021288
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Capa de pintura 3_1
+      name: Capa vectorial 1_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 3965
-        height: 163
+        x: 249
+        y: 36
+        width: 147
+        height: 137
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +143,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d4cb0267e4d0fa720800000000000000
-      internalID: 2859518919044021325
+      spriteID: 529a9c79388f32b60800000000000000
+      internalID: 7720287430314141989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capa vectorial 1_2
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 15
+        width: 348
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 467eff79354593810800000000000000
+      internalID: 1745519048591927140
       vertices: []
       indices: 
       edges: []
@@ -160,8 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Capa de pintura 3_0: 377276410270867743
-      Capa de pintura 3_1: 2859518919044021325
+      Capa vectorial 1_0: 5379451052276021288
+      Capa vectorial 1_1: 7720287430314141989
+      Capa vectorial 1_2: 1745519048591927140
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

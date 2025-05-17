@@ -11,6 +11,8 @@ public class Bullet : MonoBehaviour
     private float destroyTime;
     private Camera mainCamera;
 
+    public bool BulletParried;
+
     void Start()
     {
         float angle = Mathf.Atan2(Direction.y, Direction.x) * Mathf.Rad2Deg;
@@ -18,6 +20,7 @@ public class Bullet : MonoBehaviour
         destroyTime = destroyTimeInstantiate;
 
         transform.rotation = Quaternion.Euler(0, 0, angle);
+        BulletParried = true;
         
         //     _rigidbody = GetComponent<Rigidbody2D>();
         //  _rigidbody.velocity = direction * speed;
@@ -45,16 +48,28 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (BulletParried && collision.gameObject.layer == 6)
+        {
+            GameObject player = GameObject.Find("Player");
+            float multy = 1f;
+            if (player != null) { multy = player.GetComponent<Parry>().MultiplyDamageAndReset(); }
+
+            collision.GetComponent<Health>().TakeDamage(damage * multy);
+            Destroy(gameObject);
+            return;
+        }
+        
         if (collision.CompareTag("Player"))
         {
             Health health = collision.GetComponent<Health>();
             if (health != null)
             {
                 health.TakeDamage(damage);
-                Debug.Log("Entra");
             }
+
             Destroy(gameObject);
-        } else if (collision.gameObject.layer == 3)
+        } 
+        else if (collision.gameObject.layer == 3)
         {
             Destroy(gameObject);
         }

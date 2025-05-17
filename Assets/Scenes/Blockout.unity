@@ -3553,6 +3553,7 @@ MonoBehaviour:
   IsParring: 0
   parryCooldown: 1
   parryDuration: 0.3
+  parryDamageMultiplier: 0
   bulletLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -141554,7 +141555,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!156049354 &2000582933
 Grid:
   m_ObjectHideFlags: 0

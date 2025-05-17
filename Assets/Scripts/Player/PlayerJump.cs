@@ -12,6 +12,7 @@ public class PlayerJump : MonoBehaviour
     private bool canJump;
     private Rigidbody2D _rigidbody;
     private CollisionDetection _collisionDetection;
+    private Animator animator;
     int CollisionPos => _collisionDetection.CollisionPos;
 
     private float coyoteTime = 0.2f;
@@ -29,11 +30,14 @@ public class PlayerJump : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _collisionDetection = GetComponent<CollisionDetection>();
         IsWallJumping = false;
+        animator = GetComponent<Animator>();    
     }
 
     private void Update()
     {
         if (Input.GetKeyUp("space")) coyoteTimeCounter = 0;
+
+        animator.SetBool("OnAir", !IsTouchingGround);
 
         if (IsTouchingGround)
         {
@@ -41,7 +45,7 @@ public class PlayerJump : MonoBehaviour
             _rigidbody.gravityScale = 7;
         }
         else coyoteTimeCounter -= Time.deltaTime;
-
+        
         if (!IsTouchingGround && canJump)
         {
             canJump = false;

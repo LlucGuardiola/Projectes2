@@ -14,6 +14,8 @@ public class Parry : MonoBehaviour
 
     [SerializeField] private float parryDuration;
 
+    [SerializeField] private float parryDamageMultiplier;
+
     [SerializeField] private LayerMask bulletLayer;
 
     private void Start()
@@ -30,7 +32,6 @@ public class Parry : MonoBehaviour
         {
             if (CanParry && !IsParring)
             {
-                Debug.Log("startParry");
                 IsParring = true;
                 count = true;
                 counter = 0;
@@ -48,7 +49,6 @@ public class Parry : MonoBehaviour
     }
     private void Parr()
     {
-        Debug.Log("parring");
         float leftOrRight = GetComponent<PlayerMovement>().LookingForward ? ParryRange : -ParryRange;
 
         Collider2D[] colliders;
@@ -71,7 +71,6 @@ public class Parry : MonoBehaviour
         {
             IsParring = false;
             count = false;
-            Debug.Log("endparry");
             ParryAnimationController.EndParryAnimation();
             CanParry = false;
             Invoke("EnableParry", parryCooldown);
@@ -79,7 +78,11 @@ public class Parry : MonoBehaviour
     }
     private void EnableParry()
     {
-        Debug.Log("endparrycooldown");
         CanParry = true;
+    }
+
+    public float MultiplyDamageAndReset()
+    {
+        return parryDamageMultiplier;
     }
 }

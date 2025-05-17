@@ -86,8 +86,6 @@ public class PlayerMovement : MonoBehaviour
             velocity.x = 0;
         }
 
-        Debug.Log(velocity.x);
-
         _rigidbody.linearVelocity = velocity;
     }
 

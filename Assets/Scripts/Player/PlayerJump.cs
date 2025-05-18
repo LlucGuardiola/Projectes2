@@ -97,7 +97,15 @@ public class PlayerJump : MonoBehaviour
     {
         if (!count) return;
 
+        animator.SetBool("IsDashing", true);
         counter += Time.deltaTime;
+        transform.rotation = GetComponent<PlayerMovement>().LookingForward ? Quaternion.Euler(0, 0, 45) : Quaternion.Euler(0, 0, -45);
+
+        if (counter >= 0.2f)
+        {
+            animator.SetBool("IsDashing", false);
+            transform.rotation = Quaternion.identity;
+        }
 
         if (counter >= 0.4f)
         {

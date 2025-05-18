@@ -8,6 +8,7 @@ public class Dash : MonoBehaviour
     [SerializeField] private float dashSpeed;
     [HideInInspector] public bool IsDashing;
 
+    private Animator animator;
     private Rigidbody2D rb;
     private Vector2 target;
     private Vector2 direction;
@@ -17,6 +18,12 @@ public class Dash : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        animator.SetBool("IsDashing", IsDashing);
     }
 
     private void OnEnable()
@@ -68,9 +75,7 @@ public class Dash : MonoBehaviour
         if (!IsDashing) return;
         rb.gravityScale = 0;
 
-        if(GetComponent<BoxCollider2D>().enabled) GetComponent<BoxCollider2D>().enabled = false;
-
-        GetComponent<Animator>().SetBool("IsOnAir?", IsDashing);
+        if (GetComponent<BoxCollider2D>().enabled) GetComponent<BoxCollider2D>().enabled = false;
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         direction.Normalize();

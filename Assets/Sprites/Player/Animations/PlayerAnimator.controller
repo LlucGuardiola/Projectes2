@@ -209,7 +209,7 @@ AnimatorStateTransition:
   m_TransitionOffset: 0
   m_ExitTime: 5.036142e-10
   m_HasExitTime: 0
-  m_HasFixedDuration: 0
+  m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
@@ -332,13 +332,13 @@ AnimatorStateMachine:
     m_Position: {x: 300, y: 210, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2762462762162355362}
-    m_Position: {x: 300, y: -40, z: 0}
+    m_Position: {x: 290, y: -40, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5618890248624033906}
     m_Position: {x: 30, y: 100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3591729505087292127}
-    m_Position: {x: 560, y: -40, z: 0}
+    m_Position: {x: 610, y: -40, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: 4986297294532499351}
@@ -391,9 +391,6 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: IsDashing
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: WallSliding
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2762462762162355362}

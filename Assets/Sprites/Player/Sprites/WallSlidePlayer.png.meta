@@ -11,6 +11,12 @@ TextureImporter:
   - first:
       213: 3474000407670694992
     second: WallSlidePlayer_2
+  - first:
+      213: 8736864613066991728
+    second: WallSlidePlayer_3
+  - first:
+      213: 9122553353347334258
+    second: WallSlidePlayer_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -43,7 +49,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -109,10 +115,10 @@ TextureImporter:
       name: WallSlidePlayer_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 60
-        height: 60
+        x: 16
+        y: 6
+        width: 24
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,10 +137,10 @@ TextureImporter:
       name: WallSlidePlayer_1
       rect:
         serializedVersion: 2
-        x: 60
-        y: 0
-        width: 60
-        height: 60
+        x: 76
+        y: 5
+        width: 24
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,10 +159,10 @@ TextureImporter:
       name: WallSlidePlayer_2
       rect:
         serializedVersion: 2
-        x: 120
-        y: 0
-        width: 60
-        height: 60
+        x: 136
+        y: 5
+        width: 24
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,11 +177,55 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: WallSlidePlayer_3
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 5
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 078e98063149f3970800000000000000
+      internalID: 8736864613066991728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallSlidePlayer_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 5
+        width: 24
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27001d601f1d99e70800000000000000
+      internalID: 9122553353347334258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 718824299d6245344942355c32da7ca7
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -184,10 +234,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      WallSlidePlayer_0: -5691491260813499862
-      WallSlidePlayer_1: -5214418693013076219
-      WallSlidePlayer_2: 3474000407670694992
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -51,9 +51,14 @@ public class PlayerJump : MonoBehaviour
             canJump = false;
         }
 
-        if (IsWallSliding)
+        if (IsWallSliding && !IsTouchingGround)
         {
             canJump = true;
+            animator.SetBool("WallSliding", true);
+        }
+        else
+        {
+            animator.SetBool("WallSliding", false);
         }
 
         Count();
@@ -83,7 +88,7 @@ public class PlayerJump : MonoBehaviour
                 GetComponent<PlayerMovement>().LookingForward = false;
                 transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
             }
-        }
+        }   
 
         GetComponent<PlayerMovement>().BlockHorizontalMovement(0.2f);
 

@@ -3,54 +3,49 @@ using UnityEngine;
 
 public class CameraSystem : MonoBehaviour
 {
-    GameObject cam;
-    GameObject player;
-
-    [SerializeField] private float speed;
-    [SerializeField] private float distanceToMove;
-    [SerializeField] private float camSpeedMultiplier;
+    [SerializeField] private float speed = 5f;
+    [SerializeField] private float horizontalThreshold = 2f;
+    [SerializeField] private float verticalThreshold = 1.5f;
+    [SerializeField] private float camSpeedMultiplier = 2f;
     [SerializeField] private LayerMask cameraZoneLayer;
 
     [HideInInspector] public float HeightIncrease;
 
-    // private bool moveCamera;
-    private Vector2 direction;
-    private Vector3 playerPosition;
+    private GameObject cam;
+    private GameObject player;
 
     private void Start()
     {
         cam = GameObject.Find("Main Camera");
         player = GameObject.Find("Player");
-        //moveCamera = true;
     }
 
     private void Update()
     {
-        playerPosition = player.transform.position;
+        Vector3 playerPosition = player.transform.position;
         playerPosition.y += HeightIncrease;
 
-        direction = playerPosition - cam.transform.position;
-        direction = direction.normalized;
+        Vector3 camPosition = cam.transform.position;
 
-        Vector3 newPos;
-        float distance = Vector2.Distance(cam.transform.position, playerPosition) * camSpeedMultiplier;
+        Vector3 offset = playerPosition - camPosition;
 
-        newPos = new Vector3(cam.transform.position.x + direction.x * speed * distance * Time.deltaTime,
-                                 cam.transform.position.y + direction.y * speed * distance * Time.deltaTime,
-                                 cam.transform.position.z);
+        bool moveX = Mathf.Abs(offset.x) > horizontalThreshold;
+        bool moveY = Mathf.Abs(offset.y) > verticalThreshold;
 
-        Collider2D[] colliders;
+        Vector3 targetPosition = camPosition;
 
-        colliders = Physics2D.OverlapBoxAll(new Vector2(newPos.x, newPos.y), Vector2.one, 0f, cameraZoneLayer);
+        if (moveX) targetPosition.x = playerPosition.x;
+        if (moveY) targetPosition.y = playerPosition.y;
 
-        if (colliders.Length == 0) 
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(new Vector2(targetPosition.x, targetPosition.y), Vector2.one, 0f, cameraZoneLayer);
+
+        if (colliders.Length == 0)
         {
-            newPos.y = cam.transform.position.y;
+            targetPosition.y = camPosition.y;
         }
 
-        if (Vector2.Distance(cam.transform.position, playerPosition) > 2f)
-        {
-            cam.transform.position = newPos;
-        }
+        cam.transform.position = Vector3.Lerp(camPosition, 
+                                              new Vector3(targetPosition.x, targetPosition.y, camPosition.z), 
+                                              Time.deltaTime * speed * camSpeedMultiplier);
     }
 }

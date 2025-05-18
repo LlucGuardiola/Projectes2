@@ -20,6 +20,13 @@ public class PlayerAttack : MonoBehaviour
     public Vector2 AttackSize;
     public GameObject RedCircle;
 
+    private Animator animator;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     private void Update()
     {
         Count();
@@ -44,6 +51,7 @@ public class PlayerAttack : MonoBehaviour
         if (isAttacking) return;
 
         GetComponent <PlayerMovement>().CanMove = false;
+        animator.SetTrigger("Attack");
 
         isAttacking = true;
         count = true;

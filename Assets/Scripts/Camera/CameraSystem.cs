@@ -5,10 +5,14 @@ public class CameraSystem : MonoBehaviour
 {
     GameObject cam;
     GameObject player;
+
     [SerializeField] private float speed;
     [SerializeField] private float distanceToMove;
+    [SerializeField] private float camSpeedMultiplier;
     [SerializeField] private LayerMask cameraZoneLayer;
+
     [HideInInspector] public float HeightIncrease;
+
     // private bool moveCamera;
     private Vector2 direction;
     private Vector3 playerPosition;
@@ -29,18 +33,11 @@ public class CameraSystem : MonoBehaviour
         direction = direction.normalized;
 
         Vector3 newPos;
-        float distance = 1f; //(cam.transform.position - player.transform.position).magnitude * 0.1f;
+        float distance = Vector2.Distance(cam.transform.position, playerPosition) * camSpeedMultiplier;
 
-        if (player.GetComponent<PlayerJump>().IsTouchingGround)
-        {
-            newPos = cam.transform.position + (Vector3)direction * speed * 2 * distance * Time.deltaTime;
-        }
-        else
-        {
-            newPos = new Vector3(cam.transform.position.x + direction.x * speed * distance * Time.deltaTime,
+        newPos = new Vector3(cam.transform.position.x + direction.x * speed * distance * Time.deltaTime,
                                  cam.transform.position.y + direction.y * speed * distance * Time.deltaTime,
                                  cam.transform.position.z);
-        }
 
         Collider2D[] colliders;
 
@@ -51,7 +48,7 @@ public class CameraSystem : MonoBehaviour
             newPos.y = cam.transform.position.y;
         }
 
-        if (Vector2.Distance(cam.transform.position, playerPosition) > 1f)
+        if (Vector2.Distance(cam.transform.position, playerPosition) > 2f)
         {
             cam.transform.position = newPos;
         }

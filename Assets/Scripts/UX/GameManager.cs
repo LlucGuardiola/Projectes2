@@ -5,15 +5,14 @@ public class GameManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
  
-    public void GameStart(string SceneName)
+    public void GameStart()
     {
-        SceneManager.LoadScene(SceneName);
+        SceneManager.LoadScene("Blockout");
     }
 
-    public void OnQuit()
+    public void Exit()
     {
-        //Debug.Log("salir");
-        //Application.Quit();
+        Application.Quit();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

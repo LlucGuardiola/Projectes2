@@ -1,19 +1,31 @@
 fileFormatVersion: 2
-guid: f238c72315f92fe4695b5ded3263f94e
+guid: 8a3ea56ede7960542a0dc9c62b48e4e2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2602088864194486640
-    second: enemy_walk (2)_0
+      213: -1681765754120682070
+    second: enemy01_run-Sheet_0
   - first:
-      213: -457339495529593660
-    second: enemy_walk (2)_1
+      213: 871630608554043464
+    second: enemy01_run-Sheet_1
   - first:
-      213: -9222190969190178297
-    second: enemy_walk (2)_2
+      213: -457471196455485794
+    second: enemy01_run-Sheet_2
   - first:
-      213: 4089040428183242811
-    second: enemy_walk (2)_3
+      213: -1895428274179874580
+    second: enemy01_run-Sheet_3
+  - first:
+      213: 8291302429358894546
+    second: enemy01_run-Sheet_4
+  - first:
+      213: -4371245940412579642
+    second: enemy01_run-Sheet_5
+  - first:
+      213: -5269691379768041590
+    second: enemy01_run-Sheet_6
+  - first:
+      213: -977114112224569277
+    second: enemy01_run-Sheet_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,7 +121,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy_walk (2)_0
+      name: enemy01_run-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -122,16 +134,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 09e10b7e6f583ebd0800000000000000
-      internalID: -2602088864194486640
+      spriteID: 400ef7630cb07e64f9df1c9427213896
+      internalID: -1331037875
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_walk (2)_1
+      name: enemy01_run-Sheet_1
       rect:
         serializedVersion: 2
         x: 40
@@ -144,16 +156,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4c4c333e62437a9f0800000000000000
-      internalID: -457339495529593660
+      spriteID: 75b9ac26f93508e419675c3adfe54025
+      internalID: -1548005748
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_walk (2)_2
+      name: enemy01_run-Sheet_2
       rect:
         serializedVersion: 2
         x: 80
@@ -166,16 +178,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 702aa9ebc22340080800000000000000
-      internalID: -9222190969190178297
+      spriteID: a6dadd70d3fd15d4880502ad81d54b7e
+      internalID: 1987502471
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_walk (2)_3
+      name: enemy01_run-Sheet_3
       rect:
         serializedVersion: 2
         x: 120
@@ -188,10 +200,98 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b38c212da903fb830800000000000000
-      internalID: 4089040428183242811
+      spriteID: cabd43ae25296e84f9201582471164bf
+      internalID: 1665732353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy01_run-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 40
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca19a1e7a423c1648a3de0d3faa4326e
+      internalID: -303231375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy01_run-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 40
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c612183e75b6343489b5b2f40881ba1f
+      internalID: 108049355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy01_run-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 40
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a19c040eb3cc96a42b3b430d77b36349
+      internalID: -1647558452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy01_run-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 0
+        width: 40
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0bd4af8eaf3c4249b40e2f0cb9751b5
+      internalID: 1151914956
       vertices: []
       indices: 
       edges: []
@@ -200,7 +300,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 0afc6b4b0e7556342910665a33d45f21
+    spriteID: 7fb247a7417e4db40a3a3918368ae228
     internalID: 0
     vertices: []
     indices: 
@@ -210,10 +310,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      enemy_walk (2)_0: -2602088864194486640
-      enemy_walk (2)_1: -457339495529593660
-      enemy_walk (2)_2: -9222190969190178297
-      enemy_walk (2)_3: 4089040428183242811
+      enemy01_run-Sheet_0: -1331037875
+      enemy01_run-Sheet_1: -1548005748
+      enemy01_run-Sheet_2: 1987502471
+      enemy01_run-Sheet_3: 1665732353
+      enemy01_run-Sheet_4: -303231375
+      enemy01_run-Sheet_5: 108049355
+      enemy01_run-Sheet_6: -1647558452
+      enemy01_run-Sheet_7: 1151914956
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

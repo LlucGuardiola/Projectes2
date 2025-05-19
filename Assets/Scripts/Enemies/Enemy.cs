@@ -42,14 +42,18 @@ public class Enemy : MonoBehaviour
         if (InRange)
         {
             animator.SetBool("isChasing?", false);
+            animator.SetBool("isPatrolling?", false);
         }
         else if (IsChasing)
         {
+            IsPatrolling = false;
+            animator.SetBool("isPatrolling?", false);
             animator.SetBool("isChasing?", true);
         }
         else if (IsPatrolling && !PatrollingDisabled)
         {
-            animator.SetBool("isChasing?", true);
+            animator.SetBool("isPatrolling?", true);
+            animator.SetBool("isChasing?", false);
         }
     }
 }

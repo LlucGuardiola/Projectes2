@@ -6,7 +6,7 @@ public abstract class ItemBase : MonoBehaviour
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private Vector2 grabSize;
 
-    public void Start()
+    public virtual void Start()
     {
         player = GameObject.FindWithTag("Player");
     }

@@ -51,7 +51,7 @@ public class PlayerAttack : MonoBehaviour
         if (isAttacking) return;
 
         GetComponent <PlayerMovement>().CanMove = false;
-        animator.SetTrigger("Attack");
+        animator.SetBool("IsAttacking", true);
 
         isAttacking = true;
         count = true;
@@ -106,6 +106,7 @@ public class PlayerAttack : MonoBehaviour
             transform.rotation = Quaternion.identity;
             GetComponent<PlayerMovement>().CanMove = true;
             count = false;
+            animator.SetBool("IsAttacking", false);
         }
     }
 

@@ -1,22 +1,22 @@
 fileFormatVersion: 2
-guid: 85b172d69a18fe247b9f236442e2e576
+guid: fb3b82f20bd9b7747b07d2ad1cd07724
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5244142092466975649
-    second: Barra de vida_0
+      213: -1988989692637598827
+    second: LifeBar)_0
   - first:
-      213: 3344765193354065725
-    second: Barra de vida_1
+      213: 445003424403637797
+    second: LifeBar)_1
   - first:
-      213: -4409239825970530744
-    second: Barra de vida_2
+      213: 9219800151292240817
+    second: LifeBar)_2
   - first:
-      213: -6132025799926019665
-    second: Barra de vida_3
+      213: -5202231544704471836
+    second: LifeBar)_3
   - first:
-      213: 8992006233590282428
-    second: Barra de vida_4
+      213: 5311051875721830731
+    second: LifeBar)_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -112,29 +112,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Barra de vida_0
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 29
-        width: 61
-        height: 12
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f5c05d23d801937b0800000000000000
-      internalID: -5244142092466975649
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Barra de vida_4
+      name: LifeBar)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -142,15 +120,103 @@ TextureImporter:
         width: 77
         height: 22
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cb83f3b17060acc70800000000000000
-      internalID: 8992006233590282428
+      spriteID: 59b2c64a960b564e0800000000000000
+      internalID: -1988989692637598827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LifeBar)_1
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 0
+        width: 77
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 526496bb148fc2600800000000000000
+      internalID: 445003424403637797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LifeBar)_2
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 0
+        width: 77
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b3edd5936f43ff70800000000000000
+      internalID: 9219800151292240817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LifeBar)_3
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 0
+        width: 77
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ecee8209f5fdc7b0800000000000000
+      internalID: -5202231544704471836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LifeBar)_4
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 0
+        width: 77
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b416214ba85a4b940800000000000000
+      internalID: 5311051875721830731
       vertices: []
       indices: 
       edges: []
@@ -159,7 +225,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: a39dd1312cc54db4bb55587e93d64849
     internalID: 0
     vertices: []
     indices: 
@@ -169,11 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Barra de vida_0: -5244142092466975649
-      Barra de vida_1: 3344765193354065725
-      Barra de vida_2: -4409239825970530744
-      Barra de vida_3: -6132025799926019665
-      Barra de vida_4: 8992006233590282428
+      LifeBar)_0: -1988989692637598827
+      LifeBar)_1: 445003424403637797
+      LifeBar)_2: 9219800151292240817
+      LifeBar)_3: -5202231544704471836
+      LifeBar)_4: 5311051875721830731
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

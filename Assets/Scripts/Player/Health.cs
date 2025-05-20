@@ -11,39 +11,22 @@ public class Health : MonoBehaviour
         {
             if (gameObject.CompareTag("Player"))
             {
-                // SceneManager.LoadScene("BlockoutScene");
-                // GetActiveCamera();
-
                 CheckpointManager.Instance.RespawnPlayerAfterReload();
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
             else if (gameObject.CompareTag("Enemy"))
             {
-                if (gameObject.GetComponent<CardSpawner>() != null) gameObject.GetComponent<CardSpawner>().InstantiateCard();
+                if (gameObject.GetComponent<CardSpawner>() != null)
+                    gameObject.GetComponent<CardSpawner>().InstantiateCard();
             }
 
             Destroy(gameObject);
         }
     }
 
-    public void TakeDamage(float ammount)
+    public void TakeDamage(float amount)
     {
-        Life -= ammount;
+        Life -= amount;
     }
-
-    Camera GetActiveCamera()
-    {
-        Camera[] allCameras = Camera.allCameras;
-
-        foreach (Camera cam in allCameras)
-        {
-            if (cam.isActiveAndEnabled)
-            {
-                return cam;
-            }
-        }
-        return null; 
-    }
-
 }
 

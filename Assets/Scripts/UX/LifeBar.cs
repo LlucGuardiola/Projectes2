@@ -29,8 +29,13 @@ public class LifeBar : MonoBehaviour
 
     Sprite GetCurrentLifeSprite()
     {
-        float lifePercentage = playerHealth.Life / maxLife;
-        int spriteIndex = Mathf.FloorToInt(lifePercentage * (lifeSprites.Length - 1));
-        return lifeSprites[Mathf.Clamp(spriteIndex, 0, lifeSprites.Length - 1)];
+        //float lifePercentage = playerHealth.Life / maxLife;
+        //int spriteIndex = Mathf.FloorToInt(lifePercentage * (lifeSprites.Length - 1));
+        //return lifeSprites[Mathf.Clamp(spriteIndex, 0, lifeSprites.Length - 1)];
+
+        // versió simple: 
+        int spriteIndex = (int)playerHealth.Life;
+        return lifeSprites[spriteIndex];
+
     }
 }

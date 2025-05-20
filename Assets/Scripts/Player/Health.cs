@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 public class Health : MonoBehaviour
 {
     public float Life;
-    public event System.Action OnLifeChanged; 
 
     void Update()
     {
@@ -28,7 +27,6 @@ public class Health : MonoBehaviour
     public void TakeDamage(float amount)
     {
         Life -= amount;
-        OnLifeChanged?.Invoke(); 
     }
 }
 

@@ -13,6 +13,8 @@ public class PlayerJump : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private CollisionDetection _collisionDetection;
     private Animator animator;
+    private PlayerAttack playerAttack;
+
     int CollisionPos => _collisionDetection.CollisionPos;
 
     private float coyoteTime = 0.2f;
@@ -30,7 +32,8 @@ public class PlayerJump : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _collisionDetection = GetComponent<CollisionDetection>();
         IsWallJumping = false;
-        animator = GetComponent<Animator>();    
+        animator = GetComponent<Animator>();
+        playerAttack = GetComponent<PlayerAttack>();
     }
 
     private void Update()

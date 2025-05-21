@@ -7,11 +7,18 @@ public class CheckpointManager : MonoBehaviour
     public static CheckpointManager Instance;
 
     private Vector3 savedPosition;
+    GameObject player;
+
 
     void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
+    }
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     public void SetCheckpoint(Vector3 position)
@@ -21,7 +28,11 @@ public class CheckpointManager : MonoBehaviour
 
     public void Respawn()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
         player.transform.position = savedPosition;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision == player) SetCheckpoint(savedPosition);
     }
 }

@@ -8,6 +8,7 @@ public class Parry : MonoBehaviour
     public bool IsParring;
     private bool count;
     private float counter;
+    private bool instantReset;
 
     [SerializeField] private float parryCooldown;
 
@@ -21,6 +22,7 @@ public class Parry : MonoBehaviour
     {
         CanParry = true;
         counter = 0;
+        instantReset = false;
     }
 
     void Update()
@@ -34,10 +36,11 @@ public class Parry : MonoBehaviour
                 IsParring = true;
                 count = true;
                 counter = 0;
-                Parr();
                 ParryAnimationController.TriggerParryAnimation();
             }
         }
+
+        if (IsParring) Parr();
 
         Count();
     }
@@ -59,6 +62,8 @@ public class Parry : MonoBehaviour
         {
             bullet.gameObject.GetComponent<Bullet>().Direction *= -1;
         }
+
+        instantReset = true;
     }
     private void Count()
     {
@@ -72,7 +77,16 @@ public class Parry : MonoBehaviour
             count = false;
             ParryAnimationController.EndParryAnimation();
             CanParry = false;
-            Invoke("EnableParry", parryCooldown);
+
+            if (instantReset) 
+            {
+                Invoke("EnableParry", 0);
+                instantReset = false;
+            } 
+            else
+            {
+                Invoke("EnableParry", parryCooldown);
+            }
         }
     }
     private void EnableParry()

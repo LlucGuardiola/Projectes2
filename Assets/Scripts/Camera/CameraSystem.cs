@@ -44,8 +44,8 @@ public class CameraSystem : MonoBehaviour
             targetPosition.y = camPosition.y;
         }
 
-        cam.transform.position = Vector3.Lerp(camPosition, 
-                                              new Vector3(targetPosition.x, targetPosition.y, camPosition.z), 
-                                              Time.deltaTime * speed * camSpeedMultiplier);
+        Vector3 target = new Vector3(targetPosition.x, targetPosition.y, camPosition.z);
+        Vector3 direction = target - camPosition;
+        cam.transform.position = camPosition + direction * (Time.deltaTime * speed * camSpeedMultiplier);
     }
 }

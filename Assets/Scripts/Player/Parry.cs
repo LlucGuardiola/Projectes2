@@ -60,7 +60,11 @@ public class Parry : MonoBehaviour
 
         foreach (var bullet in colliders)
         {
-            bullet.gameObject.GetComponent<Bullet>().Direction *= -1;
+            if (!bullet.gameObject.GetComponent<Bullet>().BulletParried)
+            {
+                bullet.gameObject.GetComponent<Bullet>().Direction *= -1;
+                bullet.gameObject.GetComponent<Bullet>().BulletParried = true;
+            }
         }
 
         instantReset = true;

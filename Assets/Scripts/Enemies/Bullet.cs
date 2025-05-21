@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
         destroyTime = destroyTimeInstantiate;
 
         transform.rotation = Quaternion.Euler(0, 0, angle);
-        BulletParried = true;
+        BulletParried = false;
         
         //     _rigidbody = GetComponent<Rigidbody2D>();
         //  _rigidbody.velocity = direction * speed;

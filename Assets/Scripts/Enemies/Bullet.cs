@@ -21,12 +21,8 @@ public class Bullet : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(0, 0, angle);
         BulletParried = false;
-        
-        //     _rigidbody = GetComponent<Rigidbody2D>();
-        //  _rigidbody.velocity = direction * speed;
     }
 
-    // Update is called once per frame
     void Update()
     {
         mainCamera = Object.FindAnyObjectByType<Camera>();

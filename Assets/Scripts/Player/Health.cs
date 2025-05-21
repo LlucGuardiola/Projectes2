@@ -18,15 +18,23 @@ public class Health : MonoBehaviour
             {
                 if (gameObject.GetComponent<CardSpawner>() != null)
                     gameObject.GetComponent<CardSpawner>().InstantiateCard();
+
+                gameObject.GetComponent<Enemy>().IsDead = true;
+                Debug.Log("dead");
             }
 
-            Destroy(gameObject);
+            Invoke("Remove", 0.8f);
         }
     }
 
     public void TakeDamage(float amount)
     {
         Life -= amount;
+    }
+
+    private void Remove()
+    {
+        Destroy(gameObject);
     }
 }
 

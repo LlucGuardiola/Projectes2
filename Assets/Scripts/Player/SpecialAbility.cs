@@ -39,11 +39,12 @@ public class SpecialAbility : MonoBehaviour
         count = true;
         counter = 0;
 
-        Debug.Log(colliders[0].name);
-
         if(Vector2.Distance(transform.position, colliders[0].gameObject.transform.position) < dashDistance)
         {
-            OnDash?.Invoke(colliders[0].gameObject);
+            if (!colliders[0].gameObject.GetComponent<Enemy>().IsDead)
+            {
+                OnDash?.Invoke(colliders[0].gameObject);
+            }
         }
     }
 

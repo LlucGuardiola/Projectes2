@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] public float PatrolSpeed;
 
     [HideInInspector] public bool IsChasing;
+    [HideInInspector] public bool IsDead;
     [HideInInspector] public bool HasToChase;
     [HideInInspector] public bool IsAttacking;
     [HideInInspector] public bool IsPatrolling;
@@ -39,6 +40,14 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        if (IsDead)
+        {
+            animator.SetBool("IsDead", true);
+            animator.SetBool("isChasing?", false);
+            animator.SetBool("isPatrolling?", false);
+            return;
+        }
+
         if (InRange)
         {
             animator.SetBool("isChasing?", false);

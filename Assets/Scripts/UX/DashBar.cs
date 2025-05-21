@@ -2,17 +2,20 @@ using UnityEngine;
 
 public class DashBar : MonoBehaviour
 {
-    public Dash playerDash; // Referencia al script Dash
-    public SpriteRenderer cooldownRenderer; // Renderer para mostrar los sprites
-    public Sprite[] cooldownSprites; // Sprites para los estados de cooldown (0-4)
+    public Dash playerDash;
+    public SpriteRenderer cooldownRenderer;
+    public Sprite[] cooldownSprites; 
+    private GameObject player;
 
-    private float cooldownDuration = 4f; // Duración total del cooldown
-    private float currentCooldown; // Tiempo restante de cooldown
-    private bool isOnCooldown; // Indica si está en cooldown
+    private float cooldownDuration; 
+    private float currentCooldown; 
+    private bool isOnCooldown; 
 
     void Start()
     {
-        // Suscribirse al evento de dash
+        player = GameObject.FindGameObjectWithTag("Player");
+        cooldownDuration = player.GetComponent<SpecialAbility>().dashCooldown;
+
         Dash.OnDashEnd += StartCooldown;
         currentCooldown = 0f;
         UpdateCooldownDisplay();
@@ -20,7 +23,6 @@ public class DashBar : MonoBehaviour
 
     void OnDestroy()
     {
-        // Importante: Desuscribirse del evento
         Dash.OnDashEnd -= StartCooldown;
     }
 
@@ -29,20 +31,20 @@ public class DashBar : MonoBehaviour
         if (isOnCooldown)
         {
             currentCooldown -= Time.deltaTime;
-
+            
             if (currentCooldown <= 0f)
             {
                 currentCooldown = 0f;
                 isOnCooldown = false;
             }
-
+            
             UpdateCooldownDisplay();
         }
     }
 
     void StartCooldown(float duration, bool success, Vector2 direction)
     {
-        if (success) // Solo activar cooldown si el dash fue exitoso
+        if (success) 
         {
             currentCooldown = cooldownDuration;
             isOnCooldown = true;

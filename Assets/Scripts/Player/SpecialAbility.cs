@@ -9,7 +9,7 @@ public class SpecialAbility : MonoBehaviour
     [SerializeField] private LayerMask enemiesLayer;
     private bool count;
     private float counter;
-    [SerializeField] private float dashCooldown;
+    public float dashCooldown;
     private bool canDash;
     [SerializeField] private float dashDistance;
 

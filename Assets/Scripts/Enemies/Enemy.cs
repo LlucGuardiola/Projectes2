@@ -2,11 +2,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
- // [SerializeField] private float detectionRange = 5f;
- // [SerializeField] private float visionAngle = 90f;
     [SerializeField] public LayerMask WhatIsPlayer;
     [SerializeField] private LayerMask whatIsObstacle;
-  
+
     [SerializeField] public float ChaseSpeed;
     [SerializeField] public float PatrolSpeed;
 
@@ -23,11 +21,20 @@ public class Enemy : MonoBehaviour
     public bool DistanceAttack;
     public bool PatrollingDisabled;
 
+    private GameObject backup;
+
     private void Start()
     {
         LookingForward = true;
         IsPatrolling = true;
         animator = GetComponent<Animator>();
+
+        // Crear còpia oculta
+        backup = Instantiate(gameObject, transform.position, transform.rotation);
+        backup.SetActive(false);
+
+        // Registrar a CheckpointManager
+        CheckpointManager.Instance.RegisterEnemy(this, backup);
     }
 
     public void Flip()
@@ -35,7 +42,7 @@ public class Enemy : MonoBehaviour
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
-        GetComponent<Enemy>().LookingForward = !GetComponent<Enemy>().LookingForward;
+        LookingForward = !LookingForward;
     }
 
     private void Update()

@@ -20,14 +20,14 @@ public class Health : MonoBehaviour
             }
             else if (gameObject.CompareTag("Enemy"))
             {
+                if (gameObject.GetComponent<Enemy>().IsDead == true) return;
+
                 if (gameObject.GetComponent<CardSpawner>() != null)
                     gameObject.GetComponent<CardSpawner>().InstantiateCard();
 
                 gameObject.GetComponent<Enemy>().IsDead = true;
-                Debug.Log("dead");
+                Invoke("Remove", 1f);
             }
-
-            Invoke("Remove", 1f);
         }
     }
 

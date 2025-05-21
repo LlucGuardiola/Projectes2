@@ -11,6 +11,6 @@ public class CheckPoint : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision == player) CheckpointManager.Instance.SetCheckpoint(transform.position);
+        if (collision.gameObject == player) CheckpointManager.SetCheckpoint(transform.position);
     }
 }

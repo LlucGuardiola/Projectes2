@@ -3,14 +3,16 @@ using UnityEngine;
 
 public class MeleeAttack : MonoBehaviour
 {
+    [HideInInspector] public GameObject player;
+    [SerializeField] private GameObject redCircle;
+
     [SerializeField] private Transform attackPoint;
     [SerializeField] private float attackRate = 3f;
-    private float attackCooldown;
-    [HideInInspector] public GameObject player;
+    [SerializeField] private float attackDuration;
+    [SerializeField] private float attackCooldown;
+
     private bool count;
     private float counter;
-    [SerializeField] private float attackDuration;
-    [SerializeField] private GameObject redCircle;
     private Animator animator;
 
 
@@ -26,16 +28,17 @@ public class MeleeAttack : MonoBehaviour
 
         if (attackCooldown <= 0f && GetComponent<Enemy>().InRange && GetComponent<Enemy>().MeleeAttack)
         {
-            Attack(player.transform);
+            animator.SetTrigger("MeleeAttack");
+            Invoke("Attack", 0.4f);
             attackCooldown = attackRate;
         }
         Count();
     }
 
-    private void Attack(Transform player)
+    private void Attack()
     {
         if (GetComponent<Enemy>().IsAttacking) return;
-        animator.SetTrigger("MeleeAttack");
+
         GetComponent<Enemy>().IsAttacking = true;
         count = true;
         counter = 0;

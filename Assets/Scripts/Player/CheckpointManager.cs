@@ -29,6 +29,7 @@ public class CheckpointManager : MonoBehaviour
     public void Respawn()
     {
         player.transform.position = savedPosition;
+        player.GetComponent<Health>().RestartLife();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

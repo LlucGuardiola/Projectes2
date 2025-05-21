@@ -4,7 +4,12 @@ using UnityEngine.SceneManagement;
 public class Health : MonoBehaviour
 {
     public float Life;
+    private float startingLife;
 
+    private void Start()
+    {
+        startingLife = Life;
+    }
     void Update()
     {
         if (Life <= 0)
@@ -34,6 +39,11 @@ public class Health : MonoBehaviour
     private void Remove()
     {
         Destroy(gameObject);
+    }
+
+    public void RestartLife()
+    {
+        Life = startingLife;
     }
 }
 

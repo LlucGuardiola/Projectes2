@@ -12,6 +12,7 @@ public class VisionDetection : MonoBehaviour
     private void Update()
     {
         if (!PlayerInventory.PlayerHasSword) return;
+        if (GetComponent<Enemy>().IsDead) return;
 
         float leftOrRight = GetComponent<Enemy>().LookingForward ? visionRangeX : -visionRangeX;
 

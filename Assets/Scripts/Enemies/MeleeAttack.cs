@@ -38,6 +38,7 @@ public class MeleeAttack : MonoBehaviour
     private void Attack()
     {
         if (GetComponent<Enemy>().IsAttacking) return;
+        if (GetComponent<Enemy>().IsDead) return;
 
         GetComponent<Enemy>().IsAttacking = true;
         count = true;

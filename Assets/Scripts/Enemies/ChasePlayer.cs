@@ -15,6 +15,8 @@ public class ChasePlayer : MonoBehaviour
     {
         if (!PlayerInventory.PlayerHasSword) return;
         if (GetComponent<Enemy>().IsAttacking) return;
+        if (GetComponent<Enemy>().IsDead) return;
+
 
         if (isChasing)
         {

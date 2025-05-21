@@ -23,7 +23,7 @@ public class Health : MonoBehaviour
                 Debug.Log("dead");
             }
 
-            Invoke("Remove", 0.8f);
+            Invoke("Remove", 1f);
         }
     }
 

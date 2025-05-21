@@ -19,6 +19,8 @@ public class DistanceAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GetComponent<Enemy>().IsDead) return;
+
         fireCooldown -= Time.deltaTime;
 
         if (fireCooldown <= 0f && GetComponent<Enemy>().InRange && GetComponent<Enemy>().DistanceAttack)

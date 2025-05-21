@@ -18,6 +18,8 @@ public class KnockbackFeedback : MonoBehaviour
 
     public void ApplyKnockback(Vector2 direction)
     {
+        if (GetComponent<Enemy>().IsDead) return;
+
         if (!isKnocked)
         {
             isKnocked = true;

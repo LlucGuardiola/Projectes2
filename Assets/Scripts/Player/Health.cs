@@ -11,8 +11,7 @@ public class Health : MonoBehaviour
         {
             if (gameObject.CompareTag("Player"))
             {
-                CheckpointManager.Instance.RespawnPlayerAfterReload();
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                CheckpointManager.Instance.Respawn();
             }
             else if (gameObject.CompareTag("Enemy"))
             {

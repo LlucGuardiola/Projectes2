@@ -49,4 +49,10 @@ public class PauseLogic : MonoBehaviour
 
     }
 
+    public void Resume()
+    {
+        IsPaused = false;
+        PausePanel.SetActive(false);
+        Time.timeScale = 1.0f;
+    }
 }

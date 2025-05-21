@@ -10,7 +10,7 @@ public class Dash : MonoBehaviour
 
     private Animator animator;
     private Rigidbody2D rb;
-    private Vector2 target;
+    private GameObject target;
     private Vector2 direction;
 
     public static Action<float, bool, Vector2> OnDashEnd;
@@ -36,7 +36,7 @@ public class Dash : MonoBehaviour
         SpecialAbility.OnDash -= DashToTarget;
     }
 
-    private void DashToTarget(Vector2 target)
+    private void DashToTarget(GameObject target)
     {
         if (!IsDashing)
         {
@@ -48,7 +48,7 @@ public class Dash : MonoBehaviour
 
             this.target = target;
             IsDashing = true;
-            direction = (target - (Vector2)transform.position).normalized;
+            direction = ((Vector2)target.transform.position - (Vector2)transform.position).normalized;
         }
     }
 
@@ -56,7 +56,7 @@ public class Dash : MonoBehaviour
     {
         float playerRange = GetComponent<PlayerAttack>().AttackRange + GetComponent<PlayerAttack>().AttackSize.x;
 
-        if (Vector2.Distance((Vector2)transform.position, target) <= playerRange)
+        if (Vector2.Distance((Vector2)transform.position, (Vector2)target.transform.position) <= playerRange)
         {
             rb.linearVelocity = Vector2.zero;
 

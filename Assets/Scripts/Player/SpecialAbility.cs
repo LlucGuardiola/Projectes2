@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class SpecialAbility : MonoBehaviour
 {
-    public static Action<Vector2> OnDash;
+    public static Action<GameObject> OnDash;
     [SerializeField] private LayerMask enemiesLayer;
     private bool count;
     private float counter;
@@ -43,7 +43,7 @@ public class SpecialAbility : MonoBehaviour
 
         if(Vector2.Distance(transform.position, colliders[0].gameObject.transform.position) < dashDistance)
         {
-            OnDash?.Invoke(colliders[0].gameObject.transform.position);
+            OnDash?.Invoke(colliders[0].gameObject);
         }
     }
 

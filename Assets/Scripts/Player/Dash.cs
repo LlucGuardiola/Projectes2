@@ -23,7 +23,7 @@ public class Dash : MonoBehaviour
 
     private void Update()
     {
-        animator.SetBool("IsDashing", IsDashing);
+        if (IsDashing) animator.SetBool("IsDashing", true);
     }
 
     private void OnEnable()
@@ -63,6 +63,7 @@ public class Dash : MonoBehaviour
             GetComponent<BoxCollider2D>().enabled = true;
 
             OnDashEnd?.Invoke(3f, true, direction);
+            animator.SetBool("IsDashing", false);
 
             return false; // Dash has to end
         }

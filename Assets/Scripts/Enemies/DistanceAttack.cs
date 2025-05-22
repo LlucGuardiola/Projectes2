@@ -4,7 +4,7 @@ public class DistanceAttack : MonoBehaviour
 {
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
-    [SerializeField] private float fireRate = 1.5f;
+    [SerializeField] private float fireRate;
 
     private float fireCooldown;
     [HideInInspector] public GameObject player;

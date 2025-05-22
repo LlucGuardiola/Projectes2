@@ -1,26 +1,37 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class EnableWorldObject : MonoBehaviour
 {
-    public GameObject[] triggerObjects;  
-    public GameObject[] objectsToActivate; 
-    private GameObject player;
+    public List<GameObject> triggerObjects;
+    public List<GameObject> objectsToActivate;
+    public List<bool> startEnabled;
 
     private void Start()
     {
-        foreach (GameObject obj in objectsToActivate)
+        if (triggerObjects == null || objectsToActivate == null || startEnabled == null) return;
+
+        if (triggerObjects.Count == 0 || objectsToActivate.Count == 0 || startEnabled.Count == 0) return;
+
+        for (int i = 0; i < triggerObjects.Count; i++)
         {
-            obj.SetActive(false);
+            objectsToActivate[i].SetActive(startEnabled[i]);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        for (int i = 0; i < triggerObjects.Length; i++)
+        for (int i = 0; i < triggerObjects.Count; i++)
         {
             if (collision.gameObject == triggerObjects[i])
             {
-                objectsToActivate[i].SetActive(true);
+                objectsToActivate[i].SetActive(!startEnabled[i]);
+
+                triggerObjects.RemoveAt(i);
+                objectsToActivate.RemoveAt(i);
+                startEnabled.RemoveAt(i);
+
+                break;
             }
         }
     }

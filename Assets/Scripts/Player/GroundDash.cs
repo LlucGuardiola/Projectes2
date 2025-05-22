@@ -8,10 +8,12 @@ public class GroundDash : MonoBehaviour
     [SerializeField] private float dashSpeed;
     [SerializeField] private float dashDuration;
     [HideInInspector] public bool IsGroundDashing;
+    private float initialGravity;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        initialGravity = rb.gravityScale;
     }
 
     private void Update()
@@ -53,10 +55,17 @@ public class GroundDash : MonoBehaviour
     private void StartDash()
     {
         IsGroundDashing = true;
+        rb.gravityScale = 0;
+        if (GetComponent<BoxCollider2D>().enabled) GetComponent<BoxCollider2D>().enabled = false;
+
         Invoke("EndDash", dashDuration);
     }
     private void EndDash()
     {
         IsGroundDashing = false;
+
+        rb.gravityScale = 0;
+
+        if (GetComponent<BoxCollider2D>().enabled) GetComponent<BoxCollider2D>().enabled = true;
     }
 }

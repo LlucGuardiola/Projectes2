@@ -5,6 +5,7 @@ using UnityEngine;
 public class GroundDash : MonoBehaviour
 {
     private Rigidbody2D rb;
+    private Animator animator;
     [SerializeField] private float dashSpeed;
     [SerializeField] private float dashDuration;
     [HideInInspector] public bool IsGroundDashing;
@@ -12,27 +13,21 @@ public class GroundDash : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
     {
-        if (!IsGroundDashing) return;
-
-        Vector2 direction = GetComponent<PlayerMovement>().LookingForward ? Vector2.right : Vector2.left;
-        float distance = dashSpeed * Time.fixedDeltaTime;
-
-        RaycastHit2D[] hits = new RaycastHit2D[1];
-        int hitCount = rb.Cast(direction, hits, distance);
-
-        if (hitCount == 0)
+        if (GetComponent<CollisionDetection>().IsTouchingFront)
         {
-            // No hi ha res davant, mou
-            rb.MovePosition(rb.position + direction * distance);
-        }
-        else
-        {
-            // Topem amb alguna cosa → atura dash
             EndDash();
+            return;
+        }
+
+        if (IsGroundDashing)
+        {
+            Vector2 direction = GetComponent<PlayerMovement>().LookingForward ? Vector2.right : Vector2.left;
+            rb.linearVelocity = direction * dashSpeed;
         }
     }
 
@@ -50,9 +45,10 @@ public class GroundDash : MonoBehaviour
     private void StartDash()
     {
         IsGroundDashing = true;
-        if (GetComponent<BoxCollider2D>().enabled) GetComponent<BoxCollider2D>().enabled = false;
 
         Invoke("EndDash", dashDuration);
+
+        animator.SetBool("IsDashing", true);
 
         GetComponent<PlayerMovement>().BlockHorizontalMovement(dashDuration);
     }
@@ -60,7 +56,7 @@ public class GroundDash : MonoBehaviour
     {
         IsGroundDashing = false;
 
-        GetComponent<BoxCollider2D>().enabled = true;
+        animator.SetBool("IsDashing", false);
 
         GetComponent<PlayerMovement>().EnableMovement();
     }

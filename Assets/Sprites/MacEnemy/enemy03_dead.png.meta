@@ -1,22 +1,40 @@
 fileFormatVersion: 2
-guid: 551111824d69b4d4f9295c65b882d770
+guid: 325b5bf219f857b4eb936c5dcf2e7045
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5100228785935358497
-    second: MeleeEnemyDeath_0
+      213: -8156607869868444709
+    second: enemy03_dead_0
   - first:
-      213: 7052707274394054556
-    second: MeleeEnemyDeath_1
+      213: 5833834727910110062
+    second: enemy03_dead_1
   - first:
-      213: -3826646377159578369
-    second: MeleeEnemyDeath_2
+      213: 7513476342598784142
+    second: enemy03_dead_2
   - first:
-      213: 2517023234719493822
-    second: MeleeEnemyDeath_3
+      213: -4555296485347839852
+    second: enemy03_dead_3
   - first:
-      213: -5859721316210347406
-    second: MeleeEnemyDeath_4
+      213: 3030820927921045481
+    second: enemy03_dead_4
+  - first:
+      213: -4605123045903250754
+    second: enemy03_dead_5
+  - first:
+      213: 2499601217054990750
+    second: enemy03_dead_6
+  - first:
+      213: 6334794824020662463
+    second: enemy03_dead_7
+  - first:
+      213: -4405912971311958069
+    second: enemy03_dead_8
+  - first:
+      213: -4835703251692986883
+    second: enemy03_dead_9
+  - first:
+      213: 4292822328138549751
+    second: enemy03_dead_10
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -112,111 +130,111 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MeleeEnemyDeath_0
+      name: enemy03_dead_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 55
-        height: 55
+        width: 46
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: fd5e91df0f85839b0800000000000000
-      internalID: -5100228785935358497
+      spriteID: f7d86f65da5ed1a468b36531ccc928ab
+      internalID: 1128341900
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MeleeEnemyDeath_1
+      name: enemy03_dead_1
       rect:
         serializedVersion: 2
-        x: 55
+        x: 46
         y: 0
-        width: 55
-        height: 55
+        width: 46
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c9f221336ef30e160800000000000000
-      internalID: 7052707274394054556
+      spriteID: 54b7fb95d4e301f4f93bf4f16cc96d68
+      internalID: -289327839
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MeleeEnemyDeath_2
+      name: enemy03_dead_2
       rect:
         serializedVersion: 2
-        x: 110
+        x: 92
         y: 0
-        width: 55
-        height: 55
+        width: 46
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: ffc2e58f46505eac0800000000000000
-      internalID: -3826646377159578369
+      spriteID: a237edc3566f91f4ca0c3a01fd79fcba
+      internalID: 1669306388
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MeleeEnemyDeath_3
+      name: enemy03_dead_3
       rect:
         serializedVersion: 2
-        x: 165
+        x: 138
         y: 0
-        width: 55
-        height: 55
+        width: 46
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: ebe2cd4db434ee220800000000000000
-      internalID: 2517023234719493822
+      spriteID: e657482ec2818a048a567aed88a03eae
+      internalID: -1426618726
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MeleeEnemyDeath_4
+      name: enemy03_dead_4
       rect:
         serializedVersion: 2
-        x: 220
+        x: 184
         y: 0
-        width: 55
-        height: 55
+        width: 46
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2727f7052861eaea0800000000000000
-      internalID: -5859721316210347406
+      spriteID: 2f4f289c2efe04948a24f853f3fb8b80
+      internalID: -1593004897
       vertices: []
       indices: 
       edges: []
@@ -225,7 +243,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a869093374aadf648913e1ee38ee1002
+    spriteID: 68722243dd1a1b841b6761f015502352
     internalID: 0
     vertices: []
     indices: 
@@ -235,11 +253,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      MeleeEnemyDeath_0: -5100228785935358497
-      MeleeEnemyDeath_1: 7052707274394054556
-      MeleeEnemyDeath_2: -3826646377159578369
-      MeleeEnemyDeath_3: 2517023234719493822
-      MeleeEnemyDeath_4: -5859721316210347406
+      enemy03_dead_0: 1128341900
+      enemy03_dead_1: -289327839
+      enemy03_dead_2: 1669306388
+      enemy03_dead_3: -1426618726
+      enemy03_dead_4: -1593004897
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

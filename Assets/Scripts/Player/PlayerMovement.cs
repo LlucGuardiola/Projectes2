@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     private Dash dash;
     private PlayerJump playerJump;
+    public ParticleSystem dust;
 
     int CollisionPos => _collisionDetection.CollisionPos;
 
@@ -67,6 +68,8 @@ public class PlayerMovement : MonoBehaviour
         inputVal = Input.GetAxis("Horizontal");
         _horizontalDir = inputVal;
 
+
+
         if (inputVal > 0 && !LookingForward)
         {
             LookingForward = true;
@@ -76,6 +79,7 @@ public class PlayerMovement : MonoBehaviour
         {
             LookingForward = false;
             transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+
         }
 
         Vector2 velocity = _rigidbody.linearVelocity;
@@ -87,6 +91,17 @@ public class PlayerMovement : MonoBehaviour
         }
 
         _rigidbody.linearVelocity = velocity;
+
+        if (Mathf.Abs(inputVal) > 0.1f && playerJump.IsTouchingGround)
+        {
+            if (!dust.isPlaying)
+                dust.Play();
+        }
+        else
+        {
+            if (dust.isPlaying)
+                dust.Stop();
+        }
     }
 
     public void BlockHorizontalMovement(float duration)
@@ -94,4 +109,6 @@ public class PlayerMovement : MonoBehaviour
         blockHorizontalMovement = true;
         blockTimer = duration;
     }
+
+    
 }

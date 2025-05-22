@@ -108,5 +108,8 @@ public class PlayerMovement : MonoBehaviour
         blockTimer = duration;
     }
 
-    
+    public void EnableMovement()
+    {
+        blockHorizontalMovement = false;
+    }
 }

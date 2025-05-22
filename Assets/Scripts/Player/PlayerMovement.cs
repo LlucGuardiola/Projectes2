@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     private Dash dash;
     private PlayerJump playerJump;
-    public ParticleSystem dust;
+    [SerializeField] private ParticleSystem dust;
 
     int CollisionPos => _collisionDetection.CollisionPos;
 
@@ -68,8 +68,6 @@ public class PlayerMovement : MonoBehaviour
         inputVal = Input.GetAxis("Horizontal");
         _horizontalDir = inputVal;
 
-
-
         if (inputVal > 0 && !LookingForward)
         {
             LookingForward = true;
@@ -92,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
 
         _rigidbody.linearVelocity = velocity;
 
-        if (Mathf.Abs(inputVal) > 0.1f && playerJump.IsTouchingGround)
+        if (Mathf.Abs(_rigidbody.linearVelocity.x) > 2f && playerJump.IsTouchingGround)
         {
             if (!dust.isPlaying)
                 dust.Play();

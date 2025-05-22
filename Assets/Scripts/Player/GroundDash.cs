@@ -16,7 +16,17 @@ public class GroundDash : MonoBehaviour
 
     private void Update()
     {
-        if (!GetComponent<PlayerJump>().IsTouchingGround) return;
+        if (!GetComponent<PlayerJump>().IsTouchingGround)
+        {
+            IsGroundDashing = false;
+            return;
+        }
+
+        if (GetComponent<CollisionDetection>().IsTouchingFront)
+        {
+            IsGroundDashing = false;
+            return;
+        }
 
         if (IsGroundDashing)
         {
@@ -27,10 +37,15 @@ public class GroundDash : MonoBehaviour
     public void OnGroundDash()
     {
         if (IsGroundDashing) return;
+        Debug.Log("1");
         if (!GetComponent<PlayerJump>().IsTouchingGround) return;
+        Debug.Log("2");
         if (GetComponent<Dash>().IsDashing) return;
+        Debug.Log("3");
         if (GetComponent<Parry>().IsParring) return;
+        Debug.Log("4");
         if (GetComponent<PlayerAttack>().isAttacking) return;
+        Debug.Log("5");
 
         StartDash();
     }

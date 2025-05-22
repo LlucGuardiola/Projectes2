@@ -62,7 +62,11 @@ public class Parry : MonoBehaviour
         {
             if (!bullet.gameObject.GetComponent<Bullet>().BulletParried)
             {
-                bullet.gameObject.GetComponent<Bullet>().Direction *= -1;
+                Bullet bulletScript = bullet.gameObject.GetComponent<Bullet>();
+
+                Vector2 randomDirection = new Vector2(leftOrRight, Random.Range(-0.9f, 0.9f)).normalized;
+
+                bullet.gameObject.GetComponent<Bullet>().Direction = randomDirection;
                 bullet.gameObject.GetComponent<Bullet>().BulletParried = true;
             }
         }

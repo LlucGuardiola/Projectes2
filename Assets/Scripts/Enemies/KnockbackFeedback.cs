@@ -9,7 +9,7 @@ public class KnockbackFeedback : MonoBehaviour
     public float knockbackDuration = 0.2f;
 
     private Rigidbody2D rb;
-    private bool isKnocked = false;
+    [HideInInspector] public bool IsKnocked = false;
 
     void Start()
     {
@@ -20,9 +20,9 @@ public class KnockbackFeedback : MonoBehaviour
     {
         if (GetComponent<Enemy>().IsDead) return;
 
-        if (!isKnocked)
+        if (!IsKnocked)
         {
-            isKnocked = true;
+            IsKnocked = true;
             GetComponent<Enemy>().IsChasing = true;
             rb.linearVelocity = Vector2.zero; // Resetea velocidad anterior
             rb.AddForce(direction.normalized * knockbackForce, ForceMode2D.Impulse);
@@ -32,7 +32,7 @@ public class KnockbackFeedback : MonoBehaviour
 
     void ResetKnockback()
     {
-        isKnocked = false;
+        IsKnocked = false;
         rb.linearVelocity = Vector2.zero;
     }
 }

@@ -46,7 +46,20 @@ public class CollisionDetection : MonoBehaviour
 
     private void CheckFront()
     {
-        var colliders = Physics2D.OverlapBoxAll(FrontCheckPoint.position, _frontSize, 0, WhatIsGround);
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(FrontCheckPoint.position, _frontSize, 0, WhatIsGround);
+
+        if (colliders.Length == 0) 
+        {   
+            _isTouchingFront = false;
+            CollisionPos = 0;
+            return;
+        }
+        else if (colliders[0].isTrigger)
+        {
+            _isTouchingFront = false;
+            CollisionPos = 0;
+            return;
+        }
 
         _isTouchingFront = colliders.Length > 0;
 

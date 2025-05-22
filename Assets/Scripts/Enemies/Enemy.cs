@@ -21,20 +21,11 @@ public class Enemy : MonoBehaviour
     public bool DistanceAttack;
     public bool PatrollingDisabled;
 
-    private GameObject backup;
-
     private void Start()
     {
         LookingForward = true;
         IsPatrolling = true;
         animator = GetComponent<Animator>();
-
-        // Crear còpia oculta
-        backup = Instantiate(gameObject, transform.position, transform.rotation);
-        backup.SetActive(false);
-
-        // Registrar a CheckpointManager
-        CheckpointManager.Instance.RegisterEnemy(this, backup);
     }
 
     public void Flip()

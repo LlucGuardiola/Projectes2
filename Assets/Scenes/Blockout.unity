@@ -372428,8 +372428,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9100000, guid: 337610c904d064b42a8e42ffe9c7aa63, type: 2}
     - target: {fileID: 8367672863998598411, guid: d06f7feb897aff04fb640eed224c2a60, type: 3}
+      propertyPath: reload
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8367672863998598411, guid: d06f7feb897aff04fb640eed224c2a60, type: 3}
       propertyPath: fireRate
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8367672863998598411, guid: d06f7feb897aff04fb640eed224c2a60, type: 3}
+      propertyPath: reloadDuration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8367672863998598411, guid: d06f7feb897aff04fb640eed224c2a60, type: 3}
+      propertyPath: shootsToReload
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

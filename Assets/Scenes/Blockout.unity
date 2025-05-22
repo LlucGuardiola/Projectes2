@@ -340097,6 +340097,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5921300158787391211, guid: d06f7feb897aff04fb640eed224c2a60, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1175554769}
+    - targetCorrespondingSourceObject: {fileID: 5921300158787391211, guid: d06f7feb897aff04fb640eed224c2a60, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1175554781}
   m_SourcePrefab: {fileID: 100100000, guid: d06f7feb897aff04fb640eed224c2a60, type: 3}
 --- !u!1 &1175554768 stripped
 GameObject:
@@ -340119,6 +340122,21 @@ MonoBehaviour:
   sprite: {fileID: 8048101208271225017, guid: 3cb323ebeb79b914eb03888250e17338, type: 3}
   color: {r: 1, g: 1, b: 1, a: 1}
   index: 3
+--- !u!114 &1175554781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175554768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63e3544b82cbd5c459c31606d2ec9682, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockbackForce: 0
+  knockbackDuration: 0
+  IsKnocked: 0
 --- !u!1 &1176325095
 GameObject:
   m_ObjectHideFlags: 0

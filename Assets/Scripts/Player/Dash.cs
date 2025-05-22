@@ -80,10 +80,10 @@ public class Dash : MonoBehaviour
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        if (transform.localScale.x < 0)
-        {
-            angle += 180;
-        }
+        //if (transform.localScale.x < 0)
+        //{
+        //    angle += 180;
+        //}
 
         transform.rotation = Quaternion.Euler(0, 0, angle);
 

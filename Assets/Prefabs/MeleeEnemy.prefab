@@ -157,11 +157,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf995e6e030abf344b0eedb834df0f46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  redCircle: {fileID: 9171771795312495101}
   attackPoint: {fileID: 0}
   attackRate: 1.5
-  player: {fileID: 0}
   attackDuration: 1
-  redCircle: {fileID: 9171771795312495101}
+  attackCooldown: 0
 --- !u!114 &586676089361737389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bd1afb578d468944b2be428759a3a46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Life: 5
+  Life: 4
 --- !u!114 &7481692400021645184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,16 +212,17 @@ MonoBehaviour:
   whatIsObstacle:
     serializedVersion: 2
     m_Bits: 256
-  PatrolSpeed: 1.7
-  ChaseSpeed: 4
-  HasToChase: 1
+  ChaseSpeed: 3
+  PatrolSpeed: 1.5
   IsChasing: 0
+  IsDead: 0
+  HasToChase: 1
+  IsAttacking: 0
   IsPatrolling: 0
   LookingForward: 0
   InRange: 0
-  DistanceAttack: 0
   MeleeAttack: 1
-  IsAttacking: 0
+  DistanceAttack: 0
   PatrollingDisabled: 0
 --- !u!114 &4012483644529063735
 MonoBehaviour:
@@ -284,7 +286,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7789747915981195641}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ef6c9718a79b734ebeeec73b8f44d21, type: 3}
   m_Name: 
@@ -327,8 +329,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63e3544b82cbd5c459c31606d2ec9682, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackForce: 8
-  knockbackDuration: 0.2
+  knockbackForce: 10
+  knockbackDuration: 0.3
 --- !u!1 &9171771795312495101
 GameObject:
   m_ObjectHideFlags: 0

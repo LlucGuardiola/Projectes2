@@ -47,6 +47,7 @@ public class CollisionDetection : MonoBehaviour
     private void CheckFront()
     {
         Collider2D[] colliders = Physics2D.OverlapBoxAll(FrontCheckPoint.position, _frontSize, 0, WhatIsGround);
+        bool isCollider = false;
 
         if (colliders.Length == 0) 
         {   
@@ -54,11 +55,23 @@ public class CollisionDetection : MonoBehaviour
             CollisionPos = 0;
             return;
         }
-        else if (colliders[0].isTrigger)
+        else 
         {
-            _isTouchingFront = false;
-            CollisionPos = 0;
-            return;
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                if (!colliders[i].isTrigger)
+                {
+                    isCollider = true;
+                    break;
+                }
+            }
+            
+            if (!isCollider)
+            {
+                _isTouchingFront = false;
+                CollisionPos = 0;
+                return;
+            }
         }
 
         _isTouchingFront = colliders.Length > 0;

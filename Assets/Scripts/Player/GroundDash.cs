@@ -51,6 +51,8 @@ public class GroundDash : MonoBehaviour
         animator.SetBool("IsDashing", true);
 
         GetComponent<PlayerMovement>().BlockHorizontalMovement(dashDuration);
+
+        GetComponent<PlayerMovement>().Dust.Play();
     }
     private void EndDash()
     {

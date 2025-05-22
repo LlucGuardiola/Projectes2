@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     private Dash dash;
     private PlayerJump playerJump;
-    [SerializeField] private ParticleSystem dust;
+    public ParticleSystem Dust;
 
     int CollisionPos => _collisionDetection.CollisionPos;
 
@@ -77,7 +77,6 @@ public class PlayerMovement : MonoBehaviour
         {
             LookingForward = false;
             transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
-
         }
 
         Vector2 velocity = _rigidbody.linearVelocity;
@@ -92,13 +91,13 @@ public class PlayerMovement : MonoBehaviour
 
         if (Mathf.Abs(_rigidbody.linearVelocity.x) > 2f && playerJump.IsTouchingGround)
         {
-            if (!dust.isPlaying)
-                dust.Play();
+            if (!Dust.isPlaying)
+                Dust.Play();
         }
         else
         {
-            if (dust.isPlaying)
-                dust.Stop();
+            if (Dust.isPlaying)
+                Dust.Stop();
         }
     }
 

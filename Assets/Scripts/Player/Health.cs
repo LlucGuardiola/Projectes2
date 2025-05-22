@@ -33,6 +33,11 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
+        if (gameObject.CompareTag("Player")) 
+        { 
+            if (GetComponent<GroundDash>().IsGroundDashing) return; 
+        }
+
         Life -= amount;
     }
 

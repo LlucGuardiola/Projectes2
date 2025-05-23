@@ -37,7 +37,7 @@ public class CameraSystem : MonoBehaviour
         if (moveX) targetPosition.x = playerPosition.x;
         if (moveY) targetPosition.y = playerPosition.y;
 
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(new Vector2(targetPosition.x, targetPosition.y), Vector2.one, 0f, cameraZoneLayer);
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(new Vector2(targetPosition.x, targetPosition.y), new Vector2(0.1f,0.1f), 0f, cameraZoneLayer);
 
         if (colliders.Length == 0)
         {

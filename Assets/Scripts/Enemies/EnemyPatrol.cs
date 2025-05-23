@@ -18,14 +18,13 @@ public class EnemyPatrol : MonoBehaviour
     void Update()
     {
         if (GetComponent<Enemy>().IsDead) return;
+        if (GetComponent<Enemy>().IsAttacking) return;
 
-        if (GetComponent<Enemy>().PatrollingDisabled)
+        if (GetComponent<Enemy>().PatrollingDisabled && !GetComponent<Enemy>().IsChasing)
         {
             GetComponent<Animator>().SetBool("IsIdle?", true);   
             return;
         }
-
-        if (GetComponent<Enemy>().IsAttacking) return;
 
         if (isPatrolling)
         {

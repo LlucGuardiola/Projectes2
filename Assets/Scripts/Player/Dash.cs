@@ -79,7 +79,11 @@ public class Dash : MonoBehaviour
         if (GetComponent<BoxCollider2D>().enabled) GetComponent<BoxCollider2D>().enabled = false;
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        direction.Normalize();
+
+        //if (transform.localScale.x < 0)
+        //{
+        //    angle += 180;
+        //}
 
         transform.rotation = Quaternion.Euler(0, 0, angle);
 

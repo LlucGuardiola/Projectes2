@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Enble : MonoBehaviour
+public class EnableWhenHasSword : MonoBehaviour
 {
     public GameObject[] gameobjects;
 
@@ -12,7 +12,6 @@ public class Enble : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (PlayerInventory.PlayerHasSword)
@@ -21,8 +20,9 @@ public class Enble : MonoBehaviour
             {
                 item.SetActive(true);
             }
-        }
 
-        Destroy(gameObject);
+            // Destruir només quan ja hem activat tot
+            Destroy(gameObject);
+        }
     }
 }

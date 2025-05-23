@@ -27,7 +27,7 @@ public class PlayerAttack : MonoBehaviour
     private void Update()
     {
         Count();
-        if (isAttacking) RedCircle.SetActive(true);      
+        if (isAttacking) RedCircle.SetActive(false);      
         else RedCircle.SetActive(false);
     }
     private void OnEnable()

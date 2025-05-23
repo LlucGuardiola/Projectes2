@@ -18,4 +18,9 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("EndGameScene");
     }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenuScene");
+    }
 }

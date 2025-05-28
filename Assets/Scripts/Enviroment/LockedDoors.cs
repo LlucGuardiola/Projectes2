@@ -1,3 +1,5 @@
+using System.Drawing;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LockedDoors : MonoBehaviour
@@ -7,11 +9,15 @@ public class LockedDoors : MonoBehaviour
     [SerializeField] private GameObject metalDoorSprite;
     private bool doorIsOpen;
     private bool openDoor;
+    [SerializeField] private SpriteRenderer card;
 
     private void Start()
     {
         doorIsOpen = false;
         openDoor = false;
+        card = GetComponent<SpriteRenderer>();
+
+
     }
 
     private void Update()
@@ -23,6 +29,13 @@ public class LockedDoors : MonoBehaviour
             metalDoorSprite.transform.position = new Vector3(metalDoorSprite.transform.position.x, 
                                                              metalDoorSprite.transform.position.y + 0.55f * Time.deltaTime,
                                                              metalDoorSprite.transform.position.z);
+        }
+        if (doorIsOpen)
+        {
+            UnityEngine.Color color = card.color;
+            card.color = UnityEngine.Color.white;
+            color.a = 1f; 
+            card.color = color;
         }
     }
 

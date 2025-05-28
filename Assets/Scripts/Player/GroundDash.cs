@@ -1,6 +1,7 @@
 ﻿using System.Runtime.InteropServices.WindowsRuntime;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class GroundDash : MonoBehaviour
 {
@@ -8,12 +9,15 @@ public class GroundDash : MonoBehaviour
     private Animator animator;
     [SerializeField] private float dashSpeed;
     [SerializeField] private float dashDuration;
+    [SerializeField] private float dashCooldown;
     [HideInInspector] public bool IsGroundDashing;
+    private bool canDash;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        canDash = true;
     }
 
     private void FixedUpdate()
@@ -33,6 +37,7 @@ public class GroundDash : MonoBehaviour
 
     public void OnGroundDash()
     {
+        if (!canDash) return;
         if (IsGroundDashing) return;
         if (!GetComponent<PlayerJump>().IsTouchingGround) return;
         if (GetComponent<Dash>().IsDashing) return;
@@ -56,10 +61,18 @@ public class GroundDash : MonoBehaviour
     }
     private void EndDash()
     {
+        canDash = false;
+
         IsGroundDashing = false;
 
         animator.SetBool("IsDashing", false);
 
+        Invoke("EnableDashing", dashCooldown);
+
         GetComponent<PlayerMovement>().EnableMovement();
+    }
+    private void EnableDashing()
+    {
+        canDash = true;
     }
 }

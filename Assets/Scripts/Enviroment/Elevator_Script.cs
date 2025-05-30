@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.iOS;
 
 public class Elevator_Script : MonoBehaviour
 {
     public GameObject PatrolPointUp;
     public GameObject PatrolPointDown;
     public GameObject Elevator;
+    public GameObject ElevatorDoor;
 
     private bool isMoving;
     private bool buttonSwitch;
@@ -15,12 +17,17 @@ public class Elevator_Script : MonoBehaviour
     public float Speed = 5.0f;
     private Vector3 direction;
     private Vector3 targetPosition;
+    private Animation anim;
+    private SpriteRenderer spriteRenderer;
 
     private void Start()
     {
         isMoving = false;
         buttonSwitch= false;
         isPlayerInside = false;
+        anim = ElevatorDoor.GetComponent<Animation>();
+        spriteRenderer = ElevatorDoor.GetComponent<SpriteRenderer>();
+        key = true;
     }
 
     private void Update()
@@ -31,12 +38,12 @@ public class Elevator_Script : MonoBehaviour
 
             if (level == "1")
             {
-                targetPosition = PatrolPointDown.transform.position;
+                targetPosition = PatrolPointUp.transform.position;
                 direction = (targetPosition - Elevator.transform.position).normalized;
             }
             else if (level == "2")
             {
-                targetPosition = PatrolPointUp.transform.position;
+                targetPosition = PatrolPointDown.transform.position;
                 direction = (targetPosition - Elevator.transform.position).normalized;
             }
         }
@@ -57,9 +64,14 @@ public class Elevator_Script : MonoBehaviour
 
     public void OnElevator()
     {
+       
         if(key && isPlayerInside)
         {
-            buttonSwitch = true;
+            
+            anim.Play("Opendoor");//Opendoor
+            spriteRenderer.sortingOrder = 7;
+            Invoke("SwitchButton", 1.2f);
+            Debug.Log("f");
         }
     }
 
@@ -67,7 +79,7 @@ public class Elevator_Script : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("player");
+            
             isPlayerInside = true;  
         }
     }
@@ -76,8 +88,19 @@ public class Elevator_Script : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("playerlolo");
+            
             isPlayerInside = false;
         }
+    }
+
+    private void SwitchButton()
+    {
+        buttonSwitch = true;
+        Invoke("CloseDoor", 0.5f);
+    }
+
+    private void CloseDoor()
+    {
+        anim.Play("CloseDore");//Opendoor
     }
 }

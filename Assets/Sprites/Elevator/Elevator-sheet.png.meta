@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 0e7200bc580018348abfcf9b072e9807
+guid: e375da9a57a98a545bc25676e79e521d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9009149297728239248
-    second: 2_186_0
+      213: -6208199396131691524
+    second: Elevator-sheet_0
+  - first:
+      213: 9020742185038955253
+    second: Elevator-sheet_1
+  - first:
+      213: 1815951281158562217
+    second: Elevator-sheet_2
+  - first:
+      213: 1469080417403881166
+    second: Elevator-sheet_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -100,23 +109,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 2_186_0
+      name: Elevator-sheet_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 88
-        width: 576
-        height: 176
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 079c27c327219f280800000000000000
-      internalID: -9009149297728239248
+      spriteID: cf3a6caaa8b08d9a0800000000000000
+      internalID: -6208199396131691524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elevator-sheet_1
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f2c0ad293d103d70800000000000000
+      internalID: 9020742185038955253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elevator-sheet_2
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 21
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a12fd2a11e833910800000000000000
+      internalID: 1815951281158562217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elevator-sheet_3
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 0
+        width: 21
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec647d92bd8336410800000000000000
+      internalID: 1469080417403881166
       vertices: []
       indices: 
       edges: []
@@ -125,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 922dc104e91f52745bb9feba8326af4e
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      2_186_0: -9009149297728239248
+      Elevator-sheet_0: -6208199396131691524
+      Elevator-sheet_1: 9020742185038955253
+      Elevator-sheet_2: 1815951281158562217
+      Elevator-sheet_3: 1469080417403881166
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

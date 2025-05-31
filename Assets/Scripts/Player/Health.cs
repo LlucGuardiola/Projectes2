@@ -35,7 +35,8 @@ public class Health : MonoBehaviour
     {
         if (gameObject.CompareTag("Player")) 
         { 
-            if (GetComponent<GroundDash>().IsGroundDashing) return; 
+            if (GetComponent<GroundDash>().IsGroundDashing) return;
+            CameraShake.Instance.StartShake(0.2f, 0.1f);
         }
 
         Life -= amount;

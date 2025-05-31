@@ -31,7 +31,7 @@ public class LockedDoors : MonoBehaviour
         if (openDoor) 
         { 
             metalDoorSprite.transform.position = new Vector3(metalDoorSprite.transform.position.x, 
-                                                             metalDoorSprite.transform.position.y + 0.55f * Time.deltaTime,
+                                                             metalDoorSprite.transform.position.y + 1.35f * Time.deltaTime,
                                                              metalDoorSprite.transform.position.z);
         }
     }
@@ -83,13 +83,15 @@ public class LockedDoors : MonoBehaviour
             if (Input.GetKey("e"))
             {
                 openDoor = true;
-                Invoke("DoorHasReachedLimit", 5);
+                Invoke("DoorHasReachedLimit", 1.5f);
             }
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (doorIsOpen) return;
+
         for (int i = 0; i < cardSprites.Length; i++)
         {
             cardSprites[i].GetComponent<SpriteRenderer>().color = initialColors[i];

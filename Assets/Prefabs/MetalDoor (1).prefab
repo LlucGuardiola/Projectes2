@@ -399,8 +399,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cards: 03000000
+  cardSprites:
+  - {fileID: 8094793816099981261}
   metalDoorSprite: {fileID: 220547773842316187}
-  card: {fileID: 9062259857418228774}
 --- !u!1 &3005085097296761510
 GameObject:
   m_ObjectHideFlags: 0
@@ -1142,7 +1143,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1897717478563686601}
   - component: {fileID: 9062259857418228774}
-  - component: {fileID: 1905507183250614183}
+  - component: {fileID: 7023125501177777233}
   m_Layer: 0
   m_Name: Target ndicator
   m_TagString: Untagged
@@ -1161,7 +1162,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0.299, y: -1.125, z: -0.37750196}
   m_LocalScale: {x: 0.28954253, y: 0.04812394, z: 0.04812394}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5454475322274632210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
@@ -1220,7 +1221,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1905507183250614183
+--- !u!95 &7023125501177777233
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -1228,9 +1229,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8094793816099981261}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1a2be43b42bdb8c4ea4e0e662b91781c, type: 2}
+  m_Controller: {fileID: 9100000, guid: c9665b6bc39dc8a4082c1de9a804321a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

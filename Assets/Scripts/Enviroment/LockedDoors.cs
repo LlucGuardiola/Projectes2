@@ -4,20 +4,24 @@ using UnityEngine;
 
 public class LockedDoors : MonoBehaviour
 {
-    [SerializeField] private int[] cards;
     private bool[] values;
+    [SerializeField] private int[] cards;
+    [SerializeField] private GameObject[] cardSprites;
     [SerializeField] private GameObject metalDoorSprite;
     private bool doorIsOpen;
     private bool openDoor;
-    [SerializeField] private SpriteRenderer card;
+    private UnityEngine.Color[] initialColors;
 
     private void Start()
     {
         doorIsOpen = false;
         openDoor = false;
-        card = GetComponent<SpriteRenderer>();
+        initialColors = new UnityEngine.Color[cardSprites.Length];
 
-
+        for (int i = 0; i < cardSprites.Length; i++)
+        {
+            initialColors[i] = cardSprites[i].GetComponent<SpriteRenderer>().color;
+        }
     }
 
     private void Update()
@@ -29,13 +33,6 @@ public class LockedDoors : MonoBehaviour
             metalDoorSprite.transform.position = new Vector3(metalDoorSprite.transform.position.x, 
                                                              metalDoorSprite.transform.position.y + 0.55f * Time.deltaTime,
                                                              metalDoorSprite.transform.position.z);
-        }
-        if (doorIsOpen)
-        {
-            UnityEngine.Color color = card.color;
-            card.color = UnityEngine.Color.white;
-            color.a = 1f; 
-            card.color = color;
         }
     }
 
@@ -73,13 +70,29 @@ public class LockedDoors : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (Input.GetKey("e"))
+        if(CheckCards())
         {
-            if (CheckCards())
+            foreach (var card in cardSprites)
+            {
+                SpriteRenderer cardSpriteRenderer = card.GetComponent<SpriteRenderer>();
+
+                UnityEngine.Color newColor = new UnityEngine.Color(1f, 1f, 1f, 1f); 
+                cardSpriteRenderer.color = newColor;
+            }
+
+            if (Input.GetKey("e"))
             {
                 openDoor = true;
                 Invoke("DoorHasReachedLimit", 5);
             }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        for (int i = 0; i < cardSprites.Length; i++)
+        {
+            cardSprites[i].GetComponent<SpriteRenderer>().color = initialColors[i];
         }
     }
 

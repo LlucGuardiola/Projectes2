@@ -13,6 +13,7 @@ public class Dash : MonoBehaviour
     private GameObject target;
     private Vector2 direction;
     [HideInInspector] public bool HasFlipped;
+    private Vector3 originalScale;
 
     public static Action<float, bool, Vector2> OnDashEnd;
 
@@ -21,6 +22,7 @@ public class Dash : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         HasFlipped = false;
+        originalScale = transform.localScale;
     }
 
     private void Update()
@@ -82,13 +84,17 @@ public class Dash : MonoBehaviour
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        if (transform.localScale.x < 0)
+        transform.rotation = Quaternion.Euler(0, 0, angle);
+
+        if (angle > 90 || angle < -90)
         {
-            transform.localScale = new Vector2(transform.localScale.x, transform.localScale.y * -1);
-            HasFlipped = true;
+            transform.localScale = new Vector3(originalScale.x, -Mathf.Abs(originalScale.y), originalScale.z);
+        }
+        else
+        {
+            transform.localScale = new Vector3(originalScale.x, Mathf.Abs(originalScale.y), originalScale.z);
         }
 
-        transform.rotation = Quaternion.Euler(0, 0, angle);
 
         rb.linearVelocity = direction * dashSpeed;
 

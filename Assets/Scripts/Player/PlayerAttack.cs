@@ -1,5 +1,4 @@
-using System;
-using System.Runtime.CompilerServices;
+﻿using System;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
@@ -18,18 +17,21 @@ public class PlayerAttack : MonoBehaviour
     public GameObject RedCircle;
 
     private Animator animator;
+    private Vector3 originalScale;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
+        originalScale = transform.localScale;
     }
 
     private void Update()
     {
         Count();
-        if (isAttacking) RedCircle.SetActive(false);      
+        if (isAttacking) RedCircle.SetActive(false);
         else RedCircle.SetActive(false);
     }
+
     private void OnEnable()
     {
         AttackSystem.OnAttackDone += Attack;
@@ -47,37 +49,44 @@ public class PlayerAttack : MonoBehaviour
         if (!CanAttack) return;
         if (isAttacking) return;
 
-        GetComponent <PlayerMovement>().CanMove = false;
+        GetComponent<PlayerMovement>().CanMove = false;
         animator.SetBool("IsAttacking", true);
 
         isAttacking = true;
         count = true;
         counter = 0;
 
-        int animationNum = UnityEngine.Random.Range(0,2);
+        int animationNum = UnityEngine.Random.Range(0, 2);
 
         switch (animationNum)
         {
-            case 0:        //anim 0
-                break;
-            case 1:        //anim 1      
-                break;
-            default:       //anim 2
-                break;      
+            case 0: break;
+            case 1: break;
+            default: break;
         }
 
         float leftOrRight = GetComponent<PlayerMovement>().LookingForward ? AttackRange : -AttackRange;
 
         Collider2D[] colliders;
 
-        if (!justDashed) 
+        if (!justDashed)
         {
-            colliders = Physics2D.OverlapBoxAll(new Vector2(transform.position.x + leftOrRight , transform.position.y), AttackSize, transform.rotation.z, enemiesLayer);
+            colliders = Physics2D.OverlapBoxAll(
+                new Vector2(transform.position.x + leftOrRight, transform.position.y),
+                AttackSize,
+                transform.rotation.z,
+                enemiesLayer
+            );
             attackDuration = basicAttackDuration;
         }
         else
         {
-            colliders = Physics2D.OverlapBoxAll((Vector2)transform.position + direction * AttackRange, AttackSize, transform.rotation.z, enemiesLayer);
+            colliders = Physics2D.OverlapBoxAll(
+                (Vector2)transform.position + direction * AttackRange,
+                AttackSize,
+                transform.rotation.z,
+                enemiesLayer
+            );
             attackDuration = dashAttackDuration;
         }
 
@@ -94,20 +103,22 @@ public class PlayerAttack : MonoBehaviour
     private void Count()
     {
         if (!count) return;
-        
+
         counter += Time.deltaTime;
 
         if (counter >= attackDuration)
         {
             isAttacking = false;
+
             transform.rotation = Quaternion.identity;
+            transform.localScale = originalScale;
+
             GetComponent<PlayerMovement>().CanMove = true;
             count = false;
             animator.SetBool("IsAttacking", false);
 
             if (GetComponent<Dash>().HasFlipped)
             {
-                // transform.localScale = new Vector2(transform.localScale.x, transform.localScale.y * -1);
                 GetComponent<Dash>().HasFlipped = false;
             }
         }

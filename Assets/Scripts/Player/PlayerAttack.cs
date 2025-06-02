@@ -104,6 +104,12 @@ public class PlayerAttack : MonoBehaviour
             GetComponent<PlayerMovement>().CanMove = true;
             count = false;
             animator.SetBool("IsAttacking", false);
+
+            if (GetComponent<Dash>().HasFlipped)
+            {
+                // transform.localScale = new Vector2(transform.localScale.x, transform.localScale.y * -1);
+                GetComponent<Dash>().HasFlipped = false;
+            }
         }
     }
 

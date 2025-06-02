@@ -13,7 +13,6 @@ public class PlayerJump : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private CollisionDetection _collisionDetection;
     private Animator animator;
-    private PlayerAttack playerAttack;
 
     int CollisionPos => _collisionDetection.CollisionPos;
 
@@ -22,6 +21,11 @@ public class PlayerJump : MonoBehaviour
 
     private bool count;
     private float counter;
+
+    public AudioClip jumpStart;
+    public AudioClip jumpEnd;
+
+    private AudioSource audioSource;
 
     [HideInInspector] public bool IsWallSliding => _collisionDetection.IsTouchingFront;
     [HideInInspector] public bool IsTouchingGround => _collisionDetection.IsGrounded;
@@ -33,7 +37,8 @@ public class PlayerJump : MonoBehaviour
         _collisionDetection = GetComponent<CollisionDetection>();
         IsWallJumping = false;
         animator = GetComponent<Animator>();
-        playerAttack = GetComponent<PlayerAttack>();
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()

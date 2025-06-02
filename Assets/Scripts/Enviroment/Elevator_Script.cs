@@ -7,6 +7,7 @@ public class Elevator_Script : MonoBehaviour
     public GameObject PatrolPointDown;
     public GameObject Elevator;
     public GameObject ElevatorDoor,ElevatorDoorSecond;
+    public GameObject Door1,Door2;
 
     private bool isMoving;
     private bool buttonSwitch;
@@ -18,7 +19,6 @@ public class Elevator_Script : MonoBehaviour
     private Vector3 direction;
     private Vector3 targetPosition;
     private Animation firstAnimation,secondAnimation;
-    private SpriteRenderer spriteRenderer;
 
     private void Start()
     {
@@ -27,7 +27,7 @@ public class Elevator_Script : MonoBehaviour
         isPlayerInside = false;
         firstAnimation = ElevatorDoor.GetComponent<Animation>();
         secondAnimation = ElevatorDoorSecond.GetComponent<Animation>();
-        spriteRenderer = ElevatorDoor.GetComponent<SpriteRenderer>();
+   
         key = true;
     }
 
@@ -59,7 +59,11 @@ public class Elevator_Script : MonoBehaviour
                 isMoving = false;
                 buttonSwitch = false;
                 secondAnimation.Play("Opendoor");
-                Invoke("CloseSecondDoor", 1.0f);
+                ElevatorDoorSecond.GetComponent<SpriteRenderer>().sortingOrder = 5;
+               
+                Invoke("CloseSecondDoor", 3.0f);
+                Door1.GetComponent<SpriteRenderer>().sortingOrder = 5;
+                Door2.GetComponent<SpriteRenderer>().sortingOrder = 5;
 
                 if (level == "1") level = "2"; else level = "1";
             }
@@ -73,7 +77,7 @@ public class Elevator_Script : MonoBehaviour
         {
             
             firstAnimation.Play("Opendoor");//Opendoor
-            spriteRenderer.sortingOrder = 7;
+            ElevatorDoor.GetComponent<SpriteRenderer>().sortingOrder = 7;
             Invoke("SwitchButton", 1.2f);
         }
     }

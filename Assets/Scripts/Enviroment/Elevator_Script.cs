@@ -6,7 +6,7 @@ public class Elevator_Script : MonoBehaviour
     public GameObject PatrolPointUp;
     public GameObject PatrolPointDown;
     public GameObject Elevator;
-    public GameObject ElevatorDoor;
+    public GameObject ElevatorDoor,ElevatorDoorSecond;
 
     private bool isMoving;
     private bool buttonSwitch;
@@ -17,7 +17,7 @@ public class Elevator_Script : MonoBehaviour
     public float Speed = 5.0f;
     private Vector3 direction;
     private Vector3 targetPosition;
-    private Animation anim;
+    private Animation firstAnimation,secondAnimation;
     private SpriteRenderer spriteRenderer;
 
     private void Start()
@@ -25,7 +25,8 @@ public class Elevator_Script : MonoBehaviour
         isMoving = false;
         buttonSwitch= false;
         isPlayerInside = false;
-        anim = ElevatorDoor.GetComponent<Animation>();
+        firstAnimation = ElevatorDoor.GetComponent<Animation>();
+        secondAnimation = ElevatorDoorSecond.GetComponent<Animation>();
         spriteRenderer = ElevatorDoor.GetComponent<SpriteRenderer>();
         key = true;
     }
@@ -57,6 +58,9 @@ public class Elevator_Script : MonoBehaviour
                 Elevator.transform.position = targetPosition;
                 isMoving = false;
                 buttonSwitch = false;
+                secondAnimation.Play("Opendoor");
+                Invoke("CloseSecondDoor", 1.0f);
+
                 if (level == "1") level = "2"; else level = "1";
             }
         }
@@ -68,10 +72,9 @@ public class Elevator_Script : MonoBehaviour
         if(key && isPlayerInside)
         {
             
-            anim.Play("Opendoor");//Opendoor
+            firstAnimation.Play("Opendoor");//Opendoor
             spriteRenderer.sortingOrder = 7;
             Invoke("SwitchButton", 1.2f);
-            Debug.Log("f");
         }
     }
 
@@ -101,6 +104,11 @@ public class Elevator_Script : MonoBehaviour
 
     private void CloseDoor()
     {
-        anim.Play("CloseDore");//Opendoor
+        firstAnimation.Play("CloseDore");
+    }
+
+    private void CloseSecondDoor()
+    {
+        secondAnimation.Play("CloseDore");
     }
 }

@@ -12,6 +12,7 @@ public class Dash : MonoBehaviour
     private Rigidbody2D rb;
     private GameObject target;
     private Vector2 direction;
+    [HideInInspector] public bool HasFlipped;
 
     public static Action<float, bool, Vector2> OnDashEnd;
 
@@ -19,6 +20,7 @@ public class Dash : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        HasFlipped = false;
     }
 
     private void Update()
@@ -80,10 +82,11 @@ public class Dash : MonoBehaviour
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        //if (transform.localScale.x < 0)
-        //{
-        //    angle += 180;
-        //}
+        if (transform.localScale.x < 0)
+        {
+            transform.localScale = new Vector2(transform.localScale.x, transform.localScale.y * -1);
+            HasFlipped = true;
+        }
 
         transform.rotation = Quaternion.Euler(0, 0, angle);
 

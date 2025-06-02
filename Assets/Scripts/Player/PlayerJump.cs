@@ -77,6 +77,8 @@ public class PlayerJump : MonoBehaviour
         if (PauseLogic.IsPaused) return;
         if (!canJump && coyoteTimeCounter < 0) return;
 
+        audioSource.PlayOneShot(jumpStart);
+
         var vel = new Vector2(_rigidbody.linearVelocity.x * 1.5f, JumpStrengh);
 
         if (IsWallSliding && !IsTouchingGround)

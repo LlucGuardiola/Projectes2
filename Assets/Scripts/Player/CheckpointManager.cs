@@ -27,7 +27,7 @@ public class CheckpointManager : MonoBehaviour
     public void StartRespawn()
     {
         CameraFade.StartFade(true, 1f);
-        Invoke("Respawn", 2f / CameraFade.SpeedScale);
+        Invoke("Respawn", 2f / CameraFade.SpeedScale / 2f);
     }
 
     private void Respawn()

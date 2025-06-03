@@ -17,7 +17,7 @@ public class CameraFade : MonoBehaviour
 
     private static bool Fade;
     private static bool inAndOut;
-    private bool waiting;
+    private static bool waiting;
     private static float delay;
 
     private void Start()
@@ -48,6 +48,7 @@ public class CameraFade : MonoBehaviour
             }
         }
     }
+
     public void OnGUI()
     {
         if (alpha > 0f) GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), texture);
@@ -57,14 +58,19 @@ public class CameraFade : MonoBehaviour
             alpha = Curve.Evaluate(time);
             texture.SetPixel(0, 0, new Color(fadeColor.r, fadeColor.g, fadeColor.b, alpha));
             texture.Apply();
-            if (alpha <= 0f || alpha >= 1f) 
-            { 
-                if (inAndOut)
+
+            if (alpha <= 0f || alpha >= 1f)
+            {
+                if (inAndOut && !waiting)
                 {
                     waiting = true;
+                    direction = 0; 
                     Invoke("InvertFade", delay);
                 }
-                else { direction = 0; }
+                else if (!inAndOut)
+                {
+                    direction = 0;
+                }
             }
         }
     }
@@ -80,6 +86,7 @@ public class CameraFade : MonoBehaviour
     private void InvertFade()
     {
         direction *= -1;
+        time = 1f;
         inAndOut = false;
         waiting = false;
     }

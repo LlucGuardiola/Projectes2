@@ -24,7 +24,13 @@ public class CheckpointManager : MonoBehaviour
         savedPosition = position;
     }
 
-    public void Respawn()
+    public void StartRespawn()
+    {
+        CameraFade.StartFade(true, 1f);
+        Invoke("Respawn", 2f / CameraFade.SpeedScale);
+    }
+
+    private void Respawn()
     {
         player.transform.position = savedPosition;
         player.GetComponent<Health>().RestartLife();

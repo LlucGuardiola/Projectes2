@@ -111,7 +111,10 @@ public class PlayerAttack : MonoBehaviour
             isAttacking = false;
 
             transform.rotation = Quaternion.identity;
-            transform.localScale = originalScale;
+
+            float scaleX = transform.localScale.x < 0 ? -originalScale.x : originalScale.x;
+
+            transform.localScale = new Vector2(scaleX, originalScale.y);
 
             GetComponent<PlayerMovement>().CanMove = true;
             count = false;

@@ -31,7 +31,7 @@ public class CheckpointManager : MonoBehaviour
         if (Respawning) return;
         CameraFade.StartFade(true, 1f);
         Invoke("Respawn", 2f / CameraFade.SpeedScale / 2f);
-        Respawning = true; 
+        //Respawning = true; 
         
     }
 
@@ -39,6 +39,6 @@ public class CheckpointManager : MonoBehaviour
     {
         player.transform.position = savedPosition;
         player.GetComponent<Health>().RestartLife();
-        Respawning = false;
+        //Respawning = false;
     }
 }

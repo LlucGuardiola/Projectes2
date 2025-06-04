@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public PlayableDirector timeline;
+    public float changeSceneTime;
 
     public void GameStart()
     {
@@ -33,6 +34,15 @@ public class GameManager : MonoBehaviour
 
             timeline.Play();
         }
+    }
+
+    private void Update()
+    {
+        if (timeline.state != PlayState.Playing) return;
+
+        changeSceneTime -= Time.deltaTime;
+        if (changeSceneTime <= 0) { SceneManager.LoadScene("EndGameScene"); }
+
     }
 
     public void MainMenu()

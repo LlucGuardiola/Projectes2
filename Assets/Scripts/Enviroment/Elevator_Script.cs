@@ -14,6 +14,7 @@ public class Elevator_Script : MonoBehaviour
     private bool isMoving;
     private bool buttonSwitch;
     private bool isPlayerInside;
+    private bool levelTwo;
 
     public float Speed = 5.0f;
     private Vector3 direction;
@@ -27,6 +28,7 @@ public class Elevator_Script : MonoBehaviour
         isMoving = false;
         buttonSwitch= false;
         isPlayerInside = false;
+        levelTwo = false;
         firstAnimation = ElevatorDoor.GetComponent<Animation>();
         secondAnimation = ElevatorDoorSecond.GetComponent<Animation>();
     }
@@ -63,7 +65,7 @@ public class Elevator_Script : MonoBehaviour
                     collider.enabled = false;
                 }
                 buttonSwitch = false;
-                isPlayerInside = false;
+                levelTwo = true;
             }
         }
     }
@@ -71,7 +73,7 @@ public class Elevator_Script : MonoBehaviour
     public void OnElevator()
     {
        
-        if(isPlayerInside)
+        if(isPlayerInside && !levelTwo)
         {
             foreach( var  collider in boxColliders )
             {

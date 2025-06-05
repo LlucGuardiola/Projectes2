@@ -19,15 +19,16 @@ public class Elevator_Script : MonoBehaviour
     private Vector3 direction;
     private Vector3 targetPosition;
     private Animation firstAnimation,secondAnimation;
+    private BoxCollider2D[] boxColliders;
 
     private void Start()
     {
+        boxColliders = Elevator.GetComponents<BoxCollider2D>();
         isMoving = false;
         buttonSwitch= false;
         isPlayerInside = false;
         firstAnimation = ElevatorDoor.GetComponent<Animation>();
         secondAnimation = ElevatorDoorSecond.GetComponent<Animation>();
-   
         key = true;
     }
 
@@ -75,7 +76,10 @@ public class Elevator_Script : MonoBehaviour
        
         if(key && isPlayerInside)
         {
-            
+            foreach( var  collider in boxColliders )
+            {
+                collider.enabled = true;
+            }
             firstAnimation.Play("Opendoor");//Opendoor
             ElevatorDoor.GetComponent<SpriteRenderer>().sortingOrder = 7;
             Invoke("SwitchButton", 1.2f);

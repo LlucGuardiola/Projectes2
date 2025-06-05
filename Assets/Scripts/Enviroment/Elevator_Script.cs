@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 
 public class Elevator_Script : MonoBehaviour
@@ -7,7 +8,7 @@ public class Elevator_Script : MonoBehaviour
     public GameObject PatrolPointDown;
     public GameObject Elevator;
     public GameObject ElevatorDoor,ElevatorDoorSecond;
-    public GameObject Door1,Door2;
+    public GameObject Door1,Door2, floor;
 
     private bool isMoving;
     private bool buttonSwitch;
@@ -65,6 +66,12 @@ public class Elevator_Script : MonoBehaviour
                 Invoke("CloseSecondDoor", 3.0f);
                 Door1.GetComponent<SpriteRenderer>().sortingOrder = 5;
                 Door2.GetComponent<SpriteRenderer>().sortingOrder = 5;
+                floor.GetComponent<TilemapRenderer>().sortingOrder = 5;
+                floor.GetComponent<BoxCollider2D>().enabled = true;
+                foreach (var collider in boxColliders)
+                {
+                    collider.enabled = false;
+                }
 
                 if (level == "1") level = "2"; else level = "1";
             }

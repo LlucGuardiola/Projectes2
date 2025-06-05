@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae6b11b41c95a64c921e5382515995e, type: 3}
   m_Name: Telefono
   m_EditorClassIdentifier: 
-  npcName: 
+  npcName: Telefono
   npcPortrait: {fileID: 0}
-  dialogueLines: []
-  autoProgressLines: 
+  dialogueLines:
+  - Hola, parece que ya has llegado...
+  - 
+  - 
+  - 
+  autoProgressLines: 01000000
   typingSpeed: 0.008
   voiceSound: {fileID: 0}
   VoicePitch: 1

@@ -25,15 +25,12 @@ public class NPC : MonoBehaviour, IInteractable
 
     public void Interact ()
     {
-        if (dialogueData == null)
+      if (dialogueData == null || (PauseLogic.IsPaused && isDialogueActive))
         {
             return;
         }
-        else if
-            (PauseLogic.IsPaused && !isDialogueActive)
-            return;
 
-        if (isDialogueActive)
+      if (isDialogueActive )
         {
             NextLine();
         }
@@ -48,7 +45,7 @@ public class NPC : MonoBehaviour, IInteractable
         isDialogueActive = true;
         dialogueIndex = 0;
 
-        nameText.SetText (dialogueData.name); //npc name!!
+        nameText.SetText (dialogueData.npcName); //npc name!!
         portraitImage.sprite = dialogueData.npcPortrait;
 
         dialoguePanel.SetActive (true);

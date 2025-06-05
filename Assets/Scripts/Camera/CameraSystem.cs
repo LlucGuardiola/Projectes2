@@ -3,49 +3,25 @@ using UnityEngine;
 
 public class CameraSystem : MonoBehaviour
 {
-    [SerializeField] private float speed = 5f;
-    [SerializeField] private float horizontalThreshold = 2f;
-    [SerializeField] private float verticalThreshold = 1.5f;
-    [SerializeField] private float camSpeedMultiplier = 2f;
-    [SerializeField] private LayerMask cameraZoneLayer;
-
-    [HideInInspector] public float HeightIncrease;
-
-    private GameObject cam;
     private GameObject player;
+
+    public Vector2 offset;
+    private float smoothTime = 0.25f;
+    private Vector2 velocity = Vector2.zero;
+
+    private float initialZ;
 
     private void Start()
     {
-        cam = GameObject.Find("Main Camera");
         player = GameObject.Find("Player");
+        initialZ = transform.position.z;
     }
 
     private void Update()
     {
-        Vector3 playerPosition = player.transform.position;
-        playerPosition.y += HeightIncrease;
+        Vector2 targetPos = (Vector2)player.transform.position + offset;
+        transform.position = Vector2.SmoothDamp(transform.position, targetPos, ref velocity, smoothTime);
 
-        Vector3 camPosition = cam.transform.position;
-
-        Vector3 offset = playerPosition - camPosition;
-
-        bool moveX = Mathf.Abs(offset.x) > horizontalThreshold;
-        bool moveY = Mathf.Abs(offset.y) > verticalThreshold;
-
-        Vector3 targetPosition = camPosition;
-
-        if (moveX) targetPosition.x = playerPosition.x;
-        if (moveY) targetPosition.y = playerPosition.y;
-
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(new Vector2(targetPosition.x, targetPosition.y), Vector2.one, 0f, cameraZoneLayer);
-
-        if (colliders.Length == 0)
-        {
-            targetPosition.y = camPosition.y;
-        }
-
-        Vector3 target = new Vector3(targetPosition.x, targetPosition.y, camPosition.z);
-        Vector3 direction = target - camPosition;
-        cam.transform.position = camPosition + direction * (Time.deltaTime * speed * camSpeedMultiplier);
+        transform.position = new Vector3(transform.position.x, transform.position.y, initialZ);
     }
 }

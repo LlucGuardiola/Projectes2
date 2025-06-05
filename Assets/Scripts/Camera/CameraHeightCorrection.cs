@@ -9,14 +9,14 @@ public class CameraHeightCorrection : MonoBehaviour
     private void Start()
     {
         player = GameObject.Find("Player");
-        cameraSyst = GameObject.Find("CameraSystem");
+        cameraSyst = GameObject.Find("Main Camera");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject == player)
         {
-            cameraSyst.GetComponent<CameraSystem>().HeightIncrease = newHeightIncrease;
+            cameraSyst.GetComponent<CameraSystem>().offset = new Vector2(0, newHeightIncrease);
         }
     }
 }

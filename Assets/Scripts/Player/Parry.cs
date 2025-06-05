@@ -9,6 +9,9 @@ public class Parry : MonoBehaviour
     private bool count;
     private float counter;
     private bool instantReset;
+    private Animator animator;
+    private PlayerJump playerJump;
+    PlayerMovement playerMovement;
 
     [SerializeField] private float parryCooldown;
 
@@ -23,17 +26,22 @@ public class Parry : MonoBehaviour
         CanParry = true;
         counter = 0;
         instantReset = false;
+        animator = GetComponent<Animator>();
+        playerJump = GetComponent<PlayerJump>();
+        playerMovement = GetComponent<PlayerMovement>();
     }
 
     void Update()
     {
+
         if (!PlayerInventory.PlayerHasSword) return;
         if (CheckpointManager.IsDead) return;   
 
         if (Input.GetMouseButtonDown(1))
         {
-            if (CanParry && !IsParring)
+            if (CanParry && !IsParring && playerJump.IsTouchingGround)
             {
+                playerMovement.CanMove = false;
                 IsParring = true;
                 count = true;
                 counter = 0;
@@ -41,6 +49,7 @@ public class Parry : MonoBehaviour
             }
         }
 
+        animator.SetBool("IsParring", IsParring);
         if (IsParring) Parr();
 
         Count();
@@ -63,8 +72,6 @@ public class Parry : MonoBehaviour
         {
             if (!bullet.gameObject.GetComponent<Bullet>().BulletParried)
             {
-                Bullet bulletScript = bullet.gameObject.GetComponent<Bullet>();
-
                 Vector2 randomDirection = new Vector2(leftOrRight, Random.Range(-0.9f, 0.9f)).normalized;
 
                 bullet.gameObject.GetComponent<Bullet>().Direction = randomDirection;
@@ -86,6 +93,8 @@ public class Parry : MonoBehaviour
             count = false;
             ParryAnimationController.EndParryAnimation();
             CanParry = false;
+            animator.SetBool("IsParring", false);
+            playerMovement.CanMove = true;
 
             if (instantReset) 
             {

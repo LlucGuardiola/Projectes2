@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public void GameStart()
     {
-        SceneManager.LoadScene("Blockout");
+        MainScene();
     }
 
     public void Exit()
@@ -17,5 +17,16 @@ public class GameManager : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene("MainMenuScene");
+    }
+
+    public void MainScene ()
+    {
+        SceneManager.LoadScene("Blockout");
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Invoke("MainScene", 1f);
+        CameraFade.StartFade(false, 1f);
     }
 }

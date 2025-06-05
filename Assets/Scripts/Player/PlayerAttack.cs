@@ -84,7 +84,7 @@ public class PlayerAttack : MonoBehaviour
 
         float t = justDashed ? 0 : 0.2f;
 
-        AttackRange = justDashed ? AttackRange / 2 : initialAttackRange;
+        AttackRange = justDashed ? initialAttackRange / 2 + initialAttackRange / 3 : initialAttackRange;
 
         ChangeAnimations.GetComponent<OverrideAnimController>().SwichAttackAnim(justDashed ? 2 : 1);
         animator.SetBool("IsAttacking", true);

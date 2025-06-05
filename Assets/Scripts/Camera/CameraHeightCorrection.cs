@@ -16,7 +16,7 @@ public class CameraHeightCorrection : MonoBehaviour
     {
         if (collision.gameObject == player)
         {
-            cameraSyst.GetComponent<CameraSystem>().offset = new Vector2(0, newHeightIncrease);
+            cameraSyst.GetComponent<CameraSystem>().offset = new Vector2(cameraSyst.GetComponent<CameraSystem>().offset.x, newHeightIncrease);
         }
     }
 }

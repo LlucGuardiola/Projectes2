@@ -1,3 +1,4 @@
+using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -72,7 +73,7 @@ public class Elevator_Script : MonoBehaviour
                 {
                     collider.enabled = false;
                 }
-
+                Invoke("Collider", 5.0f);
                 if (level == "1") level = "2"; else level = "1";
             }
         }
@@ -125,5 +126,10 @@ public class Elevator_Script : MonoBehaviour
     private void CloseSecondDoor()
     {
         secondAnimation.Play("CloseDore");
+    }
+
+    private void Collider()
+    {
+       GetComponent<BoxCollider2D>().isTrigger = false;
     }
 }

@@ -15,6 +15,7 @@ public class PlayerAttack : MonoBehaviour
     public float AttackRange;
     public Vector2 AttackSize;
     public GameObject RedCircle;
+    private GameObject ChangeAnimations;
 
     private Animator animator;
     private Vector3 originalScale;
@@ -24,11 +25,13 @@ public class PlayerAttack : MonoBehaviour
     private bool justDashed;
     private Vector2 direction;
 
+
     private void Start()
     {
         animator = GetComponent<Animator>();
         originalScale = transform.localScale;
         playerJump = gameObject.GetComponent<PlayerJump>();
+        ChangeAnimations = GameObject.Find("ChangeAnims");
     }
 
     private void Update()
@@ -77,7 +80,11 @@ public class PlayerAttack : MonoBehaviour
             default: break;
         }
 
-        Invoke("PerformAttack", 0.4f);
+        float t = justDashed ? 0 : 0.4f;
+
+        ChangeAnimations.GetComponent<OverrideAnimController>().SwichAttackAnim(justDashed ? 1 : 2);
+
+        Invoke("PerformAttack", t);
     }
 
     private void PerformAttack()

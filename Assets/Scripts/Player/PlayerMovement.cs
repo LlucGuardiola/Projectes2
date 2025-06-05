@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (CheckpointManager.IsDead) return;
         animator.SetBool("IsRunning?", (_rigidbody.linearVelocity.x >= 1.2f || _rigidbody.linearVelocity.x <= -1.2f) && GetComponent<PlayerJump>().IsTouchingGround);
 
         if (dash.IsDashing) return;

@@ -51,6 +51,7 @@ public class PlayerAttack : MonoBehaviour
         if (!CanAttack) return;
         if (isAttacking) return;
         if (!playerJump.IsTouchingGround && !justDashed) return;
+        if (CheckpointManager.IsDead) return;
 
         GetComponent<PlayerMovement>().CanMove = false;
         animator.SetBool("IsAttacking", true);

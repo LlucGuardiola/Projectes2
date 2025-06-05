@@ -76,6 +76,7 @@ public class PlayerJump : MonoBehaviour
     {
         if (PauseLogic.IsPaused) return;
         if (!canJump && coyoteTimeCounter < 0) return;
+        if (CheckpointManager.IsDead) return;
 
         audioSource.PlayOneShot(jumpStart);
 

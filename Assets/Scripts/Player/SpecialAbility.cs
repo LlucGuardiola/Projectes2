@@ -25,6 +25,7 @@ public class SpecialAbility : MonoBehaviour
     public void OnSpecialAbility()
     {
         if (!canDash) return;
+        if (CheckpointManager.IsDead) return;
 
         if (PauseLogic.IsPaused) return;
         if (!GetComponent<PlayerAttack>().CanAttack) return;

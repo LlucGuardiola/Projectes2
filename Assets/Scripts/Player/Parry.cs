@@ -28,6 +28,7 @@ public class Parry : MonoBehaviour
     void Update()
     {
         if (!PlayerInventory.PlayerHasSword) return;
+        if (CheckpointManager.IsDead) return;   
 
         if (Input.GetMouseButtonDown(1))
         {

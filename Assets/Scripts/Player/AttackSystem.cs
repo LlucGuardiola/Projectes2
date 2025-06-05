@@ -10,7 +10,8 @@ public class AttackSystem : MonoBehaviour
     {
         if (PauseLogic.IsPaused) return;
         if (GetComponent<GroundDash>().IsGroundDashing) return;
-        
+        if (CheckpointManager.IsDead) return;
+
         OnAttackDone?.Invoke(1f, false, Vector2.zero);
     }
 }

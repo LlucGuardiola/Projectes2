@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Parry : MonoBehaviour
 {
@@ -6,6 +7,7 @@ public class Parry : MonoBehaviour
     public Vector2 ParrySize;
     public bool CanParry;
     public bool IsParring;
+    private float timeWhenParryEnded; // slider
     private bool count;
     private float counter;
     private bool instantReset;
@@ -21,6 +23,9 @@ public class Parry : MonoBehaviour
 
     [SerializeField] private LayerMask bulletLayer;
 
+    [SerializeField] private Slider slider; // slider
+
+
     private void Start()
     {
         CanParry = true;
@@ -29,13 +34,24 @@ public class Parry : MonoBehaviour
         animator = GetComponent<Animator>();
         playerJump = GetComponent<PlayerJump>();
         playerMovement = GetComponent<PlayerMovement>();
+
+        // slider
+        if (slider != null)
+        {
+            slider.maxValue = parryCooldown;
+            slider.value = parryCooldown;
+        }
+
+        timeWhenParryEnded = -parryCooldown;
     }
 
     void Update()
     {
 
         if (!PlayerInventory.PlayerHasSword) return;
-        if (CheckpointManager.IsDead) return;   
+        if (CheckpointManager.IsDead) return;
+
+        UpdateParrySlider(); //slider
 
         if (Input.GetMouseButtonDown(1))
         {
@@ -91,6 +107,7 @@ public class Parry : MonoBehaviour
         {
             IsParring = false;
             count = false;
+            timeWhenParryEnded = Time.time; // slider
             ParryAnimationController.EndParryAnimation();
             CanParry = false;
             animator.SetBool("IsParring", false);
@@ -116,4 +133,27 @@ public class Parry : MonoBehaviour
     {
         return parryDamageMultiplier;
     }
+
+    private void UpdateParrySlider() //slider
+    {
+      
+        if (slider == null) return;
+
+        slider.gameObject.SetActive(!CanParry || !Mathf.Approximately(slider.value, slider.maxValue)); // per desactivarho quan esta al maxim
+
+        if (CanParry)
+        {
+            slider.value = slider.maxValue;
+        }
+        else if (IsParring)
+        {
+            slider.value = slider.maxValue * (1 - (counter / parryDuration));
+        }
+        else
+        {
+            float cooldownProgress = (Time.time - timeWhenParryEnded) / parryCooldown;
+            slider.value = Mathf.Clamp(slider.maxValue * cooldownProgress, 0, slider.maxValue);
+        }
+    }
+
 }

@@ -1,16 +1,9 @@
 using UnityEngine;
 
-public class GlobalHelper : MonoBehaviour
+public static class GlobalHelper 
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public static string GenerateUnique2d(GameObject obj)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        return $"{obj.scene.name}.{obj.transform.position.x}_{obj.transform.position.y}";
     }
 }

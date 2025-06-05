@@ -20,6 +20,10 @@ public class PlayerAttack : MonoBehaviour
     private Vector3 originalScale;
     private PlayerJump playerJump;
 
+    private float damageDealt;
+    private bool justDashed;
+    private Vector2 direction;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -53,6 +57,10 @@ public class PlayerAttack : MonoBehaviour
         if (!playerJump.IsTouchingGround && !justDashed) return;
         if (CheckpointManager.IsDead) return;
 
+        this.damageDealt = damageDealt;
+        this.justDashed = justDashed;
+        this.direction = direction;
+
         GetComponent<PlayerMovement>().CanMove = false;
         animator.SetBool("IsAttacking", true);
 
@@ -69,6 +77,11 @@ public class PlayerAttack : MonoBehaviour
             default: break;
         }
 
+        Invoke("PerformAttack", 0.4f);
+    }
+
+    private void PerformAttack()
+    {
         float leftOrRight = GetComponent<PlayerMovement>().LookingForward ? AttackRange : -AttackRange;
 
         Collider2D[] colliders;

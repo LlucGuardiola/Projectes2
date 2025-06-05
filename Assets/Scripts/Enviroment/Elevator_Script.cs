@@ -13,8 +13,6 @@ public class Elevator_Script : MonoBehaviour
 
     private bool isMoving;
     private bool buttonSwitch;
-    private string level = "1";
-    public bool key;
     private bool isPlayerInside;
 
     public float Speed = 5.0f;
@@ -31,7 +29,6 @@ public class Elevator_Script : MonoBehaviour
         isPlayerInside = false;
         firstAnimation = ElevatorDoor.GetComponent<Animation>();
         secondAnimation = ElevatorDoorSecond.GetComponent<Animation>();
-        key = true;
     }
 
     private void Update()
@@ -39,17 +36,9 @@ public class Elevator_Script : MonoBehaviour
         if (buttonSwitch && !isMoving)
         {
             isMoving = true;
-
-            if (level == "1")
-            {
-                targetPosition = PatrolPointUp.transform.position;
-                direction = (targetPosition - Elevator.transform.position).normalized;
-            }
-            else if (level == "2")
-            {
-                targetPosition = PatrolPointDown.transform.position;
-                direction = (targetPosition - Elevator.transform.position).normalized;
-            }
+            targetPosition = PatrolPointUp.transform.position;
+            direction = (targetPosition - Elevator.transform.position).normalized;
+            
         }
 
         if (isMoving)
@@ -73,8 +62,8 @@ public class Elevator_Script : MonoBehaviour
                 {
                     collider.enabled = false;
                 }
-                Invoke("Collider", 5.0f);
-                if (level == "1") level = "2"; else level = "1";
+                buttonSwitch = false;
+                isPlayerInside = false;
             }
         }
     }
@@ -82,7 +71,7 @@ public class Elevator_Script : MonoBehaviour
     public void OnElevator()
     {
        
-        if(key && isPlayerInside)
+        if(isPlayerInside)
         {
             foreach( var  collider in boxColliders )
             {
@@ -128,8 +117,4 @@ public class Elevator_Script : MonoBehaviour
         secondAnimation.Play("CloseDore");
     }
 
-    private void Collider()
-    {
-       GetComponent<BoxCollider2D>().isTrigger = false;
-    }
 }

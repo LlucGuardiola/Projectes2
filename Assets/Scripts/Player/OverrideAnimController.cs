@@ -5,6 +5,7 @@ public class OverrideAnimController : MonoBehaviour
     private GameObject player;
     public AnimationClip newIdleClip;
     public AnimationClip newRunClip;
+    public AnimationClip newOnAirClip;
     private Animator animator;
 
     void Start()
@@ -21,9 +22,9 @@ public class OverrideAnimController : MonoBehaviour
 
             overrideController["PlayerIdle"] = newIdleClip;
             overrideController["PlayerRun"] = newRunClip;
+            overrideController["OnAir"] = newOnAirClip;
 
             animator.runtimeAnimatorController = overrideController;
-            Debug.Log("Player");
             Destroy(gameObject);
         }
     }

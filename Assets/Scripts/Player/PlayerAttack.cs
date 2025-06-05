@@ -18,11 +18,13 @@ public class PlayerAttack : MonoBehaviour
 
     private Animator animator;
     private Vector3 originalScale;
+    private PlayerJump playerJump;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         originalScale = transform.localScale;
+        playerJump = gameObject.GetComponent<PlayerJump>();
     }
 
     private void Update()
@@ -48,6 +50,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (!CanAttack) return;
         if (isAttacking) return;
+        if (!playerJump.IsTouchingGround && !justDashed) return;
 
         GetComponent<PlayerMovement>().CanMove = false;
         animator.SetBool("IsAttacking", true);

@@ -34,18 +34,7 @@ public class CameraFade : MonoBehaviour
         if (direction == 0 && Fade && !waiting)
         {
             Fade = false;
-            if (alpha >= 1f) // Start fade out
-            {
-                alpha = 1f;
-                time = 0f;
-                direction = 1;
-            }
-            else // Start fade in
-            {
-                alpha = 0f;
-                time = 1f;
-                direction = -1;
-            }
+            CheckDirection();
         }
     }
 
@@ -64,7 +53,6 @@ public class CameraFade : MonoBehaviour
                 if (inAndOut && !waiting)
                 {
                     waiting = true;
-                    direction = 0; 
                     Invoke("InvertFade", delay);
                 }
                 else if (!inAndOut)
@@ -86,8 +74,26 @@ public class CameraFade : MonoBehaviour
     private void InvertFade()
     {
         direction *= -1;
-        time = 1f;
+
+        CheckDirection();
+
         inAndOut = false;
         waiting = false;
+    }
+
+    private void CheckDirection()
+    {
+        if (alpha >= 1f) // Start fade out
+        {
+            alpha = 1f;
+            time = 0f;
+            direction = 1;
+        }
+        else // Start fade in
+        {
+            alpha = 0f;
+            time = 1f;
+            direction = -1;
+        }
     }
 }

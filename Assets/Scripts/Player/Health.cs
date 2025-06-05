@@ -16,6 +16,7 @@ public class Health : MonoBehaviour
         {
             if (gameObject.CompareTag("Player"))
             {
+                if (CheckpointManager.IsDead) return;
                 CheckpointManager.Instance.StartRespawn();
             }
             else if (gameObject.CompareTag("Enemy"))
@@ -35,7 +36,9 @@ public class Health : MonoBehaviour
     {
         if (gameObject.CompareTag("Player")) 
         { 
+            if (CheckpointManager.IsDead) return;
             if (GetComponent<GroundDash>().IsGroundDashing) return;
+
             CameraShake.Instance.StartShake(0.2f, 0.1f);
         }
 

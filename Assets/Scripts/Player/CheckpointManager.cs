@@ -7,13 +7,13 @@ public class CheckpointManager : MonoBehaviour
 
     private static Vector3 savedPosition;
     private GameObject player;
-    public static bool Respawning;
+    public static bool IsDead;
 
     void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
-        Respawning = false;
+        IsDead = false;
     }
 
     private void Start()
@@ -28,17 +28,25 @@ public class CheckpointManager : MonoBehaviour
 
     public void StartRespawn()
     {
-        if (Respawning) return;
-        CameraFade.StartFade(true, 1f);
-        Invoke("Respawn", 2f / CameraFade.SpeedScale / 2f);
-        //Respawning = true; 
-        
+        if (IsDead) return;
+
+        IsDead = true;
+        player.GetComponent<Animator>().SetBool("IsDead", true);
+        Invoke("StartFade", 0.6f);
     }
 
+    private void StartFade()
+    {
+        player.GetComponent<SpriteRenderer>().enabled = false;
+        CameraFade.StartFade(true, 1f);
+        Invoke("Respawn", 1);
+    }
     private void Respawn()
     {
+        player.GetComponent<Animator>().SetBool("IsDead", false);
         player.transform.position = savedPosition;
         player.GetComponent<Health>().RestartLife();
-        //Respawning = false;
+        IsDead = false;
+        player.GetComponent<SpriteRenderer>().enabled = true;
     }
 }

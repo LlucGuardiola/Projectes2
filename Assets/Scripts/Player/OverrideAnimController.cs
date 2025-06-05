@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class OverrideAnimController : MonoBehaviour
 {
@@ -10,6 +10,8 @@ public class OverrideAnimController : MonoBehaviour
     public AnimationClip newOnAirClip;
     private Animator animator;
     AnimatorOverrideController overrideController;
+
+    private string currentAttack;
 
     private bool initialAnimsChanged;
 
@@ -42,10 +44,10 @@ public class OverrideAnimController : MonoBehaviour
         switch (idx)
         {
             case 1:
-                overrideController["PlayerAttack"] = PlayerAttack1;
+                overrideController["PlayerAttackThrust"] = PlayerAttack1;
                 break;
             default:
-                overrideController["PlayerAttack"] = PlayerAttack2;
+                overrideController["PlayerAttackThrust"] = PlayerAttack2;
                 break;
         }
     }

@@ -16,7 +16,8 @@ namespace SmallHedge.SoundManager
         Alarma,
         Dash,
         Dead,
-        Torch
+        Torch,
+        Parry
     }
 
 

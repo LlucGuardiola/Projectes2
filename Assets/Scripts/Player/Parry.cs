@@ -1,3 +1,4 @@
+using SmallHedge.SoundManager;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -124,6 +125,7 @@ public class Parry : MonoBehaviour
             else
             {
                 Invoke("EnableParry", parryCooldown);
+                SoundManager.PlaySound(SoundType.Parry);
             }
         }
     }

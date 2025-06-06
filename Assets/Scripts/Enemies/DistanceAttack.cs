@@ -1,4 +1,5 @@
 using UnityEngine;
+using SmallHedge.SoundManager;
 
 public class DistanceAttack : MonoBehaviour
 {
@@ -51,6 +52,8 @@ public class DistanceAttack : MonoBehaviour
     private void Shoot(Transform player)
     {
         if (reload) animator.SetBool("isReloading?", false);
+
+        SoundManager.PlaySound(SoundType.DistanceAttack);
 
         animator.SetTrigger("Shoot");
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);

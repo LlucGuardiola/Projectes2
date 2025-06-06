@@ -13,6 +13,7 @@ public class Sword : ItemBase
         player.GetComponent<PlayerAttack>().CanAttack = true;
         PlayerInventory.PlayerHasSword = true;
         SoundManager.PlaySound(SoundType.SacarEspada);
+        SoundManager.PlaySound(SoundType.Alarma);
         Destroy(gameObject);
     }
 }

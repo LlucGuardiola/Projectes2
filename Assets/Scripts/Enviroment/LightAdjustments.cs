@@ -35,12 +35,12 @@ public class LightAdjustments : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        StartTransition(targetIntensity, transitionTime);
+        if (collision.gameObject.CompareTag("Player")) StartTransition(targetIntensity, transitionTime);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        StartTransition(0.72f, transitionTime);
+        if (collision.gameObject.CompareTag("Player")) StartTransition(0.72f, transitionTime);
     }
 
     private void StartTransition(float newTarget, float time)

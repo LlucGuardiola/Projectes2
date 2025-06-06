@@ -8,6 +8,7 @@ public class CheckpointManager : MonoBehaviour
     private static Vector3 savedPosition;
     private GameObject player;
     public static bool IsDead;
+    [SerializeField] private GameObject greenLight;
 
     void Awake()
     {
@@ -19,6 +20,7 @@ public class CheckpointManager : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        greenLight.SetActive(false);
     }
 
     public static void SetCheckpoint(Vector3 position)
@@ -31,6 +33,7 @@ public class CheckpointManager : MonoBehaviour
         if (IsDead) return;
 
         IsDead = true;
+        greenLight.SetActive(true);
         player.GetComponent<Animator>().SetBool("IsDead", true);
         Invoke("StartFade", 0.6f);
     }
@@ -43,6 +46,7 @@ public class CheckpointManager : MonoBehaviour
     }
     private void Respawn()
     {
+        greenLight.SetActive(false);
         player.GetComponent<Animator>().SetBool("IsDead", false);
         player.transform.position = savedPosition;
         player.GetComponent<Health>().RestartLife();

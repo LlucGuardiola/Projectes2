@@ -30,6 +30,7 @@ public class DistanceAttack : MonoBehaviour
         if (GetComponent<KnockbackFeedback>().IsKnocked) return;
         if (GetComponent<Enemy>().IsDead) return;
         if (!firstShoot) fireCooldown -= Time.deltaTime;
+        if (GetComponent<VisionDetection>().CheckLineOfSight() == 1) return;
 
         if (bulletCounter == shootsToReload)
         {

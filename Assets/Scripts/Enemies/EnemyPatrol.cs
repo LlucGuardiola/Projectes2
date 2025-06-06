@@ -19,9 +19,14 @@ public class EnemyPatrol : MonoBehaviour
         if (GetComponent<Enemy>().IsDead) return;
         if (GetComponent<Enemy>().IsAttacking) return;
 
-        if (GetComponent<Enemy>().PatrollingDisabled && !GetComponent<Enemy>().IsChasing)
+        int x = transform.position.x < currentTarget.position.x ? -1 : 1;
+
+        GetComponent<Enemy>().direction = new Vector2(x, 0);
+
+        if (GetComponent<Enemy>().PatrollingDisabled)
         {
-            GetComponent<Animator>().SetBool("IsIdle?", true);   
+            GetComponent<Animator>().SetBool("IsIdle?", true);
+            GetComponent<Enemy>().direction = new Vector2(-x, 0);
             return;
         }
 
@@ -34,10 +39,6 @@ public class EnemyPatrol : MonoBehaviour
     {
         transform.position = Vector2.MoveTowards(transform.position, currentTarget.position, GetComponent<Enemy>().PatrolSpeed * Time.deltaTime);
         
-        int x = transform.position.x < currentTarget.position.x ? -1 : 1;
-
-        GetComponent<Enemy>().direction = new Vector2(x, 0);
-
         if (Vector2.Distance(transform.position, currentTarget.position) < 0.1f)
         {
             currentTarget = (currentTarget == patrolPointA.transform) ? patrolPointB.transform : patrolPointA.transform;

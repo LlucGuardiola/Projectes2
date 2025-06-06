@@ -47,11 +47,6 @@ public class ChasePlayer : MonoBehaviour
 
         int x = player.transform.position.x < transform.position.x ? 1 : -1;
         GetComponent<Enemy>().direction = new Vector2(x, 0);
-
-        //if (player.transform.position.x > transform.position.x && transform.localScale.x < 0 ||  player.transform.position.x < transform.position.x && transform.localScale.x > 0)
-        //{
-        //    GetComponent<Enemy>().Flip();
-        //}
     }
     private void OnDrawGizmos()
     {

@@ -21,7 +21,18 @@ public class VisionDetection : MonoBehaviour
         if (!PlayerInventory.PlayerHasSword) return;
         if (GetComponent<Enemy>().IsDead) return;
 
-        if (CheckLineOfSight() == 1) return;
+        if (CheckLineOfSight() == 1)
+        {
+            GetComponent<Enemy>().IsChasing = false;
+            if (!GetComponent<Enemy>().PatrollingDisabled) GetComponent<Enemy>().IsPatrolling = true;
+            else
+            {
+                int x = transform.position.x < player.transform.position.x ? 1 : -1;
+
+                GetComponent<Enemy>().direction = new Vector2(x, 0);
+            }
+            return;
+        }
 
         float leftOrRight = GetComponent<Enemy>().LookingForward ? visionRangeX : -visionRangeX;
 

@@ -52,6 +52,7 @@ public class Enemy : MonoBehaviour
         {
             animator.SetBool("isChasing?", false);
             animator.SetBool("isPatrolling?", false);
+            animator.SetBool("IsIdle??", true);
         }
         else if (IsChasing)
         {
@@ -64,6 +65,8 @@ public class Enemy : MonoBehaviour
             animator.SetBool("isPatrolling?", true);
             animator.SetBool("isChasing?", false);
         }
+
+
 
         if (IsDead) return;
 

@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public void MainScene ()
     {
         SceneManager.LoadScene("Blockout");
+        CameraFade.StartFade(true, 1f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

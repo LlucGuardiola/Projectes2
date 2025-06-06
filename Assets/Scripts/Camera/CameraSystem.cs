@@ -6,7 +6,7 @@ public class CameraSystem : MonoBehaviour
     private GameObject player;
 
     public Vector2 offset;
-    private float smoothTime = .1f;
+    private float smoothTime = .15f;
     private Vector2 velocity = Vector2.zero;
     private PlayerMovement playerMovement;
 

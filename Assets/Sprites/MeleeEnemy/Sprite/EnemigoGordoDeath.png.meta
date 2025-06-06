@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2e73d4f5ae3db824b85f4d0d635924ed
+guid: e9c20f2b0625e5d48a0c29a61f3104b3
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -17,6 +17,12 @@ TextureImporter:
   - first:
       213: 6490640036021606844
     second: EnemigoGordoDeath_4
+  - first:
+      213: 2005660013433440334
+    second: EnemigoGordoDeath_5
+  - first:
+      213: -1738262081064463710
+    second: EnemigoGordoDeath_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -221,11 +227,55 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: EnemigoGordoDeath_5
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 0
+        width: 55
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e48c7e0e72985db10800000000000000
+      internalID: 2005660013433440334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnemigoGordoDeath_6
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 0
+        width: 55
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a21f93d8d370e7e0800000000000000
+      internalID: -1738262081064463710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 1e78e5ff6a4d3604abe09c0f1acf83ad
+    spriteID: 027e264f3a16a3d4a823a807ffea17c2
     internalID: 0
     vertices: []
     indices: 
@@ -240,6 +290,8 @@ TextureImporter:
       EnemigoGordoDeath_2: -5844048130739634573
       EnemigoGordoDeath_3: -1068795966929449879
       EnemigoGordoDeath_4: 6490640036021606844
+      EnemigoGordoDeath_5: 2005660013433440334
+      EnemigoGordoDeath_6: -1738262081064463710
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

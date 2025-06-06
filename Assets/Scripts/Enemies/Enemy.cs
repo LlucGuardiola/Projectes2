@@ -23,11 +23,14 @@ public class Enemy : MonoBehaviour
 
     public Vector2 direction;
 
+    GameObject player;
+
     private void Start()
     {
         LookingForward = true;
         IsPatrolling = true;
         animator = GetComponent<Animator>();
+        player = GameObject.Find("Player");
     }
 
     public void Flip()
@@ -66,6 +69,12 @@ public class Enemy : MonoBehaviour
             animator.SetBool("isChasing?", false);
         }
 
+        if (PatrollingDisabled)
+        {
+            int x = transform.position.x < player.transform.position.x ? 1 : -1;
+
+            direction = new Vector2(x, 0);
+        }
 
 
         if (IsDead) return;

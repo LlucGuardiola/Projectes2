@@ -25,12 +25,6 @@ public class VisionDetection : MonoBehaviour
         {
             GetComponent<Enemy>().IsChasing = false;
             if (!GetComponent<Enemy>().PatrollingDisabled) GetComponent<Enemy>().IsPatrolling = true;
-            else
-            {
-                int x = transform.position.x < player.transform.position.x ? 1 : -1;
-
-                GetComponent<Enemy>().direction = new Vector2(x, 0);
-            }
             return;
         }
 

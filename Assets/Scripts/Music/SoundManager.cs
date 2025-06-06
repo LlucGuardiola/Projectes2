@@ -10,7 +10,9 @@ namespace SmallHedge.SoundManager
         Attack,
         Footsteps,
         EnemyHit,
-        DistanceAttack
+        DistanceAttack,
+        DropCarta,
+        SacarEspada
     }
 
 

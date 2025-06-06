@@ -1,3 +1,4 @@
+using SmallHedge.SoundManager;
 using UnityEngine;
 
 public class Sword : ItemBase
@@ -11,6 +12,7 @@ public class Sword : ItemBase
     {
         player.GetComponent<PlayerAttack>().CanAttack = true;
         PlayerInventory.PlayerHasSword = true;
+        SoundManager.PlaySound(SoundType.SacarEspada);
         Destroy(gameObject);
     }
 }

@@ -21,8 +21,6 @@ public class ChasePlayer : MonoBehaviour
         if (isChasing)
         {
             Chase();
-            int x = player.transform.position.x < transform.position.x ? 1 : -1;
-            GetComponent<Enemy>().direction = new Vector2(x, 0);
         }
     }
 
@@ -45,6 +43,9 @@ public class ChasePlayer : MonoBehaviour
         {
             Vector2 newPos = new Vector2(player.transform.position.x, transform.position.y);
             transform.position = Vector2.MoveTowards(transform.position, newPos, GetComponent<Enemy>().ChaseSpeed * Time.deltaTime);
+
+            int x = player.transform.position.x < transform.position.x ? -1 : 1;
+            GetComponent<Enemy>().direction = new Vector2(-x, 0);
         }
     }
     private void OnDrawGizmos()

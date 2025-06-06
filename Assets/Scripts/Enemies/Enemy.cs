@@ -56,12 +56,16 @@ public class Enemy : MonoBehaviour
             animator.SetBool("isChasing?", false);
             animator.SetBool("isPatrolling?", false);
             animator.SetBool("IsIdle??", true);
+            int x = player.transform.position.x < transform.position.x ? -1 : 1;
+            GetComponent<Enemy>().direction = new Vector2(-x, 0);
         }
         else if (IsChasing)
         {
             IsPatrolling = false;
             animator.SetBool("isPatrolling?", false);
             animator.SetBool("isChasing?", true);
+            int x = player.transform.position.x < transform.position.x ? -1 : 1;
+            GetComponent<Enemy>().direction = new Vector2(-x, 0);
         }
         else if (IsPatrolling && !PatrollingDisabled)
         {
@@ -75,7 +79,6 @@ public class Enemy : MonoBehaviour
 
             direction = new Vector2(x, 0);
         }
-
 
         if (IsDead) return;
 

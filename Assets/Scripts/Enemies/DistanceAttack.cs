@@ -10,6 +10,7 @@ public class DistanceAttack : MonoBehaviour
     [SerializeField] private float shootsToReload; //balas que dispara para que recargue las rafagas
 
     private bool canShoot;
+    private bool firstShoot;
     private float bulletCounter;
     private float fireCooldown;
     [HideInInspector] public GameObject player;
@@ -20,6 +21,7 @@ public class DistanceAttack : MonoBehaviour
         canShoot = true;
         player = GameObject.FindGameObjectWithTag("Player");
         animator = GetComponent<Animator>();
+        firstShoot= true;
     }
 
     void Update()
@@ -27,8 +29,7 @@ public class DistanceAttack : MonoBehaviour
         if (!canShoot) return;
         if (GetComponent<KnockbackFeedback>().IsKnocked) return;
         if (GetComponent<Enemy>().IsDead) return;
-
-        fireCooldown -= Time.deltaTime;
+        if (!firstShoot) fireCooldown -= Time.deltaTime;
 
         if (bulletCounter == shootsToReload)
         {
@@ -37,7 +38,7 @@ public class DistanceAttack : MonoBehaviour
             Invoke("EnableShoot", reloadDuration);
             bulletCounter = 0;
         }
-
+        if (GetComponent<Enemy>().InRange && GetComponent<Enemy>().DistanceAttack) firstShoot = false;
         if (fireCooldown <= 0f && GetComponent<Enemy>().InRange && GetComponent<Enemy>().DistanceAttack)
         {
             Shoot(player.transform);

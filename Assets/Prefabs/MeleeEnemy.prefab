@@ -181,6 +181,9 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
+  ObstacleLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!114 &8542186428259116785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,6 +227,7 @@ MonoBehaviour:
   MeleeAttack: 1
   DistanceAttack: 0
   PatrollingDisabled: 0
+  direction: {x: 0, y: 0}
 --- !u!114 &4012483644529063735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,6 +298,9 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5818517837997121802, guid: f2299d7cd3a8ea04e98d4abd56a13182, type: 3}
   firePoint: {fileID: 4811114528359266393}
   fireRate: 3
+  reload: 0
+  reloadDuration: 0
+  shootsToReload: 0
   player: {fileID: 0}
 --- !u!95 &8777040365584595536
 Animator:
@@ -331,6 +338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knockbackForce: 10
   knockbackDuration: 0.3
+  IsKnocked: 0
 --- !u!1 &9171771795312495101
 GameObject:
   m_ObjectHideFlags: 0

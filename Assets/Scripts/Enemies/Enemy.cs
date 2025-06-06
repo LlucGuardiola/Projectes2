@@ -67,13 +67,7 @@ public class Enemy : MonoBehaviour
 
         if (IsDead) return;
 
-        if (direction.x > 0 && LookingForward)
-        {
-            Flip();
-        }
-        else if (direction.x < 0 && !LookingForward)
-        {
-            Flip();
-        }
+        if (direction.x > 0 && LookingForward) { Flip(); }
+        else if (direction.x < 0 && !LookingForward) { Flip(); }
     }
 }

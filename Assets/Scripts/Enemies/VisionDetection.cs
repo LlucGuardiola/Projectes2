@@ -7,12 +7,21 @@ public class VisionDetection : MonoBehaviour
     [SerializeField] private float visionRangeY;
 
     [SerializeField] private Vector2 visionSize;
-    [SerializeField] private LayerMask playerLayer;
+    [SerializeField] private LayerMask playerLayer; 
+    [SerializeField] private LayerMask ObstacleLayer;
+    private GameObject player;
+
+    private void Start()
+    {
+        player = GameObject.Find("Player");
+    }
 
     private void Update()
     {
         if (!PlayerInventory.PlayerHasSword) return;
         if (GetComponent<Enemy>().IsDead) return;
+
+        if (CheckLineOfSight() == 1) return;
 
         float leftOrRight = GetComponent<Enemy>().LookingForward ? visionRangeX : -visionRangeX;
 
@@ -24,14 +33,6 @@ public class VisionDetection : MonoBehaviour
             {
                 GetComponent<Enemy>().IsPatrolling = true; 
                 GetComponent<Enemy>().IsChasing = false;
-
-                Vector2 currentTarget = GetComponent<EnemyPatrol>().currentTarget.transform.position;
-
-                //if (currentTarget.x > transform.position.x && !GetComponent<Enemy>().LookingForward ||
-                //    currentTarget.x < transform.position.x && GetComponent<Enemy>().LookingForward) 
-                //{
-                //    GetComponent<Enemy>().Flip();
-                //}
             }
             return;
         }
@@ -41,6 +42,23 @@ public class VisionDetection : MonoBehaviour
             GetComponent<Enemy>().IsChasing = true;
             GetComponent<Enemy>().IsPatrolling = false;
         }
+    }
+
+    public int CheckLineOfSight()
+    {
+        Vector2 origin = transform.position;
+        Vector2 destination = player.transform.position;
+        Vector2 direction = (destination - origin).normalized;
+        float distance = Vector2.Distance(origin, destination);
+
+        RaycastHit2D hit = Physics2D.Raycast(origin, direction, distance, ObstacleLayer);
+
+        if (hit.collider != null)
+        {
+            return 1;
+        }
+
+        return 0;
     }
 
     private void OnDrawGizmos()

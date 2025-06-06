@@ -14,7 +14,6 @@ public class EnemyPatrol : MonoBehaviour
         currentTarget = patrolPointA.transform;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (GetComponent<Enemy>().IsDead) return;

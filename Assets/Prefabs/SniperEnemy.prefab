@@ -182,7 +182,7 @@ SpriteRenderer:
   m_Size: {x: 0.4, y: 0.45}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &2308976124407705864
@@ -249,6 +249,9 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
+  ObstacleLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!114 &142543192800788161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,17 +283,19 @@ MonoBehaviour:
   whatIsObstacle:
     serializedVersion: 2
     m_Bits: 256
-  PatrolSpeed: 2
   ChaseSpeed: 1.7
-  HasToChase: 1
+  PatrolSpeed: 2
   IsChasing: 0
+  IsDead: 0
+  HasToChase: 1
+  IsAttacking: 0
   IsPatrolling: 0
   LookingForward: 0
   InRange: 0
-  DistanceAttack: 1
   MeleeAttack: 0
-  IsAttacking: 0
+  DistanceAttack: 1
   PatrollingDisabled: 0
+  direction: {x: 0, y: 0}
 --- !u!114 &634678237539422160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -361,6 +366,9 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5818517837997121802, guid: f2299d7cd3a8ea04e98d4abd56a13182, type: 3}
   firePoint: {fileID: 1582615910695347449}
   fireRate: 3
+  reload: 0
+  reloadDuration: 0
+  shootsToReload: 0
   player: {fileID: 0}
 --- !u!95 &6276186183170554819
 Animator:
@@ -398,3 +406,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knockbackForce: 10
   knockbackDuration: 0.2
+  IsKnocked: 0

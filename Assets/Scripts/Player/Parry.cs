@@ -50,6 +50,9 @@ public class Parry : MonoBehaviour
 
         if (!PlayerInventory.PlayerHasSword) return;
         if (CheckpointManager.IsDead) return;
+        if (GetComponent<GroundDash>().IsGroundDashing) return;
+        if (GetComponent<PlayerAttack>().isAttacking) return;
+
 
         UpdateParrySlider(); //slider
 
@@ -155,5 +158,4 @@ public class Parry : MonoBehaviour
             slider.value = Mathf.Clamp(slider.maxValue * cooldownProgress, 0, slider.maxValue);
         }
     }
-
 }

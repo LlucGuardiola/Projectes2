@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using SmallHedge.SoundManager;
 
 
 public class SpecialAbility : MonoBehaviour

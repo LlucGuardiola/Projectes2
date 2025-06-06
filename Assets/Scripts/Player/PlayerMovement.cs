@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     private Dash dash;
     private PlayerJump playerJump;
     public ParticleSystem Dust;
-    private AudioSource audioRun;
+    //private AudioSource audioRun;
 
     int CollisionPos => _collisionDetection.CollisionPos;
 
@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
         playerJump = GetComponent<PlayerJump>();
         dash = GetComponent<Dash>();
 
-        audioRun = GetComponent<AudioSource>();
+        //audioRun = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()

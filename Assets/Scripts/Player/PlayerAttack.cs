@@ -28,6 +28,8 @@ public class PlayerAttack : MonoBehaviour
 
     private float initialAttackRange;
 
+    bool move = false;
+
 
     private void Start()
     {
@@ -43,6 +45,10 @@ public class PlayerAttack : MonoBehaviour
         Count();
         if (isAttacking) RedCircle.SetActive(false);
         else RedCircle.SetActive(false);
+
+        float direction = GetComponent<PlayerMovement>().LookingForward ? 2f : -2f;
+
+        if (move) transform.position = new Vector2(transform.position.x + direction * Time.deltaTime, transform.position.y);
     }
 
     private void OnEnable()
@@ -92,10 +98,13 @@ public class PlayerAttack : MonoBehaviour
         animator.SetBool("IsAttacking", true);
 
         Invoke("PerformAttack", t);
+
+        move = true;
     }
 
     private void PerformAttack()
     {
+        move = false;
         float leftOrRight = GetComponent<PlayerMovement>().LookingForward ? AttackRange : -AttackRange;
 
         Collider2D[] colliders;

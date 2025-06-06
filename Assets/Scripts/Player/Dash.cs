@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmallHedge.SoundManager;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.GraphicsBuffer;
@@ -27,7 +28,11 @@ public class Dash : MonoBehaviour
 
     private void Update()
     {
-        if (IsDashing) animator.SetBool("IsDashing", true);
+        if (IsDashing)
+        {
+            animator.SetBool("IsDashing", true);
+            SoundManager.PlaySound(SoundType.Dash);
+        }
     }
 
     private void OnEnable()

@@ -12,7 +12,11 @@ namespace SmallHedge.SoundManager
         EnemyHit,
         DistanceAttack,
         DropCarta,
-        SacarEspada
+        SacarEspada,
+        Alarma,
+        Dash,
+        Dead,
+        Torch
     }
 
 

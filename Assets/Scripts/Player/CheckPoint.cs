@@ -1,3 +1,4 @@
+using SmallHedge.SoundManager;
 using UnityEngine;
 
 public class CheckPoint : MonoBehaviour
@@ -18,6 +19,10 @@ public class CheckPoint : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject == player) CheckpointManager.SetCheckpoint(transform.position);
+        {
+            SoundManager.PlaySound (SoundType.Torch);
+
+        }
 
         if (torch != null)
         {

@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices.WindowsRuntime;
+﻿using SmallHedge.SoundManager;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -50,6 +51,8 @@ public class GroundDash : MonoBehaviour
     private void StartDash()
     {
         IsGroundDashing = true;
+
+        SoundManager.PlaySound(SoundType.Dash);
 
         Invoke("EndDash", dashDuration);
 

@@ -1,3 +1,4 @@
+using SmallHedge.SoundManager;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +15,7 @@ public class Health : MonoBehaviour
     {
         if (Life <= 0)
         {
+            SoundManager.PlaySound(SoundType.Dead);
             if (gameObject.CompareTag("Player"))
             {
                 if (CheckpointManager.IsDead) return;
@@ -21,7 +23,10 @@ public class Health : MonoBehaviour
             }
             else if (gameObject.CompareTag("Enemy"))
             {
-                if (gameObject.GetComponent<Enemy>().IsDead == true) return;
+                if (gameObject.GetComponent<Enemy>().IsDead == true)
+                {
+                    return;
+                }
 
                 if (gameObject.GetComponent<CardSpawner>() != null)
                     gameObject.GetComponent<CardSpawner>().InstantiateCard();

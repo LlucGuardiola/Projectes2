@@ -11,7 +11,7 @@ public class EnemyPatrol : MonoBehaviour
 
     void Start()
     {
-        currentTarget = patrolPointB.transform;
+        currentTarget = patrolPointA.transform;
     }
 
     // Update is called once per frame
@@ -34,10 +34,13 @@ public class EnemyPatrol : MonoBehaviour
     private void Patrol()
     {
         transform.position = Vector2.MoveTowards(transform.position, currentTarget.position, GetComponent<Enemy>().PatrolSpeed * Time.deltaTime);
+        
+        int x = transform.position.x < currentTarget.position.x ? -1 : 1;
+
+        GetComponent<Enemy>().direction = new Vector2(x, 0);
+
         if (Vector2.Distance(transform.position, currentTarget.position) < 0.1f)
         {
-            GetComponent<Enemy>().Flip();
-
             currentTarget = (currentTarget == patrolPointA.transform) ? patrolPointB.transform : patrolPointA.transform;
         }
     }

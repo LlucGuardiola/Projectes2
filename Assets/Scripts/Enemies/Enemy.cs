@@ -21,6 +21,8 @@ public class Enemy : MonoBehaviour
     public bool DistanceAttack;
     public bool PatrollingDisabled;
 
+    public Vector2 direction;
+
     private void Start()
     {
         LookingForward = true;
@@ -61,6 +63,17 @@ public class Enemy : MonoBehaviour
         {
             animator.SetBool("isPatrolling?", true);
             animator.SetBool("isChasing?", false);
+        }
+
+        if (IsDead) return;
+
+        if (direction.x > 0 && LookingForward)
+        {
+            Flip();
+        }
+        else if (direction.x < 0 && !LookingForward)
+        {
+            Flip();
         }
     }
 }

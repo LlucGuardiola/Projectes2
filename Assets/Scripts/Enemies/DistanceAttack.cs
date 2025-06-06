@@ -37,7 +37,6 @@ public class DistanceAttack : MonoBehaviour
             Invoke("EnableShoot", reloadDuration);
             bulletCounter = 0;
         }
-        
 
         if (fireCooldown <= 0f && GetComponent<Enemy>().InRange && GetComponent<Enemy>().DistanceAttack)
         {
@@ -50,6 +49,7 @@ public class DistanceAttack : MonoBehaviour
     private void Shoot(Transform player)
     {
         if (reload) animator.SetBool("isReloading?", false);
+
         animator.SetTrigger("Shoot");
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
         Bullet bulletScript = bullet.GetComponent<Bullet>();

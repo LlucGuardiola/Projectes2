@@ -27,11 +27,11 @@ public class VisionDetection : MonoBehaviour
 
                 Vector2 currentTarget = GetComponent<EnemyPatrol>().currentTarget.transform.position;
 
-                if (currentTarget.x > transform.position.x && !GetComponent<Enemy>().LookingForward ||
-                    currentTarget.x < transform.position.x && GetComponent<Enemy>().LookingForward) 
-                {
-                    GetComponent<Enemy>().Flip();
-                }
+                //if (currentTarget.x > transform.position.x && !GetComponent<Enemy>().LookingForward ||
+                //    currentTarget.x < transform.position.x && GetComponent<Enemy>().LookingForward) 
+                //{
+                //    GetComponent<Enemy>().Flip();
+                //}
             }
             return;
         }

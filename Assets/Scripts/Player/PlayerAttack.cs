@@ -69,6 +69,7 @@ public class PlayerAttack : MonoBehaviour
         if (isAttacking) return;
         if (!playerJump.IsTouchingGround && !justDashed) return;
         if (CheckpointManager.IsDead) return;
+        if (GetComponent<Parry>().IsParring) return;
 
         this.damageDealt = damageDealt;
         this.justDashed = justDashed;

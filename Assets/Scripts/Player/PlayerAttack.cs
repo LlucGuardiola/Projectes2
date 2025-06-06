@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmallHedge.SoundManager;
+using System;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
@@ -70,6 +71,7 @@ public class PlayerAttack : MonoBehaviour
         GetComponent<PlayerMovement>().CanMove = false;
 
         isAttacking = true;
+        SoundManager.PlaySound(SoundType.Attack);
         count = true;
         counter = 0;
 

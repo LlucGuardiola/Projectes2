@@ -18,12 +18,11 @@ public class CheckPoint : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject == player) CheckpointManager.SetCheckpoint(transform.position);
+        if (collision.gameObject == player)
         {
+            CheckpointManager.SetCheckpoint(transform.position);
             SoundManager.PlaySound (SoundType.Torch);
-
         }
-
         if (torch != null)
         {
             torch.SetActive(true);

@@ -49,7 +49,7 @@ public class ParticleLightSystem : MonoBehaviour
                 lightObj.SetActive(true);
 
                 Vector3 lightPos = particles[i].position;
-                lightPos.z = 1f;  // Ajusta este valor para que quede detrás de la partícula
+                lightPos.z = 0f;
 
                 lightObj.transform.position = lightPos;
 

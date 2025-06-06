@@ -6,10 +6,11 @@ namespace SmallHedge.SoundManager
 {
     public enum SoundType
     {
-        Attack,
         Jump,
-        Shot,
-        Pasos
+        Attack,
+        Footsteps,
+        EnemyHit,
+        DistanceAttack
     }
 
 

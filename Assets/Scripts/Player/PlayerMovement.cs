@@ -1,6 +1,9 @@
-﻿using UnityEngine;
+﻿using SmallHedge.SoundManager;
+using UnityEditor.SearchService;
+using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
+
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -17,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private Dash dash;
     private PlayerJump playerJump;
     public ParticleSystem Dust;
+    private AudioSource audioRun;
 
     int CollisionPos => _collisionDetection.CollisionPos;
 
@@ -34,6 +38,8 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         playerJump = GetComponent<PlayerJump>();
         dash = GetComponent<Dash>();
+
+        audioRun = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -93,7 +99,9 @@ public class PlayerMovement : MonoBehaviour
         if (Mathf.Abs(_rigidbody.linearVelocity.x) > 2f && playerJump.IsTouchingGround)
         {
             if (!Dust.isPlaying)
+            {
                 Dust.Play();
+            }
         }
         else
         {

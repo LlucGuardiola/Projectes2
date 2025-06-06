@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.InputSystem;
+using SmallHedge.SoundManager;
 
 public class PlayerJump : MonoBehaviour
 {
@@ -78,7 +79,8 @@ public class PlayerJump : MonoBehaviour
         if (!canJump && coyoteTimeCounter < 0) return;
         if (CheckpointManager.IsDead) return;
 
-        audioSource.PlayOneShot(jumpStart);
+        SoundManager.PlaySound(SoundType.Attack);
+
 
         var vel = new Vector2(_rigidbody.linearVelocity.x * 1.5f, JumpStrengh);
 

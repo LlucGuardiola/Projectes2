@@ -71,7 +71,7 @@ public class PlayerAttack : MonoBehaviour
         GetComponent<PlayerMovement>().CanMove = false;
 
         isAttacking = true;
-        SoundManager.PlaySound(SoundType.Attack);
+        SoundManager.PlaySound(SoundType.Jump);
         count = true;
         counter = 0;
 

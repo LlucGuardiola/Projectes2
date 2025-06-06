@@ -1,3 +1,4 @@
+using SmallHedge.SoundManager;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -41,6 +42,7 @@ public class MeleeAttack : MonoBehaviour
         if (GetComponent<Enemy>().IsDead) return;
 
         GetComponent<Enemy>().IsAttacking = true;
+        SoundManager.PlaySound(SoundType.EnemyHit);
         count = true;
         counter = 0;
         redCircle.transform.localScale = new Vector2(redCircle.transform.localScale.x + 3.5f, redCircle.transform.localScale.y + 3.5f);

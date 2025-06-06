@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public void GameStart()
     {
-        MainScene();
+        Cinematic();
     }
 
     public void Exit()
@@ -19,6 +19,10 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("MainMenuScene");
     }
 
+    public void Cinematic()
+    {
+        SceneManager.LoadScene("Cinematica");
+    }
     public void MainScene ()
     {
         SceneManager.LoadScene("Blockout");

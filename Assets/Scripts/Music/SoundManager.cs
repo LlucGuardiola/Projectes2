@@ -17,7 +17,8 @@ namespace SmallHedge.SoundManager
         Dash,
         Dead,
         Torch,
-        Parry
+        Parry,
+        Elevator
     }
 
 

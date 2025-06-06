@@ -1,4 +1,5 @@
 
+using SmallHedge.SoundManager;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -90,7 +91,6 @@ public class Elevator_Script : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            
             isPlayerInside = true;  
         }
     }
@@ -107,6 +107,7 @@ public class Elevator_Script : MonoBehaviour
     private void SwitchButton()
     {
         buttonSwitch = true;
+        SoundManager.PlaySound(SoundType.Elevator);
         Invoke("CloseDoor", 0.5f);
     }
 

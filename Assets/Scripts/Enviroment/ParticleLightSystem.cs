@@ -35,7 +35,7 @@ public class ParticleLightSystem : MonoBehaviour
             var particles = particleBuffers[ps];
             int aliveCount = ps.GetParticles(particles);
 
-            Debug.Log($"Sistema {ps.name} tiene {aliveCount} partículas activas.");
+            //Debug.Log($"Sistema {ps.name} tiene {aliveCount} partículas activas.");
 
             for (int i = 0; i < aliveCount; i++)
             {
@@ -49,11 +49,11 @@ public class ParticleLightSystem : MonoBehaviour
                 lightObj.SetActive(true);
 
                 Vector3 lightPos = particles[i].position;
-                lightPos.z = 0f;
+                lightPos.z = 1f;
 
                 lightObj.transform.position = lightPos;
 
-                Debug.DrawLine(lightObj.transform.position, lightObj.transform.position + Vector3.up * 0.5f, Color.red, 0.1f);
+                //Debug.DrawLine(lightObj.transform.position, lightObj.transform.position + Vector3.up * 0.5f, Color.red, 0.1f);
 
                 activeLights.Add(lightObj);
             }
